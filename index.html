@@ -1215,6 +1215,17 @@
       letter-spacing: -0.3px;
     }
 
+    .meditation-reset {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--text-sub);
+      text-decoration: underline;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .meditation-reset:active { opacity: 0.6; }
+
     #mindNote {
       width: 100%;
       background: var(--surface-2);
@@ -1330,28 +1341,13 @@
       </div>
       <div class="checklist-item" onclick="toggleCheck(this)">
         <div class="ci-box"><svg class="ci-check" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#1a2800" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-        <div class="ci-icon">🟢</div>
-        <div class="ci-label">Amla juice taken</div>
-      </div>
-      <div class="checklist-item" onclick="toggleCheck(this)">
-        <div class="ci-box"><svg class="ci-check" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#1a2800" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
         <div class="ci-icon">🍋</div>
-        <div class="ci-label">Lemon water consumed</div>
+        <div class="ci-label">Morning ritual — lemon + amla</div>
       </div>
       <div class="checklist-item" onclick="toggleCheck(this)">
         <div class="ci-box"><svg class="ci-check" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#1a2800" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
         <div class="ci-icon">🏋️</div>
         <div class="ci-label">Workout completed</div>
-      </div>
-      <div class="checklist-item" onclick="toggleCheck(this)">
-        <div class="ci-box"><svg class="ci-check" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#1a2800" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-        <div class="ci-icon">🧘</div>
-        <div class="ci-label">Pelvic floor routine completed</div>
-      </div>
-      <div class="checklist-item" onclick="toggleCheck(this)">
-        <div class="ci-box"><svg class="ci-check" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#1a2800" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-        <div class="ci-icon">⚡</div>
-        <div class="ci-label">Zone 2 / HIIT completed</div>
       </div>
       <div class="checklist-item" onclick="toggleCheck(this)">
         <div class="ci-box"><svg class="ci-check" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#1a2800" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
@@ -1389,7 +1385,10 @@
 
     <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;">
       <div style="font-size:11px;color:var(--text-sub);text-transform:uppercase;letter-spacing:0.5px;">Meditation today</div>
-      <div class="meditation-total" id="meditationTotal">0 min</div>
+      <div style="display:flex;align-items:center;gap:10px;">
+        <div class="meditation-total" id="meditationTotal">0 min</div>
+        <div class="meditation-reset" onclick="resetMeditationToday()">Reset</div>
+      </div>
     </div>
     <div class="meditation-timer-row">
       <div class="meditation-display" id="meditationDisplay">00:00</div>
@@ -2599,43 +2598,81 @@
     });
   }
 
-  // meditation timer (in-session, accumulates into today's total on stop)
+  // meditation timer (wall-clock based — immune to setInterval throttling
+  // when the tab/app is backgrounded, and recoverable if the page reloads
+  // mid-session instead of silently losing the elapsed time)
   let meditationRunning = false;
-  let meditationSeconds = 0;
+  let meditationStartTs = null;
   let meditationInterval = null;
+
+  function getMeditationTimerState() {
+    try { return JSON.parse(localStorage.getItem('meditationTimerState')); } catch(e) { return null; }
+  }
+
+  function saveMeditationTimerState(state) {
+    if (state) localStorage.setItem('meditationTimerState', JSON.stringify(state));
+    else localStorage.removeItem('meditationTimerState');
+  }
 
   function toggleMeditationTimer() {
     const btn = document.getElementById('meditationToggleBtn');
     if (!meditationRunning) {
       meditationRunning = true;
+      meditationStartTs = Date.now();
+      saveMeditationTimerState({ running: true, startTs: meditationStartTs });
       btn.textContent = 'Stop';
       btn.classList.add('running');
-      meditationInterval = setInterval(() => {
-        meditationSeconds++;
-        updateMeditationDisplay();
-      }, 1000);
+      meditationInterval = setInterval(updateMeditationDisplay, 1000);
     } else {
-      meditationRunning = false;
-      btn.textContent = 'Start';
-      btn.classList.remove('running');
-      clearInterval(meditationInterval);
-      const minutes = Math.round(meditationSeconds / 60);
-      if (minutes > 0) logMeditationMinutes(minutes);
-      meditationSeconds = 0;
-      updateMeditationDisplay();
+      stopMeditationSession();
     }
   }
 
+  function stopMeditationSession() {
+    const btn = document.getElementById('meditationToggleBtn');
+    clearInterval(meditationInterval);
+    const elapsedSec = Math.floor((Date.now() - meditationStartTs) / 1000);
+    const minutes = Math.round(elapsedSec / 60);
+    if (minutes > 0) logMeditationMinutes(minutes);
+    meditationRunning = false;
+    meditationStartTs = null;
+    saveMeditationTimerState(null);
+    btn.textContent = 'Start';
+    btn.classList.remove('running');
+    document.getElementById('meditationDisplay').textContent = '00:00';
+  }
+
   function updateMeditationDisplay() {
-    const m = Math.floor(meditationSeconds / 60).toString().padStart(2, '0');
-    const s = (meditationSeconds % 60).toString().padStart(2, '0');
+    const elapsedSec = Math.floor((Date.now() - meditationStartTs) / 1000);
+    const m = Math.floor(elapsedSec / 60).toString().padStart(2, '0');
+    const s = (elapsedSec % 60).toString().padStart(2, '0');
     document.getElementById('meditationDisplay').textContent = `${m}:${s}`;
+  }
+
+  // if a session was left running (tab closed / reloaded without pressing
+  // Stop), recover it: commit the elapsed time instead of losing it silently
+  function recoverMeditationTimer() {
+    const state = getMeditationTimerState();
+    if (!state || !state.running) return;
+    const elapsedSec = Math.floor((Date.now() - state.startTs) / 1000);
+    const minutes = Math.round(elapsedSec / 60);
+    if (minutes > 0) logMeditationMinutes(minutes);
+    saveMeditationTimerState(null);
   }
 
   function logMeditationMinutes(mins) {
     const log = getMindLog();
     const entry = getTodayMindEntry(log);
     entry.meditationMinutes = (entry.meditationMinutes || 0) + mins;
+    saveMindLog(log);
+    renderMeditationTotal();
+  }
+
+  function resetMeditationToday() {
+    if (meditationRunning) stopMeditationSession();
+    const log = getMindLog();
+    const entry = getTodayMindEntry(log);
+    entry.meditationMinutes = 0;
     saveMindLog(log);
     renderMeditationTotal();
   }
@@ -2702,6 +2739,7 @@
   }
 
   window.addEventListener('load', () => {
+    recoverMeditationTimer();
     renderMoodUI();
     renderMeditationTotal();
     renderMindLogUI();
