@@ -2,8 +2,14 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Hybrid Athlete — Transformation System</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
+  <title>Hybrid Athlete</title>
+  <meta name="apple-mobile-web-app-capable" content="yes"/>
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+  <meta name="apple-mobile-web-app-title" content="Athlete"/>
+  <meta name="mobile-web-app-capable" content="yes"/>
+  <meta name="theme-color" content="#080808"/>
+  <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'%3E%3Crect width='180' height='180' fill='%23080808'/%3E%3Ctext x='90' y='115' font-family='system-ui' font-weight='900' font-size='90' fill='%23c8f461' text-anchor='middle'%3E%E2%9A%A1%3C/text%3E%3C/svg%3E"/>
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet"/>
   <style>
     :root {
@@ -61,6 +67,7 @@
       backdrop-filter: blur(28px);
       -webkit-backdrop-filter: blur(28px);
       border-bottom: 1px solid var(--border);
+      padding-top: env(safe-area-inset-top);
     }
 
     .header-top {
@@ -372,103 +379,6 @@
       color: #1a2800;
       font-size: 12px;
     }
-
-    /* STEPS TRACKER */
-    .steps-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 14px;
-    }
-
-    .steps-count {
-      font-family: 'Syne', sans-serif;
-      font-size: 28px;
-      font-weight: 800;
-      color: var(--blue);
-      letter-spacing: -1px;
-    }
-
-    .steps-count span {
-      font-size: 13px;
-      color: var(--text-muted);
-      font-family: 'DM Sans', sans-serif;
-      font-weight: 400;
-      letter-spacing: 0;
-    }
-
-    .steps-progress {
-      width: 100%;
-      height: 4px;
-      background: var(--surface-3);
-      border-radius: 100px;
-      margin-bottom: 16px;
-      overflow: hidden;
-    }
-
-    .steps-progress-bar {
-      height: 100%;
-      background: var(--blue);
-      border-radius: 100px;
-      transition: width 0.4s ease;
-    }
-
-    .steps-input-row {
-      display: flex;
-      gap: 8px;
-    }
-
-    .steps-input-row input {
-      flex: 1;
-      background: var(--surface-2);
-      border: 1px solid var(--border-accent);
-      border-radius: 12px;
-      color: var(--text);
-      font-family: 'DM Sans', sans-serif;
-      font-size: 14px;
-      padding: 11px 14px;
-      outline: none;
-      transition: border-color 0.2s;
-    }
-
-    .steps-input-row input:focus { border-color: var(--blue); }
-
-    .steps-add-btn {
-      background: var(--blue);
-      border: none;
-      border-radius: 12px;
-      color: #04162e;
-      font-family: 'Syne', sans-serif;
-      font-size: 13px;
-      font-weight: 800;
-      padding: 0 18px;
-      cursor: pointer;
-      transition: opacity 0.2s, transform 0.15s;
-      white-space: nowrap;
-    }
-
-    .steps-add-btn:active { transform: scale(0.96); opacity: 0.85; }
-
-    .steps-quick-row {
-      display: flex;
-      gap: 6px;
-      margin-top: 10px;
-    }
-
-    .steps-quick-btn {
-      flex: 1;
-      background: var(--surface-2);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      color: var(--text-muted);
-      font-size: 12px;
-      font-weight: 600;
-      padding: 8px 0;
-      cursor: pointer;
-      text-align: center;
-    }
-
-    .steps-quick-btn:active { transform: scale(0.96); }
 
     /* ACCORDION */
     .accord {
@@ -1051,240 +961,6 @@
     .pr-fg { fill: none; stroke: var(--accent); stroke-linecap: round; transition: stroke-dashoffset 0.6s ease; }
     .pr-text-val { font-family: 'Syne', sans-serif; font-size: 18px; font-weight: 800; fill: var(--text); }
     .pr-text-lbl { font-size: 9px; fill: var(--text-muted); }
-
-    /* ── RECOVERY LOG (sleep + RPE) ── */
-    .recovery-input-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 8px;
-      margin-bottom: 12px;
-    }
-
-    .recovery-field label {
-      font-size: 10px;
-      color: var(--text-sub);
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      display: block;
-      margin-bottom: 6px;
-    }
-
-    .recovery-field input {
-      width: 100%;
-      background: var(--surface-2);
-      border: 1px solid var(--border-accent);
-      border-radius: 12px;
-      color: var(--text);
-      font-family: 'Syne', sans-serif;
-      font-size: 18px;
-      font-weight: 800;
-      letter-spacing: -0.4px;
-      padding: 10px 14px;
-      outline: none;
-      transition: border-color 0.2s;
-      -moz-appearance: textfield;
-    }
-
-    .recovery-field input::-webkit-outer-spin-button,
-    .recovery-field input::-webkit-inner-spin-button { -webkit-appearance: none; }
-
-    .recovery-field input:focus { border-color: var(--purple); }
-
-    .recovery-log-btn {
-      width: 100%;
-      background: var(--purple);
-      border: none;
-      border-radius: 14px;
-      color: #1a0e33;
-      font-family: 'Syne', sans-serif;
-      font-size: 13px;
-      font-weight: 800;
-      padding: 13px 0;
-      cursor: pointer;
-      letter-spacing: -0.2px;
-      transition: opacity 0.2s, transform 0.15s;
-      margin-bottom: 14px;
-    }
-
-    .recovery-log-btn:active { transform: scale(0.98); opacity: 0.85; }
-
-    .recovery-entry {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      background: var(--surface-2);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 10px 14px;
-    }
-
-    .recovery-entry-metrics {
-      display: flex;
-      gap: 10px;
-    }
-
-    .recovery-metric {
-      font-size: 12px;
-      font-weight: 600;
-      padding: 3px 9px;
-      border-radius: 100px;
-    }
-
-    .recovery-metric.sleep { color: var(--blue); background: var(--blue-dim); }
-    .recovery-metric.rpe-low { color: var(--accent); background: var(--accent-dim); }
-    .recovery-metric.rpe-mid { color: var(--orange); background: var(--orange-dim); }
-    .recovery-metric.rpe-high { color: var(--red); background: var(--red-dim); }
-
-    /* ── MIND & MEDITATION ── */
-    .mood-row {
-      display: flex;
-      gap: 8px;
-    }
-
-    .mood-btn {
-      flex: 1;
-      aspect-ratio: 1;
-      border-radius: 14px;
-      background: var(--surface-2);
-      border: 1.5px solid var(--border);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 22px;
-      cursor: pointer;
-      transition: all 0.2s ease;
-      user-select: none;
-    }
-
-    .mood-btn:active { transform: scale(0.92); }
-
-    .mood-btn.selected {
-      background: var(--purple-dim);
-      border-color: var(--purple);
-      transform: scale(1.06);
-    }
-
-    .meditation-timer-row {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .meditation-display {
-      flex: 1;
-      background: var(--surface-2);
-      border: 1px solid var(--border-accent);
-      border-radius: 14px;
-      font-family: 'Syne', sans-serif;
-      font-size: 26px;
-      font-weight: 800;
-      letter-spacing: -0.5px;
-      color: var(--text);
-      text-align: center;
-      padding: 14px 0;
-    }
-
-    .meditation-btn {
-      background: var(--purple);
-      border: none;
-      border-radius: 14px;
-      color: #1a0e33;
-      font-family: 'Syne', sans-serif;
-      font-size: 13px;
-      font-weight: 800;
-      padding: 0 22px;
-      height: 52px;
-      cursor: pointer;
-      letter-spacing: -0.2px;
-      transition: opacity 0.2s, transform 0.15s;
-      white-space: nowrap;
-    }
-
-    .meditation-btn:active { transform: scale(0.96); opacity: 0.85; }
-
-    .meditation-btn.running {
-      background: var(--red);
-      color: #330a0a;
-    }
-
-    .meditation-total {
-      font-family: 'Syne', sans-serif;
-      font-size: 15px;
-      font-weight: 800;
-      color: var(--purple);
-      letter-spacing: -0.3px;
-    }
-
-    .meditation-reset {
-      font-size: 11px;
-      font-weight: 600;
-      color: var(--text-sub);
-      text-decoration: underline;
-      cursor: pointer;
-      user-select: none;
-    }
-
-    .meditation-reset:active { opacity: 0.6; }
-
-    #mindNote {
-      width: 100%;
-      background: var(--surface-2);
-      border: 1px solid var(--border-accent);
-      border-radius: 14px;
-      color: var(--text);
-      font-family: 'DM Sans', sans-serif;
-      font-size: 13.5px;
-      padding: 12px 14px;
-      outline: none;
-      resize: vertical;
-      transition: border-color 0.2s;
-      line-height: 1.5;
-    }
-
-    #mindNote:focus { border-color: var(--purple); }
-
-    .mind-note-entry {
-      background: var(--surface-2);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 12px 14px;
-    }
-
-    .mind-note-date {
-      font-size: 11px;
-      color: var(--text-sub);
-      margin-bottom: 5px;
-    }
-
-    .mind-note-text {
-      font-size: 13.5px;
-      color: #ccc;
-      line-height: 1.5;
-    }
-
-    .mood-history-row {
-      display: flex;
-      gap: 5px;
-      align-items: flex-end;
-      height: 44px;
-      margin-top: 4px;
-    }
-
-    .mood-history-item {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 4px;
-    }
-
-    .mood-history-emoji { font-size: 16px; }
-
-    .mood-history-lbl {
-      font-size: 8px;
-      color: var(--text-sub);
-      letter-spacing: 0.3px;
-    }
   </style>
 </head>
 <body>
@@ -1341,13 +1017,28 @@
       </div>
       <div class="checklist-item" onclick="toggleCheck(this)">
         <div class="ci-box"><svg class="ci-check" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#1a2800" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="ci-icon">🟢</div>
+        <div class="ci-label">Amla juice taken</div>
+      </div>
+      <div class="checklist-item" onclick="toggleCheck(this)">
+        <div class="ci-box"><svg class="ci-check" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#1a2800" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
         <div class="ci-icon">🍋</div>
-        <div class="ci-label">Morning ritual — lemon + amla</div>
+        <div class="ci-label">Lemon water consumed</div>
       </div>
       <div class="checklist-item" onclick="toggleCheck(this)">
         <div class="ci-box"><svg class="ci-check" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#1a2800" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
         <div class="ci-icon">🏋️</div>
         <div class="ci-label">Workout completed</div>
+      </div>
+      <div class="checklist-item" onclick="toggleCheck(this)">
+        <div class="ci-box"><svg class="ci-check" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#1a2800" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="ci-icon">🧘</div>
+        <div class="ci-label">Pelvic floor routine completed</div>
+      </div>
+      <div class="checklist-item" onclick="toggleCheck(this)">
+        <div class="ci-box"><svg class="ci-check" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#1a2800" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="ci-icon">⚡</div>
+        <div class="ci-label">Zone 2 / HIIT completed</div>
       </div>
       <div class="checklist-item" onclick="toggleCheck(this)">
         <div class="ci-box"><svg class="ci-check" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#1a2800" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
@@ -1359,74 +1050,6 @@
         <div class="ci-icon">🚫</div>
         <div class="ci-label">No maida / cola / alcohol</div>
       </div>
-      <div class="checklist-item" onclick="toggleCheck(this)">
-        <div class="ci-box"><svg class="ci-check" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#1a2800" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-        <div class="ci-icon">🧠</div>
-        <div class="ci-label">Meditation / mindfulness completed</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- MIND & MEDITATION (new) -->
-  <div class="card">
-    <div class="card-title" style="margin-bottom:2px;">Mind &amp; Meditation</div>
-    <div style="font-size:12px;color:var(--text-muted);margin-bottom:16px;">A body recomp holds up better when the mind gets the same daily attention as the water and the weights.</div>
-
-    <div style="font-size:11px;color:var(--text-sub);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:8px;">How's today, honestly?</div>
-    <div class="mood-row" id="moodRow">
-      <div class="mood-btn" data-mood="1" onclick="setMood(1)">😞</div>
-      <div class="mood-btn" data-mood="2" onclick="setMood(2)">😕</div>
-      <div class="mood-btn" data-mood="3" onclick="setMood(3)">😐</div>
-      <div class="mood-btn" data-mood="4" onclick="setMood(4)">🙂</div>
-      <div class="mood-btn" data-mood="5" onclick="setMood(5)">😄</div>
-    </div>
-
-    <div class="divider"></div>
-
-    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;">
-      <div style="font-size:11px;color:var(--text-sub);text-transform:uppercase;letter-spacing:0.5px;">Meditation today</div>
-      <div style="display:flex;align-items:center;gap:10px;">
-        <div class="meditation-total" id="meditationTotal">0 min</div>
-        <div class="meditation-reset" onclick="resetMeditationToday()">Reset</div>
-      </div>
-    </div>
-    <div class="meditation-timer-row">
-      <div class="meditation-display" id="meditationDisplay">00:00</div>
-      <button class="meditation-btn" id="meditationToggleBtn" onclick="toggleMeditationTimer()">Start</button>
-    </div>
-    <div class="steps-quick-row" style="margin-top:10px;">
-      <div class="steps-quick-btn" onclick="logMeditationMinutes(5)">+5 min</div>
-      <div class="steps-quick-btn" onclick="logMeditationMinutes(10)">+10 min</div>
-      <div class="steps-quick-btn" onclick="logMeditationMinutes(15)">+15 min</div>
-    </div>
-
-    <div class="divider"></div>
-
-    <div style="font-size:11px;color:var(--text-sub);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:8px;">One thing on your mind (optional)</div>
-    <textarea id="mindNote" placeholder="A line or two — no pressure to solve it here, just get it out of your head" rows="2"></textarea>
-    <button class="recovery-log-btn" style="background:var(--purple);color:#1a0e33;margin-top:10px;margin-bottom:0;" onclick="saveMindNote()">Save note</button>
-  </div>
-
-  <!-- STEPS TRACKER (new) -->
-  <div class="card">
-    <div class="steps-header">
-      <div>
-        <div class="card-title" style="margin-bottom:2px;">Steps Tracker</div>
-        <div style="font-size:12px;color:var(--text-muted);">Your biggest fat-loss lever right now</div>
-      </div>
-    </div>
-    <div class="steps-count" id="stepsCount">0 <span>/ 10,000</span></div>
-    <div class="steps-progress">
-      <div class="steps-progress-bar" id="stepsBar" style="width:0%"></div>
-    </div>
-    <div class="steps-input-row">
-      <input type="number" id="stepsInput" placeholder="Enter today's steps" min="0" max="50000"/>
-      <button class="steps-add-btn" onclick="setSteps()">Set</button>
-    </div>
-    <div class="steps-quick-row">
-      <div class="steps-quick-btn" onclick="addSteps(1000)">+1,000</div>
-      <div class="steps-quick-btn" onclick="addSteps(2000)">+2,000</div>
-      <div class="steps-quick-btn" onclick="addSteps(5000)">+5,000</div>
     </div>
   </div>
 
@@ -1465,12 +1088,41 @@
 
 <!-- ========== WORKOUT ========== -->
 <section id="workout">
-  <div class="section-header">Your<br><span>Program</span></div>
+  <div class="section-header">PPL×2<br><span>System</span></div>
 
-  <!-- RPE explainer (new) -->
-  <div style="display:flex;align-items:flex-start;gap:10px;background:var(--accent-dim);border:1px solid rgba(200,244,97,0.2);border-radius:14px;padding:12px 16px;margin-bottom:12px;">
-    <div style="font-size:20px;">📊</div>
-    <div style="font-size:12.5px;color:var(--accent);font-weight:500;line-height:1.5;">RPE = how many reps you had left in the tank. RPE 7 means 3 reps left. Autoregulate off this daily rather than chasing a fixed number — at 143kg starting bodyweight, joints need the buffer more than the ego needs the PR.</div>
+  <!-- Huberman + Lukamoves Philosophy Card -->
+  <div class="hero-card">
+    <div style="font-size:11px;color:var(--accent);font-weight:700;text-transform:uppercase;letter-spacing:0.8px;margin-bottom:10px;">PPL×2 · Huberman Science · @lukamoves Mobility</div>
+    <div style="font-family:'Syne',sans-serif;font-size:22px;font-weight:800;letter-spacing:-0.8px;line-height:1.2;margin-bottom:12px;">Push · Pull · Legs <span style="color:var(--accent);">twice a week</span> with flow-based mobility every session.</div>
+    <div class="stat-row">
+      <div class="stat-pill"><div class="val" style="font-size:14px;">6</div><div class="lbl">Training days</div></div>
+      <div class="stat-pill"><div class="val" style="font-size:14px;">PPL×2</div><div class="lbl">Split</div></div>
+      <div class="stat-pill"><div class="val" style="font-size:14px;">Zone 2</div><div class="lbl">Sat cardio</div></div>
+      <div class="stat-pill"><div class="val" style="font-size:14px;">Daily</div><div class="lbl">Mobility flow</div></div>
+    </div>
+  </div>
+
+  <!-- Core principles -->
+  <div class="card">
+    <div class="card-title">Core Principles</div>
+    <div class="list-body"><ul>
+      <li><strong>Warm up 7–10 min always</strong> — raises core temp, reduces injury, primes CNS</li>
+      <li><strong>3–4 min rest between heavy sets</strong> — full neural recovery for strength gains</li>
+      <li><strong>Progressive overload every week</strong> — add reps or weight, never stay static</li>
+      <li><strong>Zone 2 cardio on Saturday</strong> — 35–45 min at 60–70% HR, foundational for fat loss</li>
+      <li><strong>Mobility flow after every session</strong> — @lukamoves style: slow, controlled, ground-based</li>
+      <li><strong>No trap bar, no bands</strong> — Romanian deadlift and barbell deadlift instead; machine substitutes for isolation</li>
+      <li><strong>Morning sunlight 5–10 min before gym</strong> — sets circadian rhythm, boosts cortisol naturally</li>
+    </ul></div>
+  </div>
+
+  <!-- Lukamoves note -->
+  <div style="display:flex;align-items:flex-start;gap:12px;background:var(--purple-dim);border:1px solid rgba(181,126,255,0.2);border-radius:14px;padding:14px 16px;margin-bottom:12px;">
+    <div style="font-size:22px;flex-shrink:0;">🧘</div>
+    <div>
+      <div style="font-size:12px;font-weight:700;color:var(--purple);margin-bottom:4px;">@lukamoves Mobility Style</div>
+      <div style="font-size:13px;color:#ccc;line-height:1.5;">Fluid, ground-based movement flows. No bands, no equipment. Slow CARs (controlled articular rotations), hip flows, spine waves, World's Greatest Stretch, Cossack squats, bear crawl holds. Check his Instagram for video reference of each movement listed below.</div>
+    </div>
   </div>
 
   <!-- 4 Pillar Overview -->
@@ -1479,247 +1131,326 @@
       <div style="padding:18px;border-right:1px solid var(--border);border-bottom:1px solid var(--border);">
         <div style="font-size:22px;margin-bottom:4px;">💪</div>
         <div style="font-family:'Syne',sans-serif;font-size:15px;font-weight:800;letter-spacing:-0.4px;color:var(--text);">Strength</div>
-        <div style="font-size:11px;color:var(--text-muted);margin-top:3px;">Mon · Thu</div>
+        <div style="font-size:11px;color:var(--text-muted);margin-top:3px;">Mon · Wed · Fri</div>
         <div style="margin-top:8px;height:3px;border-radius:100px;background:var(--accent);width:100%"></div>
       </div>
       <div style="padding:18px;border-bottom:1px solid var(--border);">
         <div style="font-size:22px;margin-bottom:4px;">🫁</div>
         <div style="font-family:'Syne',sans-serif;font-size:15px;font-weight:800;letter-spacing:-0.4px;color:var(--text);">Stamina</div>
-        <div style="font-size:11px;color:var(--text-muted);margin-top:3px;">Tue · Fri</div>
+        <div style="font-size:11px;color:var(--text-muted);margin-top:3px;">Tue · Fri HIIT</div>
         <div style="margin-top:8px;height:3px;border-radius:100px;background:var(--orange);width:100%"></div>
       </div>
       <div style="padding:18px;border-right:1px solid var(--border);">
         <div style="font-size:22px;margin-bottom:4px;">🧘</div>
         <div style="font-family:'Syne',sans-serif;font-size:15px;font-weight:800;letter-spacing:-0.4px;color:var(--text);">Mobility</div>
-        <div style="font-size:11px;color:var(--text-muted);margin-top:3px;">Daily · Wed focus</div>
+        <div style="font-size:11px;color:var(--text-muted);margin-top:3px;">Daily · @lukamoves flows</div>
         <div style="margin-top:8px;height:3px;border-radius:100px;background:var(--purple);width:100%"></div>
       </div>
       <div style="padding:18px;">
         <div style="font-size:22px;margin-bottom:4px;">⚡</div>
         <div style="font-family:'Syne',sans-serif;font-size:15px;font-weight:800;letter-spacing:-0.4px;color:var(--text);">Endurance</div>
-        <div style="font-size:11px;color:var(--text-muted);margin-top:3px;">Sat · Zone 2</div>
+        <div style="font-size:11px;color:var(--text-muted);margin-top:3px;">Sat Zone 2 · Tue finisher</div>
         <div style="margin-top:8px;height:3px;border-radius:100px;background:var(--blue);width:100%"></div>
       </div>
     </div>
   </div>
 
-  <!-- MONDAY -->
+  <!-- MONDAY — Push A -->
   <div class="accord" onclick="toggleAccord(this)">
     <div class="accord-header">
       <div style="flex:1">
-        <div style="font-size:10px;color:var(--accent);font-weight:700;text-transform:uppercase;letter-spacing:0.8px;margin-bottom:4px;">Monday · 💪 Strength</div>
-        <div class="accord-title" style="margin:0;">Upper Push — Chest + Shoulders + Triceps</div>
+        <div style="font-size:10px;color:var(--accent);font-weight:700;text-transform:uppercase;letter-spacing:0.8px;margin-bottom:4px;">Monday · 💪 Push A — Chest Priority</div>
+        <div class="accord-title" style="margin:0;">Chest + Shoulders + Triceps</div>
       </div>
       <svg class="accord-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
     </div>
     <div class="accord-body list-body">
       <div class="tags"><span class="tag tag-warmup">Warm-Up · 8 min</span></div>
-      <ul><li>5 min stationary bike</li><li>Band pull-aparts ×20</li><li>Thoracic foam rolling 60s</li><li>Shoulder CARs ×5 each side</li><li>Bench warm-up: bar ×15 → 60kg ×8 → 80kg ×5</li></ul>
-      <div class="tags"><span class="tag tag-training">Strength Block</span></div>
       <ul>
-        <li>Barbell Bench Press — 5×5 @ RPE 7-8 (primary strength lift)</li>
-        <li>Incline Dumbbell Press — 4×8 @ RPE 7 (hypertrophy)</li>
-        <li>Machine Chest Press — 3×12 @ RPE 7 (volume)</li>
-        <li>Cable Fly — 3×15 (isolation)</li>
-        <li>Seated DB Shoulder Press — 4×8 @ RPE 7</li>
-        <li>Lateral Raise superset Cable Rear Delt — 4×15</li>
-        <li>Rope Tricep Pushdown — 4×12</li>
+        <li>5 min stationary bike easy</li>
+        <li>Shoulder CARs — slow circles through full range ×5 each direction, each side</li>
+        <li>Thoracic foam rolling 60s</li>
+        <li>Bench warm-up: bar ×15 → 60kg ×8 → 80kg ×5</li>
       </ul>
-      <div class="tags"><span class="tag tag-mobility">Mobility · Pelvic Floor</span></div>
-      <ul><li>Diaphragmatic breathing 2 min</li><li>Kegel holds 5s ×10 + pulses ×20</li><li>Dead bug ×12</li><li>Thread the needle ×8 each side</li><li>Cat-cow ×10</li></ul>
-      <div class="tags"><span class="tag tag-cooldown">Cooldown · 5 min</span></div>
-      <ul><li>Doorway chest stretch 60s</li><li>Upper trap stretch 30s each</li><li>Deep diaphragmatic breathing</li></ul>
-      <p class="note">🎯 Strength goal: add 2.5kg to bench every 2 weeks. Log every working set — and log RPE, not just weight, so you catch a bad-recovery day before it turns into an injury.</p>
+      <div class="tags"><span class="tag tag-training">Training · 3–4 min rest on compounds</span></div>
+      <ul>
+        <li>Barbell Bench Press — 5×5</li>
+        <li>Incline Dumbbell Press — 4×8–10</li>
+        <li>Machine Chest Press — 3×12</li>
+        <li>Cable Fly — 3×15</li>
+        <li>Seated DB Shoulder Press — 4×8</li>
+        <li>Lateral Raise — 4×15</li>
+        <li>Rope Pushdowns — 4×12</li>
+      </ul>
+      <div class="tags"><span class="tag tag-mobility">@lukamoves Flow · 10 min</span></div>
+      <ul>
+        <li>Spine wave — standing, nod chin to chest, roll down vertebra by vertebra, hang, roll back up ×8 slow</li>
+        <li>Thoracic rotation in quadruped (thread the needle) ×10 each — slow, reach as far as possible</li>
+        <li>World's Greatest Stretch — lunge forward, back knee down, elbow to floor, rotate arm to ceiling ×6 each side</li>
+        <li>Shoulder CAR circles ×5 each direction, each side (slow, full range)</li>
+        <li>Diaphragmatic breathing 2 min + Kegel holds ×10 + pulses ×20</li>
+        <li>Dead bug ×12 slow — exhale on reach, protect lower back</li>
+      </ul>
+      <div class="tags"><span class="tag tag-cooldown">Cooldown</span></div>
+      <ul><li>Doorway chest stretch 60s</li><li>Upper trap stretch 30s each</li><li>Child's pose 60s</li></ul>
+      <p class="note">🎯 Strength goal: add 2.5kg to bench every 2 weeks. @lukamoves: move slowly through all mobility — no rushing, feel every joint.</p>
     </div>
   </div>
 
-  <!-- TUESDAY -->
+  <!-- TUESDAY — Pull A -->
   <div class="accord" onclick="toggleAccord(this)">
     <div class="accord-header">
       <div style="flex:1">
-        <div style="font-size:10px;color:var(--orange);font-weight:700;text-transform:uppercase;letter-spacing:0.8px;margin-bottom:4px;">Tuesday · 🫁 Stamina</div>
-        <div class="accord-title" style="margin:0;">Upper Pull — Back + Biceps + Pull-Up Progression</div>
+        <div style="font-size:10px;color:var(--orange);font-weight:700;text-transform:uppercase;letter-spacing:0.8px;margin-bottom:4px;">Tuesday · 💪 Pull A + 🫁 Stamina</div>
+        <div class="accord-title" style="margin:0;">Back Width + Biceps + Pull-Up Progression + Zone 2 Finisher</div>
       </div>
       <svg class="accord-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
     </div>
     <div class="accord-body list-body">
       <div class="tags"><span class="tag tag-warmup">Warm-Up · 8 min</span></div>
-      <ul><li>5 min rowing (easy pace, 60% effort)</li><li>Scapular pull-ups ×10</li><li>Lat prayer stretch 30s</li><li>Dead hangs 3×20s</li></ul>
-      <div class="tags"><span class="tag tag-training">Pull Strength Block</span></div>
       <ul>
-        <li>Assisted Machine Pull-Ups + Negatives — 5 sets (reduce assist by 5kg each week)</li>
-        <li>Wide Grip Lat Pulldown — 4×10 @ RPE 7</li>
-        <li>Chest Supported DB Row — 4×10 @ RPE 7 (joint-safe, no lower back strain)</li>
+        <li>5 min rowing easy pace</li>
+        <li>Scapular pull-ups ×10 (shoulders down, no arm bend)</li>
+        <li>Dead hangs 3×20s — decompress spine</li>
+        <li>Hip CARs standing — slow circles ×5 each direction, each leg</li>
+      </ul>
+      <div class="tags"><span class="tag tag-training">Training · 3–4 min rest on compounds</span></div>
+      <ul>
+        <li>Assisted Machine Pull-Ups + Negative Pull-Ups — 5 sets progression (reduce assist 5kg/week)</li>
+        <li>Wide Grip Lat Pulldown — 4×10</li>
+        <li>Chest Supported DB Row — 4×10</li>
         <li>Single Arm Cable Row — 3×12 each</li>
-        <li>Face Pulls — 4×15 (shoulder health priority)</li>
+        <li>Face Pulls — 4×15 (shoulder health, non-negotiable)</li>
         <li>EZ Bar Curl — 4×10</li>
         <li>Hammer Curl — 3×12</li>
       </ul>
-      <div class="tags"><span class="tag tag-training">Stamina Finisher</span></div>
-      <ul><li>Rowing machine — 10 min steady state at 65% HR (builds aerobic base)</li></ul>
-      <div class="tags"><span class="tag tag-mobility">Mobility · Pelvic Floor</span></div>
-      <ul><li>Bird dog ×12 each side</li><li>Glute bridge with pelvic squeeze ×15</li><li>Foam roll upper back 60s</li><li>90/90 hip stretch 60s each</li></ul>
+      <div class="tags"><span class="tag tag-training">Stamina Finisher · Zone 2</span></div>
+      <ul>
+        <li>Rowing machine — 10 min steady state at 65% HR (121–134 BPM)</li>
+      </ul>
+      <div class="tags"><span class="tag tag-mobility">@lukamoves Flow · 10 min</span></div>
+      <ul>
+        <li>Hip 90/90 flow — seated, transition side to side ×10 reps, pause at end range each side</li>
+        <li>Pigeon pose — 90s each side, breathe into the hip</li>
+        <li>Quadruped hip CARs — on all fours, draw full circles with knee ×5 each direction, each side</li>
+        <li>Glute bridge with pelvic tilt — slow, squeeze at top ×15</li>
+        <li>Bird dog — reach opposite arm and leg, hold 3s, ×12 each side</li>
+        <li>Kegel protocol 5 min</li>
+      </ul>
       <div class="tags"><span class="tag tag-cooldown">Cooldown</span></div>
-      <ul><li>Hanging lat stretch 3×20s</li><li>Biceps wall stretch 30s each</li></ul>
-      <p class="note">🎯 Pull-up goal: unassisted pull-up within 3 months. Track reps at each assist level.</p>
+      <ul><li>Hanging lat stretch 30s each side</li><li>Biceps wall stretch 30s each</li><li>Legs-up-the-wall 3 min</li></ul>
+      <p class="note">🎯 Pull-up goal: unassisted pull-up within 12–16 weeks. Reduce assist by 5kg every week consistently.</p>
     </div>
   </div>
 
-  <!-- WEDNESDAY -->
+  <!-- WEDNESDAY — Legs A -->
   <div class="accord" onclick="toggleAccord(this)">
     <div class="accord-header">
       <div style="flex:1">
-        <div style="font-size:10px;color:var(--purple);font-weight:700;text-transform:uppercase;letter-spacing:0.8px;margin-bottom:4px;">Wednesday · 🧘 Mobility Focus</div>
-        <div class="accord-title" style="margin:0;">Lower Body Strength — Squat Pattern</div>
+        <div style="font-size:10px;color:var(--accent);font-weight:700;text-transform:uppercase;letter-spacing:0.8px;margin-bottom:4px;">Wednesday · 💪 Legs A — Squat Focus</div>
+        <div class="accord-title" style="margin:0;">Quad-Dominant + Hamstrings + Calves</div>
       </div>
       <svg class="accord-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
     </div>
     <div class="accord-body list-body">
       <div class="tags"><span class="tag tag-warmup">Warm-Up · 10 min (mandatory)</span></div>
-      <ul><li>8 min bike — easy</li><li>Knee warm-up: leg swings ×15, VMO activation ×20</li><li>Wall ankle stretch 60s each</li><li>Bodyweight squat ×15 slow tempo</li><li>Hip 90/90 rotations ×10 each</li></ul>
-      <div class="tags"><span class="tag tag-training">Strength Block</span></div>
       <ul>
-        <li>Back Squat — 5×5 @ RPE 7-8 (primary lower body strength lift)</li>
-        <li>Bulgarian Split Squat — 4×10 each @ RPE 7 (replaces walking lunges, knee-safe)</li>
-        <li>Leg Press — 4×12 (volume, controlled descent)</li>
-        <li>Romanian Deadlift — 4×8 @ RPE 7 (hip hinge pattern, hamstring)</li>
+        <li>8 min stationary bike easy</li>
+        <li>Knee warm-up: leg swings front/back ×15, side/side ×15</li>
+        <li>Wall ankle stretch 60s each</li>
+        <li>Bodyweight squat ×15 — 3s down, pause at bottom</li>
+        <li>Hip CARs standing ×5 each direction, each leg</li>
+      </ul>
+      <div class="tags"><span class="tag tag-training">Training · 3–4 min rest on compounds</span></div>
+      <ul>
+        <li>Back Squat — 5×5</li>
+        <li>Bulgarian Split Squat — 4×10 each (replaces walking lunges — knee-safe)</li>
+        <li>Leg Press — 4×12 (controlled 3s descent)</li>
+        <li>Romanian Deadlift — 4×8 (barbell, hip hinge, hamstrings)</li>
         <li>Leg Curl — 4×12</li>
         <li>Standing Calf Raise — 5×15</li>
       </ul>
-      <div class="tags"><span class="tag tag-mobility">Mobility Deep Work · 15 min</span></div>
+      <div class="tags"><span class="tag tag-mobility">@lukamoves Flow · 15 min deep</span></div>
       <ul>
-        <li>Frog stretch hold 2 min</li>
-        <li>Pigeon pose 90s each side</li>
-        <li>Kneeling hip flexor lunge with rotation 60s each</li>
-        <li>Ankle dorsiflexion drill ×15 each</li>
-        <li>Pelvic floor: Kegel holds + pulses + reverse Kegel</li>
-        <li>Dead bug ×12 slow</li>
+        <li>Frog stretch — knees wide, hips back, rock gently forward/back ×2 min</li>
+        <li>Cossack squat — wide stance, shift weight side to side, heel stays down ×10 each side (if heel rises, narrow stance)</li>
+        <li>Pigeon pose — 90s each side, fold forward for deeper release</li>
+        <li>Kneeling hip flexor lunge with thoracic rotation — elbow to floor, rotate arm to sky ×8 each side</li>
+        <li>Ankle CARs — seated, slow full ankle circles ×10 each direction, each foot</li>
+        <li>Pelvic floor: Kegel holds ×10 + pulses ×30 + reverse Kegel ×10 + dead bug ×12</li>
       </ul>
       <div class="tags"><span class="tag tag-cooldown">Cooldown</span></div>
       <ul><li>Hamstring stretch 60s each</li><li>Quad stretch 45s each</li><li>Seated forward fold 60s</li></ul>
-      <p class="note">🎯 Mobility goal: full depth squat without heel rise. Work ankle mobility daily.</p>
+      <p class="note">🎯 Squat goal: add 2.5kg per week. Mobility goal: full depth squat with heels flat by month 3 — ankle CARs daily is key.</p>
     </div>
   </div>
 
-  <!-- THURSDAY -->
+  <!-- THURSDAY — Push B -->
   <div class="accord" onclick="toggleAccord(this)">
     <div class="accord-header">
       <div style="flex:1">
-        <div style="font-size:10px;color:var(--accent);font-weight:700;text-transform:uppercase;letter-spacing:0.8px;margin-bottom:4px;">Thursday · 💪 Strength (moderate)</div>
-        <div class="accord-title" style="margin:0;">Upper Push — Shoulders + Chest + Triceps</div>
+        <div style="font-size:10px;color:var(--accent);font-weight:700;text-transform:uppercase;letter-spacing:0.8px;margin-bottom:4px;">Thursday · 💪 Push B — Shoulder Priority</div>
+        <div class="accord-title" style="margin:0;">Shoulders + Chest + Triceps</div>
       </div>
       <svg class="accord-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
     </div>
     <div class="accord-body list-body">
       <div class="tags"><span class="tag tag-warmup">Warm-Up · 8 min</span></div>
-      <ul><li>Band external rotations ×15</li><li>Foam roll thoracic spine 60s</li><li>DB shoulder press warm-up: 10kg ×15 → 20kg ×8</li><li>Arm circles + cross-body stretch</li></ul>
-      <div class="tags"><span class="tag tag-training">Moderate Block — 4×8 @ RPE 7, not 5×5</span></div>
       <ul>
-        <li>Standing Overhead Press — 4×8 @ RPE 7 (dropped from 5×5 — this is your second push day, joints need the lighter stimulus)</li>
+        <li>Shoulder CARs ×5 each direction, each side — slow, no momentum</li>
+        <li>Thoracic foam rolling 60s</li>
+        <li>DB shoulder press warm-up: 10kg ×15 → 20kg ×8</li>
+        <li>Arm circles — 20 forward, 20 backward</li>
+      </ul>
+      <div class="tags"><span class="tag tag-training">Training · 3–4 min rest on compounds</span></div>
+      <ul>
+        <li>Standing Overhead Press — 5×5</li>
         <li>Arnold Press — 4×10</li>
-        <li>Lateral Raise — 5×15 (full stack of lateral delt work)</li>
+        <li>Lateral Raise — 5×15 (slow eccentric, 3s down)</li>
         <li>Rear Delt Cable Fly — 4×15</li>
-        <li>Incline Barbell Press — 4×8 @ RPE 7</li>
-        <li>Weighted Dips — 3×AMRAP (bodyweight first)</li>
+        <li>Incline Chest Press — 4×10</li>
+        <li>Dips (bodyweight) — 3×AMRAP</li>
         <li>Overhead Rope Tricep Extension — 3×12</li>
       </ul>
-      <div class="tags"><span class="tag tag-mobility">Mobility · Pelvic Floor</span></div>
-      <ul><li>Cat-cow ×10</li><li>Thread the needle ×8 each</li><li>Dead bug ×12</li><li>Kegel protocol 5 min</li></ul>
+      <div class="tags"><span class="tag tag-mobility">@lukamoves Flow · 10 min</span></div>
+      <ul>
+        <li>Spine wave ×8 — standing roll-down and roll-up, vertebra by vertebra</li>
+        <li>Cat-cow ×15 — add thoracic circles (make figure-8 with spine) ×10</li>
+        <li>Thread the needle ×10 each side — slow, reach max rotation</li>
+        <li>Bear crawl hold — on all fours, knees 2 inches off floor, hold 30s ×3 (core + shoulder stability)</li>
+        <li>Dead bug ×12 + Kegel holds ×10 + diaphragmatic breathing 2 min</li>
+      </ul>
       <div class="tags"><span class="tag tag-cooldown">Cooldown</span></div>
-      <ul><li>Chest opener wall stretch 60s</li><li>Triceps overhead stretch 30s each</li><li>Neck decompression + deep breathing</li></ul>
-      <p class="note">🎯 Strength goal: overhead press bodyweight ×0.75 within 6 months. Your true max-effort push day is Monday — Thursday builds volume without digging the same recovery hole twice a week.</p>
+      <ul><li>Chest opener stretch 60s</li><li>Triceps overhead stretch 30s each</li><li>Child's pose 60s</li></ul>
+      <p class="note">🎯 OHP goal: press bodyweight ×0.75 within 6 months. Bear crawl hold builds the shoulder stability that protects your press.</p>
     </div>
   </div>
 
-  <!-- FRIDAY -->
+  <!-- FRIDAY — Pull B -->
   <div class="accord" onclick="toggleAccord(this)">
     <div class="accord-header">
       <div style="flex:1">
-        <div style="font-size:10px;color:var(--orange);font-weight:700;text-transform:uppercase;letter-spacing:0.8px;margin-bottom:4px;">Friday · 🫁 Stamina + 💪 Strength</div>
-        <div class="accord-title" style="margin:0;">Lower Pull — Trap Bar Deadlift + HIIT</div>
+        <div style="font-size:10px;color:var(--orange);font-weight:700;text-transform:uppercase;letter-spacing:0.8px;margin-bottom:4px;">Friday · 💪 Pull B + 🫁 HIIT</div>
+        <div class="accord-title" style="margin:0;">Back Thickness + Deadlift + High Intensity Intervals</div>
       </div>
       <svg class="accord-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
     </div>
     <div class="accord-body list-body">
       <div class="tags"><span class="tag tag-warmup">Warm-Up · 8 min</span></div>
-      <ul><li>Rowing machine 5 min easy</li><li>Hip hinge drill with PVC ×10</li><li>Glute activation: banded clam ×15 each</li><li>Trap bar warm-up: empty ×10 → 60kg ×5 → 100kg ×3</li></ul>
-      <div class="tags"><span class="tag tag-training">Strength Block</span></div>
       <ul>
-        <li>Trap Bar Deadlift — 5×5 @ RPE 7-8 (trap bar ONLY — spine-safe, knee-safe)</li>
-        <li>Assisted Pull-Ups — 4×8–10 (pull-up volume day)</li>
+        <li>Rowing machine 5 min easy</li>
+        <li>Hip hinge drill — kettlebell or plate, hinge until neutral spine ×10</li>
+        <li>Glute activation: bodyweight glute bridge ×15, hold 2s at top</li>
+        <li>Barbell deadlift warm-up: empty bar ×10 → 60kg ×5 → 100kg ×3</li>
+      </ul>
+      <div class="tags"><span class="tag tag-training">Training · 3–4 min rest on compounds</span></div>
+      <ul>
+        <li>Barbell Conventional Deadlift — 5×5 (standard barbell — no trap bar available)</li>
+        <li>Assisted Machine Pull-Ups — 4×8–10 (pull-up volume day, reduce assist weekly)</li>
         <li>T-Bar Row — 4×10</li>
         <li>Close Grip Lat Pulldown — 3×12</li>
         <li>DB Shrugs — 4×12</li>
         <li>Incline DB Curl — 3×12</li>
       </ul>
-      <div class="tags"><span class="tag tag-training">HIIT Stamina Block</span></div>
+      <div class="tags"><span class="tag tag-training">HIIT Finisher · 20 min</span></div>
       <ul>
         <li>Rowing machine — 30s all-out / 90s rest × 8 rounds</li>
-        <li>HR target: 85–90% on work intervals</li>
-        <li>No treadmill sprinting — rowing machine only</li>
+        <li>HR target: 85–90% max on every work interval</li>
+        <li>No treadmill sprinting — rowing machine only (knee-safe)</li>
       </ul>
-      <div class="tags"><span class="tag tag-mobility">Mobility · Pelvic Floor</span></div>
-      <ul><li>Bird dog ×12</li><li>Glute bridge pelvic squeeze ×15</li><li>90/90 hip stretch 60s each</li></ul>
+      <div class="tags"><span class="tag tag-mobility">@lukamoves Flow · 10 min</span></div>
+      <ul>
+        <li>Hip 90/90 flow — seated transitions side to side ×10, pause at end range each</li>
+        <li>World's Greatest Stretch ×6 each side — slow, full thoracic rotation on every rep</li>
+        <li>Quadruped hip CARs ×5 each direction, each leg</li>
+        <li>Glute bridge with pelvic squeeze ×15</li>
+        <li>Kegel protocol 5 min + bird dog ×12</li>
+      </ul>
       <div class="tags"><span class="tag tag-cooldown">Cooldown</span></div>
-      <ul><li>Lat stretch at rack 30s each</li><li>Lower back child's pose decompression 2 min</li><li>Diaphragmatic breathing 2 min</li></ul>
-      <p class="note">🎯 Deadlift goal: 2× bodyweight trap bar deadlift within 12 months. Log weekly.</p>
+      <ul><li>Lat stretch at rack 30s each</li><li>Child's pose lower back decompression 2 min</li><li>Diaphragmatic breathing 2 min</li></ul>
+      <p class="note">🎯 Deadlift goal: 2× bodyweight within 12 months. Log weekly. HIIT: aim to hold same split times for all 8 rounds.</p>
     </div>
   </div>
 
-  <!-- SATURDAY -->
+  <!-- SATURDAY — Legs B -->
   <div class="accord" onclick="toggleAccord(this)">
     <div class="accord-header">
       <div style="flex:1">
-        <div style="font-size:10px;color:var(--blue);font-weight:700;text-transform:uppercase;letter-spacing:0.8px;margin-bottom:4px;">Saturday · ⚡ Endurance (moderate)</div>
-        <div class="accord-title" style="margin:0;">Lower Body Hinge + Zone 2 Cardio</div>
+        <div style="font-size:10px;color:var(--blue);font-weight:700;text-transform:uppercase;letter-spacing:0.8px;margin-bottom:4px;">Saturday · 💪 Legs B + ⚡ Zone 2</div>
+        <div class="accord-title" style="margin:0;">Hinge Focus + Endurance Cardio</div>
       </div>
       <svg class="accord-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
     </div>
     <div class="accord-body list-body">
       <div class="tags"><span class="tag tag-warmup">Warm-Up · 10 min</span></div>
-      <ul><li>8 min bike — easy</li><li>Knee activation: terminal knee extension ×15</li><li>Wall ankle stretch 60s each</li><li>Hip circles ×10 each direction</li></ul>
-      <div class="tags"><span class="tag tag-training">Moderate Block — 4×8 @ RPE 7</span></div>
       <ul>
-        <li>Romanian Deadlift — 4×8 @ RPE 7 (hinge focus — your true heavy hinge day is Friday's trap bar deadlift)</li>
-        <li>Hack Squat — 4×10 (quad dominant, knee-safe)</li>
+        <li>8 min bike easy</li>
+        <li>Knee activation: terminal knee extension ×15 (use machine or bodyweight)</li>
+        <li>Wall ankle stretch 60s each</li>
+        <li>Hip circles — standing, large controlled circles ×10 each direction</li>
+      </ul>
+      <div class="tags"><span class="tag tag-training">Training</span></div>
+      <ul>
+        <li>Romanian Deadlift — 5×6–8 (hinge focus, heavy, barbell)</li>
+        <li>Hack Squat — 4×10 (quad-dominant, knee-safe machine)</li>
         <li>Bulgarian Split Squat — 3×12 each</li>
-        <li>Lying Leg Curl — 4×12</li>
+        <li>Leg Curl — 4×12</li>
         <li>Seated Calf Raise — 5×15</li>
       </ul>
-      <div class="tags"><span class="tag tag-training">Zone 2 Endurance Block</span></div>
+      <div class="tags"><span class="tag tag-training">Zone 2 Endurance · 35–45 min</span></div>
       <ul>
-        <li>35–45 min stationary bike OR incline treadmill walk</li>
-        <li>Target: 60–70% max HR (can hold a conversation)</li>
-        <li>This is your primary fat-burning + cardiac development session</li>
-        <li>Do NOT skip — this is what builds your aerobic engine</li>
+        <li>Stationary bike OR incline treadmill walk</li>
+        <li>Target: 60–70% HR · 121–134 BPM · can hold full conversation</li>
+        <li>Nasal breathing preferred throughout — builds CO2 tolerance</li>
       </ul>
-      <div class="tags"><span class="tag tag-mobility">Mobility · Pelvic Floor · 15 min</span></div>
-      <ul><li>Pigeon stretch 90s each</li><li>Kneeling hip flexor lunge 60s each</li><li>Seated forward fold 60s</li><li>Pelvic floor full protocol</li><li>Foam roll entire lower body</li></ul>
+      <div class="tags"><span class="tag tag-mobility">@lukamoves Flow · 15 min deep</span></div>
+      <ul>
+        <li>Frog stretch — rock forward/back ×2 min</li>
+        <li>Cossack squat ×10 each side — go deeper each week</li>
+        <li>Pigeon pose 90s each side — fold forward, breathe into glute</li>
+        <li>Kneeling hip flexor lunge with rotation ×8 each side</li>
+        <li>Pelvic floor full protocol: diaphragmatic breathing + Kegel holds + pulses + reverse Kegel</li>
+        <li>Foam roll entire lower body — calves, hamstrings, glutes, IT band 60s each</li>
+      </ul>
       <div class="tags"><span class="tag tag-cooldown">Cooldown</span></div>
-      <ul><li>Full body stretch 10 min</li><li>Legs-up-the-wall 5 min (recovery)</li></ul>
-      <p class="note">🎯 Endurance goal: complete 45 min Zone 2 at 65% HR without HR drift above 75% by month 3.</p>
+      <ul><li>Full body stretch 10 min</li><li>Legs-up-the-wall 5 min (recovery + blood return)</li></ul>
+      <p class="note">🎯 Endurance goal: complete 45 min Zone 2 without HR drifting above 140 by month 3.</p>
     </div>
   </div>
 
-  <!-- SUNDAY -->
+  <!-- SUNDAY — Recovery -->
   <div class="accord" onclick="toggleAccord(this)">
     <div class="accord-header">
       <div style="flex:1">
-        <div style="font-size:10px;color:var(--text-muted);font-weight:700;text-transform:uppercase;letter-spacing:0.8px;margin-bottom:4px;">Sunday · 🛡 Recovery</div>
-        <div class="accord-title" style="margin:0;">Active Rest — Mobility + Reset</div>
+        <div style="font-size:10px;color:var(--text-muted);font-weight:700;text-transform:uppercase;letter-spacing:0.8px;margin-bottom:4px;">Sunday · 🛡 Active Recovery</div>
+        <div class="accord-title" style="margin:0;">Walk + Full Mobility Flow + Sleep Prep</div>
       </div>
       <svg class="accord-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
     </div>
     <div class="accord-body list-body">
       <ul>
-        <li>20–40 min easy walk outdoors (not gym — fresh air, light movement)</li>
-        <li>Full body foam roll: calves → hamstrings → glutes → upper back → lats</li>
-        <li>10 min yoga or deep stretch (YouTube: Yoga with Adriene)</li>
-        <li>Pelvic floor + diaphragmatic breathing — 10 min</li>
-        <li>Optional: swimming (excellent for joint recovery)</li>
-        <li>Sleep target this night: 8.5+ hours (pre-Monday prep)</li>
+        <li>Morning sunlight 10–15 min outdoors — most important habit of the day</li>
+        <li>20–40 min easy walk — nasal breathing, no gym</li>
+        <li>Full body foam roll 10 min</li>
       </ul>
-      <p class="note">Recovery is where adaptation happens. This day is not optional.</p>
+      <div class="tags"><span class="tag tag-mobility">@lukamoves Sunday Flow · 20 min</span></div>
+      <ul>
+        <li>Spine wave ×10 slow — roll down, hang, roll up, explore end range</li>
+        <li>Hip CARs standing ×8 each direction, each leg — this is the foundation of his work</li>
+        <li>Shoulder CARs ×8 each direction, each arm</li>
+        <li>Ankle CARs seated ×10 each direction, each foot</li>
+        <li>Cossack squat flow ×10 each side — slow, controlled, full range</li>
+        <li>Frog stretch 2 min + pigeon 90s each</li>
+        <li>World's Greatest Stretch ×6 each side — take your time</li>
+        <li>Pelvic floor + diaphragmatic breathing 10 min</li>
+      </ul>
+      <div class="tags"><span class="tag tag-cooldown">Evening Protocol</span></div>
+      <ul>
+        <li>No bright lights after 9 PM</li>
+        <li>Magnesium Glycinate 400mg before bed</li>
+        <li>Sleep target: 8–9 hours — adaptation happens here</li>
+      </ul>
+      <p class="note">Recovery is where you actually grow. Sunday mobility keeps you injury-free for 6 days a week of training.</p>
     </div>
   </div>
 
@@ -1728,23 +1459,23 @@
     <div class="card-title">Weekly Pillar Distribution</div>
     <div style="display:flex;flex-direction:column;gap:10px;margin-top:4px;">
       <div>
-        <div style="display:flex;justify-content:space-between;margin-bottom:5px;"><span style="font-size:12px;color:var(--text-muted);">💪 Strength</span><span style="font-size:12px;font-weight:600;color:var(--accent);">Mon + Thu + Fri</span></div>
-        <div style="height:5px;border-radius:100px;background:var(--surface-3);"><div style="height:100%;width:70%;border-radius:100px;background:var(--accent);"></div></div>
+        <div style="display:flex;justify-content:space-between;margin-bottom:5px;"><span style="font-size:12px;color:var(--text-muted);">💪 Strength</span><span style="font-size:12px;font-weight:600;color:var(--accent);">Mon + Wed + Fri (Push/Legs/Pull) + Tue + Thu + Sat</span></div>
+        <div style="height:5px;border-radius:100px;background:var(--surface-3);"><div style="height:100%;width:80%;border-radius:100px;background:var(--accent);"></div></div>
       </div>
       <div>
-        <div style="display:flex;justify-content:space-between;margin-bottom:5px;"><span style="font-size:12px;color:var(--text-muted);">🫁 Stamina</span><span style="font-size:12px;font-weight:600;color:var(--orange);">Tue + Fri HIIT</span></div>
+        <div style="display:flex;justify-content:space-between;margin-bottom:5px;"><span style="font-size:12px;color:var(--text-muted);">🫁 Stamina</span><span style="font-size:12px;font-weight:600;color:var(--orange);">Tue Zone 2 finisher + Fri HIIT</span></div>
         <div style="height:5px;border-radius:100px;background:var(--surface-3);"><div style="height:100%;width:50%;border-radius:100px;background:var(--orange);"></div></div>
       </div>
       <div>
-        <div style="display:flex;justify-content:space-between;margin-bottom:5px;"><span style="font-size:12px;color:var(--text-muted);">🧘 Mobility</span><span style="font-size:12px;font-weight:600;color:var(--purple);">Daily · Wed deep focus</span></div>
-        <div style="height:5px;border-radius:100px;background:var(--surface-3);"><div style="height:100%;width:90%;border-radius:100px;background:var(--purple);"></div></div>
+        <div style="display:flex;justify-content:space-between;margin-bottom:5px;"><span style="font-size:12px;color:var(--text-muted);">🧘 Mobility</span><span style="font-size:12px;font-weight:600;color:var(--purple);">Daily @lukamoves flows · Sun deep 20 min</span></div>
+        <div style="height:5px;border-radius:100px;background:var(--surface-3);"><div style="height:100%;width:95%;border-radius:100px;background:var(--purple);"></div></div>
       </div>
       <div>
-        <div style="display:flex;justify-content:space-between;margin-bottom:5px;"><span style="font-size:12px;color:var(--text-muted);">⚡ Endurance</span><span style="font-size:12px;font-weight:600;color:var(--blue);">Sat Zone 2 · Tue finisher</span></div>
-        <div style="height:5px;border-radius:100px;background:var(--surface-3);"><div style="height:100%;width:60%;border-radius:100px;background:var(--blue);"></div></div>
+        <div style="display:flex;justify-content:space-between;margin-bottom:5px;"><span style="font-size:12px;color:var(--text-muted);">⚡ Endurance</span><span style="font-size:12px;font-weight:600;color:var(--blue);">Sat Zone 2 · 35–45 min</span></div>
+        <div style="height:5px;border-radius:100px;background:var(--surface-3);"><div style="height:100%;width:55%;border-radius:100px;background:var(--blue);"></div></div>
       </div>
     </div>
-    <p class="note">Only Monday, Wednesday, and Friday are true 5×5 max-effort days now. Thursday and Saturday compounds moved to 4×8 @ RPE 7 — same muscle groups get worked, but the joints get a break from back-to-back max-effort loading.</p>
+    <p class="note" style="margin-top:12px;"><strong>No trap bar. No bands.</strong> Conventional barbell deadlift on Friday, Romanian deadlift on Saturday. Machine alternatives used throughout for isolation work.</p>
   </div>
 
 </section>
@@ -1758,19 +1489,11 @@
     <div style="font-size:11px;color:var(--accent);font-weight:700;text-transform:uppercase;letter-spacing:0.8px;margin-bottom:10px;">BMR Calculation · Male · 183cm · 143kg · ~33y</div>
     <div class="stat-row">
       <div class="stat-pill"><div class="val" style="font-size:16px;">2,759</div><div class="lbl">BMR kcal</div></div>
-      <div class="stat-pill"><div class="val" style="font-size:16px;">4,276</div><div class="lbl">TDEE kcal*</div></div>
-      <div class="stat-pill"><div class="val" style="font-size:16px;">3,280</div><div class="lbl">Target kcal*</div></div>
-      <div class="stat-pill"><div class="val" style="font-size:16px;">−1,000</div><div class="lbl">Deficit*</div></div>
+      <div class="stat-pill"><div class="val" style="font-size:16px;">4,276</div><div class="lbl">TDEE kcal</div></div>
+      <div class="stat-pill"><div class="val" style="font-size:16px;">3,280</div><div class="lbl">Target kcal</div></div>
+      <div class="stat-pill"><div class="val" style="font-size:16px;">−1,000</div><div class="lbl">Deficit</div></div>
     </div>
-    <p class="note" style="margin-top:12px;">*These numbers assume a "moderately active" multiplier (~1.55×). If your daily movement outside the gym has been low, your real TDEE is likely closer to 3,600–3,800 kcal — treat 3,280 as a starting estimate, not a fixed number.</p>
-  </div>
-
-  <!-- new: calibration warning card -->
-  <div style="display:flex;align-items:flex-start;gap:10px;background:var(--orange-dim);border:1px solid rgba(255,159,79,0.25);border-radius:14px;padding:14px 16px;margin-bottom:12px;">
-    <div style="font-size:20px;">⚖️</div>
-    <div style="font-size:12.5px;color:var(--orange);font-weight:500;line-height:1.6;">
-      <strong style="color:var(--orange);">Calibrate before trusting the target.</strong> Weigh in daily for the first 2 weeks and check your 7-day average trend on the Progress tab. Losing faster than ~1kg/week → target was too generous, drop 150–200 kcal. Losing slower than ~0.5kg/week with all checklist items done → target was too conservative, or the multiplier overestimated your activity — recalculate against actual data, not the assumption below.
-    </div>
+    <p class="note" style="margin-top:12px;">Recalculate every 5kg lost — BMR drops as weight decreases. Target reduces by ~100 kcal per 5kg lost.</p>
   </div>
 
   <!-- Calorie Phase Reduction -->
@@ -2015,7 +1738,7 @@
       <li><strong>Diet Coke:</strong> 1 daily max, always with a meal, never as hydration</li>
       <li><strong>Turmeric:</strong> ½–1 tsp daily with black pepper + fats for absorption</li>
       <li><strong>Carb timing:</strong> 80% of carbs in Meal 1 (pre-workout) + Meal 2 (post-workout). Meals 3–6 stay low carb.</li>
-      <li><strong>Recalculate:</strong> Every 5kg lost, reduce daily target by ~100 kcal. Log weight daily — and let 2 weeks of real weigh-in data override the assumed TDEE above if they disagree.</li>
+      <li><strong>Recalculate:</strong> Every 5kg lost, reduce daily target by ~100 kcal. Log weight daily.</li>
     </ul></div>
   </div>
 
@@ -2133,7 +1856,6 @@
       <li><div class="rule-dot"></div>Bulgarian split squats instead of walking lunges</li>
       <li><div class="rule-dot"></div>Knee warm-up before every leg day</li>
       <li><div class="rule-dot"></div>Rowing machine only for HIIT</li>
-      <li><div class="rule-dot"></div>Only Mon/Wed/Fri are true 5×5 max-effort — Thu/Sat compounds stay at 4×8 @ RPE 7</li>
     </ul>
   </div>
 
@@ -2207,45 +1929,6 @@
     <div id="logList" class="log-list">
       <div class="log-empty">No entries yet. Log your first weight above.</div>
     </div>
-  </div>
-
-  <!-- RECOVERY LOG (new): sleep + RPE -->
-  <div class="card">
-    <div class="card-title">Recovery Log</div>
-    <p class="note" style="margin-top:-8px;margin-bottom:14px;">Sleep and effort are leading indicators — they tell you why a week went well or badly before the scale does.</p>
-    <div class="recovery-input-grid">
-      <div class="recovery-field">
-        <label>Sleep (hours)</label>
-        <input type="number" id="sleepInput" placeholder="7.5" step="0.25" min="0" max="14"/>
-      </div>
-      <div class="recovery-field">
-        <label>Session RPE (1–10)</label>
-        <input type="number" id="rpeInput" placeholder="7" step="1" min="1" max="10"/>
-      </div>
-    </div>
-    <button class="recovery-log-btn" onclick="logRecovery()">Log Recovery</button>
-    <div id="recoveryList" class="log-list" style="margin-top:0">
-      <div class="log-empty">No entries yet. Log sleep and RPE above.</div>
-    </div>
-  </div>
-
-  <!-- MIND LOG (new) -->
-  <div class="card">
-    <div class="card-title">Mind Log</div>
-    <p class="note" style="margin-top:-8px;margin-bottom:10px;">Mood, meditation minutes, and notes from the Today tab, together in one place so you can see the pattern over a week or a month.</p>
-    <div style="font-size:11px;color:var(--text-sub);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:6px;">Last 7 days</div>
-    <div class="mood-history-row" id="moodHistoryRow"></div>
-    <div class="divider"></div>
-    <div style="font-size:11px;color:var(--text-sub);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:8px;">Notes</div>
-    <div id="mindNotesList" style="display:flex;flex-direction:column;gap:8px;">
-      <div class="log-empty">No notes yet.</div>
-    </div>
-  </div>
-
-  <!-- new: gentle, non-clinical support note -->
-  <div style="display:flex;align-items:flex-start;gap:10px;background:var(--purple-dim);border:1px solid rgba(181,126,255,0.25);border-radius:14px;padding:14px 16px;margin-bottom:12px;">
-    <div style="font-size:20px;">💜</div>
-    <div style="font-size:12.5px;color:var(--purple);font-weight:500;line-height:1.6;">This tracker is for awareness, not diagnosis. If low mood, poor sleep, or high stress persist for more than a couple of weeks, it's worth talking to a doctor or therapist — the same way you'd get bloodwork checked rather than guess.</div>
   </div>
 
   <div class="card">
@@ -2350,47 +2033,6 @@
 
   window.addEventListener('load', loadState);
 
-  // ── STEPS TRACKER ──
-  const STEPS_GOAL = 10000;
-
-  function getStepsState() {
-    try {
-      const saved = JSON.parse(localStorage.getItem('stepsToday'));
-      if (!saved || saved.date !== new Date().toDateString()) return { date: new Date().toDateString(), steps: 0 };
-      return saved;
-    } catch(e) { return { date: new Date().toDateString(), steps: 0 }; }
-  }
-
-  function saveStepsState(state) {
-    localStorage.setItem('stepsToday', JSON.stringify(state));
-  }
-
-  function renderStepsUI() {
-    const state = getStepsState();
-    const pct = Math.min(100, Math.round((state.steps / STEPS_GOAL) * 100));
-    document.getElementById('stepsCount').innerHTML = state.steps.toLocaleString() + ' <span>/ 10,000</span>';
-    document.getElementById('stepsBar').style.width = pct + '%';
-  }
-
-  function setSteps() {
-    const val = parseInt(document.getElementById('stepsInput').value, 10);
-    if (isNaN(val) || val < 0) return;
-    const state = getStepsState();
-    state.steps = val;
-    saveStepsState(state);
-    document.getElementById('stepsInput').value = '';
-    renderStepsUI();
-  }
-
-  function addSteps(amount) {
-    const state = getStepsState();
-    state.steps += amount;
-    saveStepsState(state);
-    renderStepsUI();
-  }
-
-  window.addEventListener('load', renderStepsUI);
-
   // ── WEIGHT LOGGING ──
   const START_WEIGHT = 143;
   const GOAL_WEIGHT  = 85;
@@ -2494,256 +2136,6 @@
 
   // call on page load
   window.addEventListener('load', renderWeightUI);
-
-  // ── RECOVERY LOG (sleep + RPE) ──
-  function getRecoveryLog() {
-    try { return JSON.parse(localStorage.getItem('recoveryLog') || '[]'); } catch(e) { return []; }
-  }
-
-  function saveRecoveryLog(log) {
-    localStorage.setItem('recoveryLog', JSON.stringify(log));
-  }
-
-  function logRecovery() {
-    const sleep = parseFloat(document.getElementById('sleepInput').value);
-    const rpe   = parseInt(document.getElementById('rpeInput').value, 10);
-    if (isNaN(sleep) && isNaN(rpe)) return;
-
-    const log = getRecoveryLog();
-    const today = new Date().toLocaleDateString('en-IN', { day:'2-digit', month:'short', year:'numeric' });
-
-    const entry = { date: today };
-    if (!isNaN(sleep)) entry.sleep = sleep;
-    if (!isNaN(rpe)) entry.rpe = rpe;
-
-    const todayIdx = log.findIndex(e => e.date === today);
-    if (todayIdx >= 0) log[todayIdx] = { ...log[todayIdx], ...entry };
-    else log.unshift(entry);
-
-    saveRecoveryLog(log);
-    document.getElementById('sleepInput').value = '';
-    document.getElementById('rpeInput').value = '';
-    renderRecoveryUI();
-  }
-
-  function renderRecoveryUI() {
-    const log = getRecoveryLog();
-    const listEl = document.getElementById('recoveryList');
-    if (!log.length) {
-      listEl.innerHTML = '<div class="log-empty">No entries yet. Log sleep and RPE above.</div>';
-      return;
-    }
-    listEl.innerHTML = '';
-    const shown = log.slice(0, 14);
-    shown.forEach(entry => {
-      let metricsHtml = '';
-      if (entry.sleep !== undefined) {
-        metricsHtml += `<span class="recovery-metric sleep">${entry.sleep}h sleep</span>`;
-      }
-      if (entry.rpe !== undefined) {
-        const rpeCls = entry.rpe <= 6 ? 'rpe-low' : entry.rpe <= 8 ? 'rpe-mid' : 'rpe-high';
-        metricsHtml += `<span class="recovery-metric ${rpeCls}">RPE ${entry.rpe}</span>`;
-      }
-      listEl.innerHTML += `
-        <div class="recovery-entry">
-          <div class="log-date">${entry.date}</div>
-          <div class="recovery-entry-metrics">${metricsHtml}</div>
-        </div>`;
-    });
-  }
-
-  window.addEventListener('load', renderRecoveryUI);
-
-  // ── MIND & MEDITATION ──
-  const MOOD_EMOJI = { 1: '😞', 2: '😕', 3: '😐', 4: '🙂', 5: '😄' };
-
-  function todayKey() {
-    return new Date().toLocaleDateString('en-IN', { day:'2-digit', month:'short', year:'numeric' });
-  }
-
-  function getMindLog() {
-    try { return JSON.parse(localStorage.getItem('mindLog') || '[]'); } catch(e) { return []; }
-  }
-
-  function saveMindLog(log) {
-    localStorage.setItem('mindLog', JSON.stringify(log));
-  }
-
-  function getTodayMindEntry(log) {
-    const today = todayKey();
-    let entry = log.find(e => e.date === today);
-    if (!entry) {
-      entry = { date: today, mood: null, meditationMinutes: 0, notes: [] };
-      log.unshift(entry);
-    }
-    return entry;
-  }
-
-  function setMood(val) {
-    const log = getMindLog();
-    const entry = getTodayMindEntry(log);
-    entry.mood = val;
-    saveMindLog(log);
-    renderMoodUI();
-    renderMindLogUI();
-  }
-
-  function renderMoodUI() {
-    const log = getMindLog();
-    const today = todayKey();
-    const entry = log.find(e => e.date === today);
-    const mood = entry ? entry.mood : null;
-    document.querySelectorAll('.mood-btn').forEach(btn => {
-      btn.classList.toggle('selected', mood !== null && parseInt(btn.dataset.mood, 10) === mood);
-    });
-  }
-
-  // meditation timer (wall-clock based — immune to setInterval throttling
-  // when the tab/app is backgrounded, and recoverable if the page reloads
-  // mid-session instead of silently losing the elapsed time)
-  let meditationRunning = false;
-  let meditationStartTs = null;
-  let meditationInterval = null;
-
-  function getMeditationTimerState() {
-    try { return JSON.parse(localStorage.getItem('meditationTimerState')); } catch(e) { return null; }
-  }
-
-  function saveMeditationTimerState(state) {
-    if (state) localStorage.setItem('meditationTimerState', JSON.stringify(state));
-    else localStorage.removeItem('meditationTimerState');
-  }
-
-  function toggleMeditationTimer() {
-    const btn = document.getElementById('meditationToggleBtn');
-    if (!meditationRunning) {
-      meditationRunning = true;
-      meditationStartTs = Date.now();
-      saveMeditationTimerState({ running: true, startTs: meditationStartTs });
-      btn.textContent = 'Stop';
-      btn.classList.add('running');
-      meditationInterval = setInterval(updateMeditationDisplay, 1000);
-    } else {
-      stopMeditationSession();
-    }
-  }
-
-  function stopMeditationSession() {
-    const btn = document.getElementById('meditationToggleBtn');
-    clearInterval(meditationInterval);
-    const elapsedSec = Math.floor((Date.now() - meditationStartTs) / 1000);
-    const minutes = Math.round(elapsedSec / 60);
-    if (minutes > 0) logMeditationMinutes(minutes);
-    meditationRunning = false;
-    meditationStartTs = null;
-    saveMeditationTimerState(null);
-    btn.textContent = 'Start';
-    btn.classList.remove('running');
-    document.getElementById('meditationDisplay').textContent = '00:00';
-  }
-
-  function updateMeditationDisplay() {
-    const elapsedSec = Math.floor((Date.now() - meditationStartTs) / 1000);
-    const m = Math.floor(elapsedSec / 60).toString().padStart(2, '0');
-    const s = (elapsedSec % 60).toString().padStart(2, '0');
-    document.getElementById('meditationDisplay').textContent = `${m}:${s}`;
-  }
-
-  // if a session was left running (tab closed / reloaded without pressing
-  // Stop), recover it: commit the elapsed time instead of losing it silently
-  function recoverMeditationTimer() {
-    const state = getMeditationTimerState();
-    if (!state || !state.running) return;
-    const elapsedSec = Math.floor((Date.now() - state.startTs) / 1000);
-    const minutes = Math.round(elapsedSec / 60);
-    if (minutes > 0) logMeditationMinutes(minutes);
-    saveMeditationTimerState(null);
-  }
-
-  function logMeditationMinutes(mins) {
-    const log = getMindLog();
-    const entry = getTodayMindEntry(log);
-    entry.meditationMinutes = (entry.meditationMinutes || 0) + mins;
-    saveMindLog(log);
-    renderMeditationTotal();
-  }
-
-  function resetMeditationToday() {
-    if (meditationRunning) stopMeditationSession();
-    const log = getMindLog();
-    const entry = getTodayMindEntry(log);
-    entry.meditationMinutes = 0;
-    saveMindLog(log);
-    renderMeditationTotal();
-  }
-
-  function renderMeditationTotal() {
-    const log = getMindLog();
-    const today = todayKey();
-    const entry = log.find(e => e.date === today);
-    const total = entry ? (entry.meditationMinutes || 0) : 0;
-    document.getElementById('meditationTotal').textContent = total + ' min';
-  }
-
-  function saveMindNote() {
-    const text = document.getElementById('mindNote').value.trim();
-    if (!text) return;
-    const log = getMindLog();
-    const entry = getTodayMindEntry(log);
-    if (!entry.notes) entry.notes = [];
-    entry.notes.push(text);
-    saveMindLog(log);
-    document.getElementById('mindNote').value = '';
-    renderMindLogUI();
-  }
-
-  function renderMindLogUI() {
-    const log = getMindLog();
-
-    // mood history — last 7 days, oldest to newest
-    const last7 = log.slice(0, 7).reverse();
-    const histEl = document.getElementById('moodHistoryRow');
-    if (histEl) {
-      histEl.innerHTML = '';
-      last7.forEach(entry => {
-        const emoji = entry.mood ? MOOD_EMOJI[entry.mood] : '·';
-        const dayLabel = entry.date.split(' ')[0];
-        histEl.innerHTML += `
-          <div class="mood-history-item">
-            <div class="mood-history-emoji">${emoji}</div>
-            <div class="mood-history-lbl">${dayLabel}</div>
-          </div>`;
-      });
-    }
-
-    // notes — most recent first, flattened across days, up to 10
-    const notesEl = document.getElementById('mindNotesList');
-    if (notesEl) {
-      const allNotes = [];
-      log.forEach(entry => {
-        (entry.notes || []).forEach(note => allNotes.push({ date: entry.date, text: note }));
-      });
-      if (!allNotes.length) {
-        notesEl.innerHTML = '<div class="log-empty">No notes yet.</div>';
-      } else {
-        notesEl.innerHTML = '';
-        allNotes.slice(0, 10).forEach(n => {
-          notesEl.innerHTML += `
-            <div class="mind-note-entry">
-              <div class="mind-note-date">${n.date}</div>
-              <div class="mind-note-text">${n.text.replace(/</g, '&lt;')}</div>
-            </div>`;
-        });
-      }
-    }
-  }
-
-  window.addEventListener('load', () => {
-    recoverMeditationTimer();
-    renderMoodUI();
-    renderMeditationTotal();
-    renderMindLogUI();
-  });
 </script>
 </body>
 </html>
