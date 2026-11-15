@@ -770,6 +770,20 @@
 
     strong { color: var(--text); font-weight: 600; }
 
+    /* ── RESTART TAB ── */
+    .rs-tabs{display:flex;gap:6px;margin-bottom:14px}
+    .rs-tab{flex:1;font-family:inherit;font-size:12px;font-weight:600;padding:10px 6px;border-radius:12px;border:1px solid var(--border);background:var(--surface-2);color:var(--text-muted);cursor:pointer}
+    .rs-tab.active{background:var(--accent-dim);border-color:rgba(200,244,97,.35);color:var(--accent)}
+    .rs-row{display:flex;gap:12px;padding:11px 0;border-bottom:1px solid var(--border)}
+    .rs-row:last-child{border:none}
+    .rs-d{width:34px;flex-shrink:0;font-family:'Syne',sans-serif;font-size:12px;font-weight:800;color:var(--accent);padding-top:1px}
+    .rs-t{font-size:13.5px;font-weight:600;color:var(--text)}
+    .rs-s{font-size:12px;color:var(--text-muted);margin-top:2px}
+    .rs-meta{font-size:12px;color:var(--text-muted);margin-bottom:6px}
+    .rs-days{display:grid;grid-template-columns:repeat(7,1fr);gap:6px}
+    .rs-day{aspect-ratio:1;border-radius:10px;background:var(--surface-2);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:var(--text-sub);cursor:pointer;user-select:none}
+    .rs-day.done{background:var(--accent);border-color:var(--accent);color:#1a2800}
+
     /* ── DAILY PROGRESS MARKER ── */
     .weight-input-row {
       display: flex;
@@ -973,6 +987,7 @@
   <div class="header-sub">143kg → 85kg · Body Recomp · Performance · Longevity</div>
   <nav>
     <button class="tab-btn active" onclick="openTab('today',this)">Today</button>
+    <button class="tab-btn" onclick="openTab('restart',this)">Restart</button>
     <button class="tab-btn" onclick="openTab('workout',this)">Workout</button>
     <button class="tab-btn" onclick="openTab('diet',this)">Diet</button>
     <button class="tab-btn" onclick="openTab('supplements',this)">Supplements</button>
@@ -1086,185 +1101,201 @@
 
 </section>
 
+<!-- ========== RESTART ========== -->
+<section id="restart">
+  <div class="section-header">Back to<br><span>Training</span></div>
+
+  <div class="hero-card">
+    <div style="font-size:11px;color:var(--accent);font-weight:700;text-transform:uppercase;letter-spacing:0.8px;margin-bottom:10px;">Resuming after a break · Gym</div>
+    <div style="font-family:'Syne',sans-serif;font-size:21px;font-weight:800;letter-spacing:-0.8px;line-height:1.2;margin-bottom:14px;">Rebuild the habit and the tissue <span style="color:var(--accent);">before you chase intensity.</span></div>
+    <div class="stat-row">
+      <div class="stat-pill"><div class="val" style="font-size:16px;">4→6</div><div class="lbl">Sessions/wk</div></div>
+      <div class="stat-pill"><div class="val" style="font-size:16px;">3→2</div><div class="lbl">Reps in reserve</div></div>
+      <div class="stat-pill"><div class="val" style="font-size:16px;">8–10k</div><div class="lbl">Daily steps</div></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">Weekly Schedule</div>
+    <div class="rs-tabs">
+      <button class="rs-tab active" onclick="rsPhase(0)">Weeks 1–2</button>
+      <button class="rs-tab" onclick="rsPhase(1)">Weeks 3–4</button>
+      <button class="rs-tab" onclick="rsPhase(2)">Week 5+</button>
+    </div>
+    <div class="rs-phase">
+      <div class="rs-meta">4 sessions · about 60% of full volume · 3 sets per exercise · stop each set with 3 reps left</div>
+      <div class="rs-row"><div class="rs-d">Mon</div><div><div class="rs-t">Upper re-entry</div><div class="rs-s">Variation A, B or C below</div></div></div>
+      <div class="rs-row"><div class="rs-d">Tue</div><div><div class="rs-t">Easy walk + mobility</div><div class="rs-s">40 min walk, then your 10-min flow</div></div></div>
+      <div class="rs-row"><div class="rs-d">Wed</div><div><div class="rs-t">Rest</div><div class="rs-s">Mobility flow + 8k steps</div></div></div>
+      <div class="rs-row"><div class="rs-d">Thu</div><div><div class="rs-t">Lower re-entry</div><div class="rs-s">Variation A, B or C below</div></div></div>
+      <div class="rs-row"><div class="rs-d">Fri</div><div><div class="rs-t">Full Body + Engine re-entry</div><div class="rs-s">Variation A, B or C below</div></div></div>
+      <div class="rs-row"><div class="rs-d">Sat</div><div><div class="rs-t">Zone 2</div><div class="rs-s">40 min, any option below</div></div></div>
+      <div class="rs-row"><div class="rs-d">Sun</div><div><div class="rs-t">Rest</div><div class="rs-s">Easy walk, early night</div></div></div>
+    </div>
+    <div class="rs-phase" style="display:none">
+      <div class="rs-meta">5 sessions · full volume · stop each set with 2 reps left</div>
+      <div class="rs-row"><div class="rs-d">Mon</div><div><div class="rs-t">Upper (Workout tab)</div><div class="rs-s">Full sets at the Wk 3–4 load guide</div></div></div>
+      <div class="rs-row"><div class="rs-d">Tue</div><div><div class="rs-t">Light Conditioning</div><div class="rs-s">Variation A, B or C below</div></div></div>
+      <div class="rs-row"><div class="rs-d">Wed</div><div><div class="rs-t">Zone 2</div><div class="rs-s">45 min, any Workout tab option</div></div></div>
+      <div class="rs-row"><div class="rs-d">Thu</div><div><div class="rs-t">Lower (Workout tab)</div><div class="rs-s">Full sets, 2 reps left</div></div></div>
+      <div class="rs-row"><div class="rs-d">Fri</div><div><div class="rs-t">Full Body (Workout tab)</div><div class="rs-s">Full sets, 2 reps left</div></div></div>
+      <div class="rs-row"><div class="rs-d">Sat</div><div><div class="rs-t">Long easy Zone 2</div><div class="rs-s">60 min, optional but recommended</div></div></div>
+      <div class="rs-row"><div class="rs-d">Sun</div><div><div class="rs-t">Rest</div><div class="rs-s">Easy walk, early night</div></div></div>
+    </div>
+    <div class="rs-phase" style="display:none">
+      <div class="rs-meta">6 days · the full Workout tab plan, fat loss first</div>
+      <div class="rs-row"><div class="rs-d">Mon</div><div><div class="rs-t">Upper</div><div class="rs-s">Workout tab, variation of the week</div></div></div>
+      <div class="rs-row"><div class="rs-d">Tue</div><div><div class="rs-t">Hybrid Conditioning</div><div class="rs-s">Workout tab, 1 of 6 formats</div></div></div>
+      <div class="rs-row"><div class="rs-d">Wed</div><div><div class="rs-t">Zone 2</div><div class="rs-s">Workout tab, 1 of 5 options</div></div></div>
+      <div class="rs-row"><div class="rs-d">Thu</div><div><div class="rs-t">Lower + Core</div><div class="rs-s">Workout tab, variation of the week</div></div></div>
+      <div class="rs-row"><div class="rs-d">Fri</div><div><div class="rs-t">Full Body</div><div class="rs-s">Workout tab, variation of the week</div></div></div>
+      <div class="rs-row"><div class="rs-d">Sat</div><div><div class="rs-t">Long Engine</div><div class="rs-s">Workout tab, 1 of 5 options</div></div></div>
+      <div class="rs-row"><div class="rs-d">Sun</div><div><div class="rs-t">Rest</div><div class="rs-s">Walk + mobility</div></div></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">This Week</div>
+    <div style="font-size:12px;color:var(--text-muted);margin-bottom:12px;">Tap a day when you have done its session. Resets every Monday. <span id="rsCount" style="color:var(--accent);font-weight:700;"></span></div>
+    <div class="rs-days">
+      <div class="rs-day" onclick="rsToggleDay(this)">M</div><div class="rs-day" onclick="rsToggleDay(this)">T</div><div class="rs-day" onclick="rsToggleDay(this)">W</div><div class="rs-day" onclick="rsToggleDay(this)">T</div><div class="rs-day" onclick="rsToggleDay(this)">F</div><div class="rs-day" onclick="rsToggleDay(this)">S</div><div class="rs-day" onclick="rsToggleDay(this)">S</div>
+    </div>
+  </div>
+
+  <div class="accord" onclick="toggleAccord(this)">
+    <div class="accord-header"><div style="flex:1"><div style="font-size:10px;color:var(--accent);font-weight:700;text-transform:uppercase;letter-spacing:0.8px;margin-bottom:4px;">Weeks 1–2</div><div class="accord-title" style="margin:0;">Upper Re-entry · 3 Variations</div></div>
+    <svg class="accord-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div>
+    <div class="accord-body list-body"><div class="tags"><span class="tag tag-training">A · Machines · 3 sets, 3 reps left</span></div><ul><li>Chest press machine 3×10, lat pulldown 3×10, seated row 3×10</li><li>DB shoulder press 3×10, cable face pull 3×15, plank 3×30s</li></ul><div class="tags"><span class="tag tag-training">B · Free Weights</span></div><ul><li>Bench press 3×8 at about 84 kg, assisted pull-up 3×6, DB row 3×10</li><li>DB shoulder press 3×8 at about 18–20 kg each, face pull 3×15</li></ul><div class="tags"><span class="tag tag-training">C · Hybrid Circuit · 3 rounds</span></div><ul><li>Chest press ×10 → seated row ×10 → shoulder press ×10, 45s rest between exercises</li><li>60s easy bike between rounds</li></ul></div>
+  </div>
+  <div class="accord" onclick="toggleAccord(this)">
+    <div class="accord-header"><div style="flex:1"><div style="font-size:10px;color:var(--accent);font-weight:700;text-transform:uppercase;letter-spacing:0.8px;margin-bottom:4px;">Weeks 1–2</div><div class="accord-title" style="margin:0;">Lower Re-entry · 3 Variations</div></div>
+    <svg class="accord-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div>
+    <div class="accord-body list-body"><div class="tags"><span class="tag tag-training">A · Machines</span></div><ul><li>Leg press 3×12, leg curl 3×12, hip thrust 3×10, calf raise 3×15, dead bug 3×8 each side</li></ul><div class="tags"><span class="tag tag-training">B · Barbell · 3 reps left</span></div><ul><li>Back squat 3×8 at about 133 kg, Romanian deadlift 3×8 at about 126 kg</li><li>DB split squat 3×8 each leg, calf raise 3×15</li></ul><div class="tags"><span class="tag tag-training">C · Hybrid</span></div><ul><li>Squat 3×8 at about 133 kg, then 3 rounds: goblet squat ×10, kettlebell swing ×12, 200 m easy row</li></ul></div>
+  </div>
+  <div class="accord" onclick="toggleAccord(this)">
+    <div class="accord-header"><div style="flex:1"><div style="font-size:10px;color:var(--accent);font-weight:700;text-transform:uppercase;letter-spacing:0.8px;margin-bottom:4px;">Weeks 1–2</div><div class="accord-title" style="margin:0;">Full Body + Engine Re-entry · 3 Variations</div></div>
+    <svg class="accord-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div>
+    <div class="accord-body list-body"><div class="tags"><span class="tag tag-training">A · Strength + Zone 2</span></div><ul><li>Deadlift 3×5 at about 126 kg, lat pulldown 3×8, DB press 3×8, farmer carry 3×30 m</li><li>Finish: 15 min bike Zone 2</li></ul><div class="tags"><span class="tag tag-training">B · Machine Circuit</span></div><ul><li>4 rounds, 60s rest: leg press ×12, chest press ×10, seated row ×10, plank 30s</li><li>Finish: 10 min easy row</li></ul><div class="tags"><span class="tag tag-training">C · Easy EMOM 16</span></div><ul><li>Min 1 row 200 m easy, min 2 goblet squat ×10, min 3 push-up ×8, min 4 rest</li></ul></div>
+  </div>
+  <div class="accord" onclick="toggleAccord(this)">
+    <div class="accord-header"><div style="flex:1"><div style="font-size:10px;color:var(--blue);font-weight:700;text-transform:uppercase;letter-spacing:0.8px;margin-bottom:4px;">Weeks 1–2 · Saturday</div><div class="accord-title" style="margin:0;">Zone 2 Options · 40 min, 121–134 BPM</div></div>
+    <svg class="accord-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div>
+    <div class="accord-body list-body"><div class="tags"><span class="tag tag-training">Pick one</span></div><ul><li>Bike steady</li><li>Incline treadmill walk 8–10%</li><li>Rower, 18–20 strokes per minute</li><li>Cross trainer or stair climber</li></ul></div>
+  </div>
+  <div class="accord" onclick="toggleAccord(this)">
+    <div class="accord-header"><div style="flex:1"><div style="font-size:10px;color:var(--orange);font-weight:700;text-transform:uppercase;letter-spacing:0.8px;margin-bottom:4px;">Weeks 3–4 · Tuesday</div><div class="accord-title" style="margin:0;">Light Conditioning · 3 Variations</div></div>
+    <svg class="accord-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div>
+    <div class="accord-body list-body"><div class="tags"><span class="tag tag-training">A · Rower Intervals</span></div><ul><li>4 × 2 min hard / 2 min easy, RPE 7–8, then 2 circuit rounds: goblet squat ×12, push-up ×10, hanging knee raise ×8</li></ul><div class="tags"><span class="tag tag-training">B · EMOM 16</span></div><ul><li>Min 1 row 250 m, min 2 goblet squat ×12, min 3 push-up ×10, min 4 easy bike</li></ul><div class="tags"><span class="tag tag-training">C · Norwegian 3×4</span></div><ul><li>3 × 4 min on the rower at RPE 7, 3 min easy between, 10 min Zone 2 cooldown</li></ul></div>
+  </div>
+  <div class="card">
+    <div class="card-title">Ground Rules</div>
+    <div class="list-body"><ul><li><strong>Progress by reps first.</strong> Add 1–2 reps per set each week, then add load.</li><li><strong>Move up a phase only if you finished every session.</strong> Missed a week? Repeat it.</li><li><strong>Soreness lasting over 72 hours, or sharp knee or lower-back pain,</strong> means repeat the week and do not add volume.</li><li><strong>No 1RM testing.</strong> Use the Load Guide in the Workout tab. If the bar feels slow or you have fewer than 2 reps left, drop 5%.</li><li><strong>Day 1:</strong> weigh in and log it in the Progress tab. If you are several kg off 143, recalculate calories before dieting hard.</li><li><strong>Every day:</strong> 8–10k steps, 10-minute morning mobility flow, protein and water targets, 7.5–9 hours of sleep.</li></ul></div>
+  </div>
+
+</section>
+
 <!-- ========== WORKOUT ========== -->
 <section id="workout">
-  <div class="section-header">Scientific<br><span>System</span></div>
+  <div class="section-header">Hybrid<br><span>Training</span></div>
 
-  <!-- Strength Profile Hero -->
   <div class="hero-card">
-    <div style="font-size:11px;color:var(--accent);font-weight:700;text-transform:uppercase;letter-spacing:0.8px;margin-bottom:10px;">PPL×2 · WUP Periodization · @lukamoves_ Mobility · Calisthenics Roadmap</div>
-    <div style="font-family:'Syne',sans-serif;font-size:22px;font-weight:800;letter-spacing:-0.8px;line-height:1.2;margin-bottom:14px;">Advanced lifter. <span style="color:var(--accent);">Science-first</span> progressive overload built from your actual 1RMs.</div>
+    <div style="font-size:11px;color:var(--accent);font-weight:700;text-transform:uppercase;letter-spacing:0.8px;margin-bottom:10px;">Strength · Engine · Core · Mobility · Gym</div>
+    <div style="font-family:'Syne',sans-serif;font-size:21px;font-weight:800;letter-spacing:-0.8px;line-height:1.2;margin-bottom:14px;">Lift heavy, build the engine, <span style="color:var(--accent);">never repeat a boring week.</span></div>
     <div class="stat-row">
-      <div class="stat-pill"><div class="val">190kg</div><div class="lbl">Squat 1RM</div></div>
-      <div class="stat-pill"><div class="val">120kg</div><div class="lbl">Bench 1RM</div></div>
-      <div class="stat-pill"><div class="val">180kg</div><div class="lbl">Deadlift 1RM</div></div>
-      <div class="stat-pill"><div class="val">60kg</div><div class="lbl">OHP 1RM</div></div>
+      <div class="stat-pill"><div class="val" style="font-size:16px;">3</div><div class="lbl">Strength days</div></div>
+      <div class="stat-pill"><div class="val" style="font-size:16px;">3</div><div class="lbl">Engine days</div></div>
+      <div class="stat-pill"><div class="val" style="font-size:16px;">25</div><div class="lbl">Variations</div></div>
+      <div class="stat-pill"><div class="val" style="font-size:16px;">80/20</div><div class="lbl">Easy : hard</div></div>
     </div>
+    <p class="note" style="margin-top:12px;">Coming back from a break? Use the Restart tab ramp for the first 4 weeks, then run this.</p>
   </div>
 
-  <!-- Working Weight Table -->
   <div class="card">
-    <div class="card-title">Your Exact Working Weights</div>
-    <div style="font-size:11px;color:var(--text-muted);margin-bottom:12px;">Epley formula from confirmed 1RMs: Squat 190kg · Bench 120kg · Deadlift 180kg · OHP 60kg. Use these loads — not feelings.</div>
-    <div style="overflow-x:auto;">
-      <table style="width:100%;border-collapse:collapse;font-size:12px;">
-        <thead>
-          <tr style="border-bottom:1px solid var(--border);">
-            <th style="text-align:left;padding:8px 6px;color:var(--text-sub);font-weight:600;text-transform:uppercase;letter-spacing:0.5px;font-size:10px;">Lift</th>
-            <th style="text-align:center;padding:8px 4px;color:var(--accent);font-weight:700;font-size:10px;">85%<br>Strength</th>
-            <th style="text-align:center;padding:8px 4px;color:var(--orange);font-weight:700;font-size:10px;">75–80%<br>Hypertrophy</th>
-            <th style="text-align:center;padding:8px 4px;color:var(--blue);font-weight:700;font-size:10px;">70%<br>Volume</th>
-            <th style="text-align:center;padding:8px 4px;color:var(--text-sub);font-weight:700;font-size:10px;">60%<br>Deload</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr style="border-bottom:1px solid var(--border);">
-            <td style="padding:10px 6px;font-weight:600;color:var(--text);">Squat</td>
-            <td style="text-align:center;padding:10px 4px;color:var(--accent);font-weight:700;">161kg</td>
-            <td style="text-align:center;padding:10px 4px;color:var(--orange);font-weight:700;">142–152kg</td>
-            <td style="text-align:center;padding:10px 4px;color:var(--blue);font-weight:700;">133kg</td>
-            <td style="text-align:center;padding:10px 4px;color:var(--text-muted);">114kg</td>
-          </tr>
-          <tr style="border-bottom:1px solid var(--border);">
-            <td style="padding:10px 6px;font-weight:600;color:var(--text);">Bench</td>
-            <td style="text-align:center;padding:10px 4px;color:var(--accent);font-weight:700;">102kg</td>
-            <td style="text-align:center;padding:10px 4px;color:var(--orange);font-weight:700;">90–96kg</td>
-            <td style="text-align:center;padding:10px 4px;color:var(--blue);font-weight:700;">84kg</td>
-            <td style="text-align:center;padding:10px 4px;color:var(--text-muted);">72kg</td>
-          </tr>
-          <tr style="border-bottom:1px solid var(--border);">
-            <td style="padding:10px 6px;font-weight:600;color:var(--text);">Deadlift</td>
-            <td style="text-align:center;padding:10px 4px;color:var(--accent);font-weight:700;">153kg</td>
-            <td style="text-align:center;padding:10px 4px;color:var(--orange);font-weight:700;">135–144kg</td>
-            <td style="text-align:center;padding:10px 4px;color:var(--blue);font-weight:700;">126kg</td>
-            <td style="text-align:center;padding:10px 4px;color:var(--text-muted);">108kg</td>
-          </tr>
-          <tr>
-            <td style="padding:10px 6px;font-weight:600;color:var(--text);">OHP</td>
-            <td style="text-align:center;padding:10px 4px;color:var(--accent);font-weight:700;">51kg</td>
-            <td style="text-align:center;padding:10px 4px;color:var(--orange);font-weight:700;">45–48kg</td>
-            <td style="text-align:center;padding:10px 4px;color:var(--blue);font-weight:700;">42kg</td>
-            <td style="text-align:center;padding:10px 4px;color:var(--text-muted);">36kg</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-    <p class="note" style="margin-top:10px;">Squat 1.33× BW · Bench 0.84× BW · Deadlift 1.26× BW · OHP 0.42× BW. OHP is the lagging lift — bring it up on Thursday. Plyometrics deferred to 110kg bodyweight. Isometrics kept as mobility tool only. Hypertrophy is your primary training mode.</p>
+    <div class="card-title">The Week</div>
+      <div class="rs-row"><div class="rs-d">Mon</div><div><div class="rs-t">Strength · Upper</div><div class="rs-s">Variations A / B / C + engine finisher</div></div></div>
+      <div class="rs-row"><div class="rs-d">Tue</div><div><div class="rs-t">Hybrid Conditioning</div><div class="rs-s">Pick 1 of 6 formats</div></div></div>
+      <div class="rs-row"><div class="rs-d">Wed</div><div><div class="rs-t">Engine · Zone 2</div><div class="rs-s">Pick 1 of 5 options + hip mobility</div></div></div>
+      <div class="rs-row"><div class="rs-d">Thu</div><div><div class="rs-t">Strength · Lower + Core</div><div class="rs-s">Variations A / B / C + engine finisher</div></div></div>
+      <div class="rs-row"><div class="rs-d">Fri</div><div><div class="rs-t">Strength · Full Body</div><div class="rs-s">Variations A / B / C</div></div></div>
+      <div class="rs-row"><div class="rs-d">Sat</div><div><div class="rs-t">Long Engine</div><div class="rs-s">Pick 1 of 5 options + loaded mobility</div></div></div>
+      <div class="rs-row"><div class="rs-d">Sun</div><div><div class="rs-t">Rest</div><div class="rs-s">30 min easy walk + CARs circuit, early night</div></div></div>
   </div>
 
-  <!-- Science Decision Card -->
-  <div class="card" style="background:var(--surface-2);border-color:var(--border-accent);">
-    <div class="card-title">Science Decision: What's Right For You</div>
-    <div style="font-size:12px;color:var(--accent);font-weight:700;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:10px;">Goal: Fat loss primary · Muscle retention · Some growth · Calorie deficit</div>
-    <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:14px;">
-      <div style="padding:12px;background:rgba(200,244,97,0.07);border:1px solid rgba(200,244,97,0.2);border-radius:12px;">
-        <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;">
-          <span style="font-size:16px;">✅</span>
-          <div style="font-size:13px;font-weight:700;color:var(--accent);">Hypertrophy · PRIMARY training mode</div>
-        </div>
-        <div style="font-size:12px;color:#ccc;line-height:1.5;">75–80% 1RM · 8–12 reps · 2–3 min rest. In a calorie deficit, hypertrophy training is the only signal that tells your body to keep muscle instead of burning it (Barakat et al., 2020). Also produces the highest EPOC — your body burns fat for 24–48h after each session. This is your most productive modality for every goal you have.</div>
-      </div>
-      <div style="padding:12px;background:rgba(200,244,97,0.04);border:1px solid rgba(200,244,97,0.1);border-radius:12px;">
-        <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;">
-          <span style="font-size:16px;">✅</span>
-          <div style="font-size:13px;font-weight:700;color:var(--text);">Strength · KEPT as foundation</div>
-        </div>
-        <div style="font-size:12px;color:#ccc;line-height:1.5;">85% 1RM · 3–5 reps · 4–5 min rest. You've built a 190kg squat and 180kg deadlift. Losing that neural base during a cut is a waste. Two strength days per week maintains the motor patterns and CNS output you've built. Mon Push + Fri Pull.</div>
-      </div>
-      <div style="padding:12px;background:rgba(181,126,255,0.07);border:1px solid rgba(181,126,255,0.15);border-radius:12px;">
-        <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;">
-          <span style="font-size:16px;">🔶</span>
-          <div style="font-size:13px;font-weight:700;color:var(--purple);">Isometrics · SUPPLEMENTARY only</div>
-        </div>
-        <div style="font-size:12px;color:#ccc;line-height:1.5;">Excellent for tendon health, joint stability, and end-range strength (the @lukamoves_ approach). Already embedded in every mobility session. Not a primary fat loss or hypertrophy driver — stay supplementary.</div>
-      </div>
-      <div style="padding:12px;background:rgba(255,95,95,0.07);border:1px solid rgba(255,95,95,0.15);border-radius:12px;">
-        <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;">
-          <span style="font-size:16px;">❌</span>
-          <div style="font-size:13px;font-weight:700;color:var(--red);">Plyometrics · NOT now</div>
-        </div>
-        <div style="font-size:12px;color:#ccc;line-height:1.5;">Jumping and bounding at 143kg puts 3–7× bodyweight through knees and ankles per landing. Your knee history and current weight make this a genuine injury risk. Revisit at 110kg. The explosive intent on strength days gives you the RFD benefit without impact risk.</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Periodization System -->
   <div class="card">
-    <div class="card-title">Periodization: WUP — Fat Loss Optimised</div>
-    <div style="font-size:13px;color:#bbb;margin-bottom:14px;line-height:1.5;">WUP (Rhea et al., 2002) — Daily variation prevents accommodation. Power day replaced with a second Hypertrophy day since plyometrics are out. This maximises the hypertrophy stimulus across 6 sessions while keeping two strength anchors to protect your base.</div>
-    <div style="display:flex;flex-direction:column;gap:8px;">
-      <div style="display:flex;align-items:center;gap:12px;padding:12px;background:var(--surface-2);border:1px solid var(--border);border-radius:12px;">
-        <div style="width:36px;height:36px;border-radius:10px;background:var(--accent-dim);display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;">💪</div>
-        <div>
-          <div style="font-size:13px;font-weight:700;color:var(--text);">Strength · 85% 1RM · 4×4 · 4–5 min rest</div>
-          <div style="font-size:11px;color:var(--text-muted);margin-top:2px;">Neural adaptation. Max motor unit recruitment. Mon Push A · Fri Pull B</div>
-        </div>
-      </div>
-      <div style="display:flex;align-items:center;gap:12px;padding:12px;background:var(--surface-2);border:1px solid var(--border);border-radius:12px;">
-        <div style="width:36px;height:36px;border-radius:10px;background:var(--orange-dim);display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;">🔥</div>
-        <div>
-          <div style="font-size:13px;font-weight:700;color:var(--text);">Hypertrophy · 75–80% 1RM · 4×8–12 · 2–3 min rest</div>
-          <div style="font-size:11px;color:var(--text-muted);margin-top:2px;">Muscle retention + growth. Highest EPOC. Tue Pull A · Wed Legs A · Thu Push B</div>
-        </div>
-      </div>
-      <div style="display:flex;align-items:center;gap:12px;padding:12px;background:var(--surface-2);border:1px solid var(--border);border-radius:12px;">
-        <div style="width:36px;height:36px;border-radius:10px;background:var(--blue-dim);display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;">⚡</div>
-        <div>
-          <div style="font-size:13px;font-weight:700;color:var(--text);">Volume · 70–75% 1RM · 4×12–15 · 90s–2 min rest</div>
-          <div style="font-size:11px;color:var(--text-muted);margin-top:2px;">Metabolic conditioning + Zone 2. Sat Legs B — highest fat burn day of the week</div>
-        </div>
-      </div>
-    </div>
+    <div class="card-title">Load Guide After Your Break</div>
+    <div style="font-size:12px;color:var(--text-muted);margin-bottom:10px;">Built from your last confirmed 1RMs. Strength days use 3–4 sets of 5–8. If the bar feels slow or you have fewer than 2 reps left, drop 5%.</div>
+    <div style="overflow-x:auto;"><table style="width:100%;border-collapse:collapse;font-size:12px;">
+      <thead><tr style="border-bottom:1px solid var(--border);"><th style="text-align:left;padding:8px 6px;color:var(--text-sub);font-size:10px;text-transform:uppercase;">Lift</th><th style="padding:8px 4px;color:var(--accent);font-size:10px;">Wk 1–2<br>~70%</th><th style="padding:8px 4px;color:var(--orange);font-size:10px;">Wk 3–4<br>75–80%</th><th style="padding:8px 4px;color:var(--blue);font-size:10px;">Wk 5+<br>80–85%</th></tr></thead>
+      <tbody>
+        <tr style="border-bottom:1px solid var(--border);"><td style="padding:9px 6px;font-weight:600;">Squat</td><td style="text-align:center;">133 kg</td><td style="text-align:center;">142–152 kg</td><td style="text-align:center;">152–161 kg</td></tr>
+        <tr style="border-bottom:1px solid var(--border);"><td style="padding:9px 6px;font-weight:600;">Bench</td><td style="text-align:center;">84 kg</td><td style="text-align:center;">90–96 kg</td><td style="text-align:center;">96–102 kg</td></tr>
+        <tr style="border-bottom:1px solid var(--border);"><td style="padding:9px 6px;font-weight:600;">Deadlift</td><td style="text-align:center;">126 kg</td><td style="text-align:center;">135–144 kg</td><td style="text-align:center;">144–153 kg</td></tr>
+        <tr><td style="padding:9px 6px;font-weight:600;">OHP</td><td style="text-align:center;">42 kg</td><td style="text-align:center;">45–48 kg</td><td style="text-align:center;">48–51 kg</td></tr>
+      </tbody></table></div>
+    <p class="note">1RMs used: squat 190, bench 120, deadlift 180, OHP 60. Accessories: pick a weight that leaves 3 reps in reserve in weeks 1–2.</p>
   </div>
 
-  <!-- Progressive Overload Protocol -->
+  <div class="accord" onclick="toggleAccord(this)">
+    <div class="accord-header"><div style="flex:1"><div style="font-size:10px;color:var(--accent);font-weight:700;text-transform:uppercase;letter-spacing:0.8px;margin-bottom:4px;">Monday · Strength</div><div class="accord-title" style="margin:0;">Upper · 3 Variations</div></div>
+    <svg class="accord-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div>
+    <div class="accord-body list-body"><div class="tags"><span class="tag tag-warmup">Warm-Up · 8 min</span></div><ul><li>5 min bike or rower easy, shoulder CARs ×5 each, scapular pull-ups ×8, thread the needle ×8 each side</li><li>Bench ramp: bar ×12, 50% ×6, 70% ×3</li></ul><div class="tags"><span class="tag tag-training">A · Heavy Strength · rest 2–3 min</span></div><ul><li>Barbell bench press 4×5–8</li><li>Pull-up 4×4–6 (assisted machine or negatives if needed)</li><li>Seated DB shoulder press 3×8–10</li><li>Chest-supported or T-bar row 4×8–10</li><li>Cable face pull 3×15</li><li>Triceps pushdown + EZ-bar curl superset 3×10–12</li></ul><div class="tags"><span class="tag tag-training">B · Hybrid Supersets · 60–90s rest between pairs</span></div><ul><li>A1 Incline DB press 4×8–10 → A2 Lat pulldown 4×8–10</li><li>B1 Machine shoulder press 3×10–12 → B2 Seated cable row 3×10–12</li><li>C1 Cable fly 3×12–15 → C2 Face pull 3×15</li><li>D1 Dips 3×8–10 → D2 Hammer curl 3×10–12</li></ul><div class="tags"><span class="tag tag-training">C · Bench + Rower EMOM</span></div><ul><li>20 min EMOM: odd minutes 5 bench reps at about 90 kg, fast bar; even minutes 250 m easy row</li><li>Then pull-ups 3×max−1, face pulls 3×15, hanging leg raise 3×10</li></ul><div class="tags"><span class="tag tag-training">Core</span></div><ul><li>Hanging leg raise 3×8–12, plank 2×45s</li></ul><div class="tags"><span class="tag tag-training">Engine finisher · pick one</span></div><ul><li>10 min Zone 2 on the bike (121–134 BPM)</li><li>8 min steady rower, easy stroke rate</li><li>6 × 1 min moderate rower / 1 min easy</li><li>10 min incline walk, 8–12% incline</li></ul><div class="tags"><span class="tag tag-cooldown">Cooldown + Pelvic Floor · 6 min</span></div><ul><li>Doorway chest stretch and lat stretch 45s each side, upper trap and triceps stretch 30s each side</li><li>Diaphragmatic breathing 2 min, Kegel holds 5s ×10</li></ul><p class="note">Rotate: Wk1 A, Wk2 B, Wk3 C, Wk4 deload (A at 60% load) Start at A in your first full-volume week. Use C only from week 3, it is the hardest.</p></div>
+  </div>
+  <div class="accord" onclick="toggleAccord(this)">
+    <div class="accord-header"><div style="flex:1"><div style="font-size:10px;color:var(--orange);font-weight:700;text-transform:uppercase;letter-spacing:0.8px;margin-bottom:4px;">Tuesday · Hybrid Conditioning</div><div class="accord-title" style="margin:0;">The Hard Day · 6 Formats</div></div>
+    <svg class="accord-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div>
+    <div class="accord-body list-body"><div class="tags"><span class="tag tag-warmup">Warm-Up · 10 min (all formats)</span></div><ul><li>5 min easy row, lateral shuffles 4×10 m, quick-feet taps 4×15s</li><li>2 build-ups of 30s at 70% effort</li></ul><div class="tags"><span class="tag tag-training">A · Rower Intervals + Circuit</span></div><ul><li>6 × 2 min hard / 2 min easy on the rower, RPE 8 (about 150–165 BPM), same split every round</li><li>3 rounds, 60s rest: goblet squat ×12, kettlebell swing ×15, push-up ×10, sled push 20 m, hanging knee raise ×8</li></ul><div class="tags"><span class="tag tag-training">B · EMOM 24</span></div><ul><li>6 rounds of a 4-minute block: min 1 row 250 m, min 2 goblet squat ×12, min 3 push-up ×10, min 4 easy bike or rest</li></ul><div class="tags"><span class="tag tag-training">C · Norwegian 4×4 (VO2 builder)</span></div><ul><li>4 × 4 min on the rower at RPE 8–9 (about 155–168 BPM), 3 min easy between</li><li>10 min Zone 2 cooldown. Hold the same pace across all 4 rounds</li></ul><div class="tags"><span class="tag tag-training">D · Sled + Carry Engine</span></div><ul><li>5 rounds, 90s rest: sled push 20 m, farmer carry 40 m, row 250 m, kettlebell swing ×15</li><li>No sled? Replace with a heavy DB walk 30 m</li></ul><div class="tags"><span class="tag tag-training">E · Rower Pyramid</span></div><ul><li>Hard/easy equal: 1-2-3-4-3-2-1 min, RPE 8 on the hard efforts</li><li>Then 3 × 10 hanging leg raise and 3 × 30s plank</li></ul><div class="tags"><span class="tag tag-training">F · Hybrid Chipper (for time, 25 min cap)</span></div><ul><li>Row 1,000 m → 40 goblet squats → 30 push-ups → 20 hanging knee raises → row 1,000 m</li><li>Moderate pace, never all-out. Log the time and beat it in 4 weeks</li></ul><div class="tags"><span class="tag tag-mobility">Finish</span></div><ul><li>3 min easy walk, child’s pose, hip flexor stretch</li></ul><p class="note">Hard intervals stay on the rower or bike, never the treadmill. Do not repeat the same format two weeks in a row.</p></div>
+  </div>
+  <div class="accord" onclick="toggleAccord(this)">
+    <div class="accord-header"><div style="flex:1"><div style="font-size:10px;color:var(--blue);font-weight:700;text-transform:uppercase;letter-spacing:0.8px;margin-bottom:4px;">Wednesday · Engine</div><div class="accord-title" style="margin:0;">Zone 2 · 5 Options + Hip Mobility</div></div>
+    <svg class="accord-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div>
+    <div class="accord-body list-body"><div class="tags"><span class="tag tag-warmup">Ramp · 5 min</span></div><ul><li>Start easy for 5 minutes, then settle into your Zone 2 heart rate</li></ul><div class="tags"><span class="tag tag-training">Zone 2 · 121–134 BPM, nasal breathing</span></div><ul><li><strong>A</strong> Steady bike 55 min</li><li><strong>B</strong> Incline treadmill walk 50–60 min at 8–12%</li><li><strong>C</strong> Rower steady 40 min, 18–20 strokes per minute</li><li><strong>D</strong> Stair climber or cross trainer 45 min</li><li><strong>E</strong> Rotation: 15 min each on bike, rower, incline walk, cross trainer</li></ul><div class="tags"><span class="tag tag-mobility">Hip Mobility · 15 min (Luka-style flow)</span></div><ul><li>Hip CARs ×5 each way, each leg</li><li>90/90 flow ×6 with 5s end-range press each side</li><li>Pigeon pose 90s each side, last 20s pressing the hip down</li><li>Deep squat hold 60s</li></ul></div>
+  </div>
+  <div class="accord" onclick="toggleAccord(this)">
+    <div class="accord-header"><div style="flex:1"><div style="font-size:10px;color:var(--accent);font-weight:700;text-transform:uppercase;letter-spacing:0.8px;margin-bottom:4px;">Thursday · Strength</div><div class="accord-title" style="margin:0;">Lower + Core · 3 Variations</div></div>
+    <svg class="accord-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div>
+    <div class="accord-body list-body"><div class="tags"><span class="tag tag-warmup">Warm-Up · 8 min</span></div><ul><li>Ankle and hip CARs, Cossack squat ×8 each side</li><li>Squat ramp: bar ×10, 50% ×5, 70% ×3</li></ul><div class="tags"><span class="tag tag-training">A · Heavy Strength · rest 2–3 min</span></div><ul><li>Back squat 4×5–8</li><li>Romanian deadlift 4×8 (3s down)</li><li>DB Bulgarian split squat 3×8–10 each leg</li><li>Hip thrust 3×8–10</li><li>Leg curl 3×10–12</li><li>Standing calf raise 4×12–15</li></ul><div class="tags"><span class="tag tag-training">B · Hybrid Supersets · 90s rest between pairs</span></div><ul><li>A1 Leg press 4×10–12 → A2 Lying leg curl 4×10–12</li><li>B1 DB Romanian deadlift 3×10 → B2 Hip thrust 3×10</li><li>C1 DB split squat 3×10 each → C2 Standing calf raise 3×15</li><li>Finisher: sled push or heavy sled drag 6 × 20 m</li></ul><div class="tags"><span class="tag tag-training">C · Squat + Rower EMOM</span></div><ul><li>16 min EMOM: odd minutes 4 back squats at about 142 kg, fast; even minutes 200 m easy row</li><li>Then DB Romanian deadlift 3×8, split squat 3×8 each leg</li></ul><div class="tags"><span class="tag tag-training">Core</span></div><ul><li>Ab wheel or cable crunch 3×10–12, dead bug 3×8 each side</li></ul><div class="tags"><span class="tag tag-training">Engine finisher · pick one</span></div><ul><li>10 min Zone 2 on the bike (121–134 BPM)</li><li>8 min steady rower, easy stroke rate</li><li>6 × 1 min moderate rower / 1 min easy</li><li>10 min incline walk, 8–12% incline</li></ul><div class="tags"><span class="tag tag-cooldown">Cooldown</span></div><ul><li>Quad, hamstring, calf and hip flexor stretches 45s each side</li><li>Diaphragmatic breathing 2 min, Kegel holds 5s ×10</li></ul><p class="note">Rotate: Wk1 A, Wk2 B, Wk3 C, Wk4 deload (A at 60% load) Start at A in your first full-volume week. Use C only from week 3, it is the hardest.</p></div>
+  </div>
+  <div class="accord" onclick="toggleAccord(this)">
+    <div class="accord-header"><div style="flex:1"><div style="font-size:10px;color:var(--accent);font-weight:700;text-transform:uppercase;letter-spacing:0.8px;margin-bottom:4px;">Friday · Strength</div><div class="accord-title" style="margin:0;">Full Body · 3 Variations</div></div>
+    <svg class="accord-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div>
+    <div class="accord-body list-body"><div class="tags"><span class="tag tag-warmup">Warm-Up · 8 min</span></div><ul><li>Row 5 min easy, dead hangs 3×20s, hip hinge drill ×10</li><li>Deadlift ramp: 50% ×5, 70% ×3</li></ul><div class="tags"><span class="tag tag-training">A · Heavy Pull + Carries · rest 2–3 min</span></div><ul><li>Deadlift 4×4–6 (trap bar if the gym has one, otherwise conventional)</li><li>Lat pulldown or weighted pull-up 4×6–10</li><li>Standing overhead press 3×6–8</li><li>Farmer carry 4×40 m, heaviest load with a straight torso</li><li>DB split squat 3×8 each leg</li><li>Incline DB press 3×8–10, cable woodchop 3×10 each side</li><li>Finish: 15 min Zone 2 on the bike</li></ul><div class="tags"><span class="tag tag-training">B · Barbell Complex + Strength</span></div><ul><li>Complex, 4 rounds with 90s rest, 40–50 kg bar: 6 Romanian deadlift → 6 bent-over row → 6 front squat → 6 push press</li><li>Then pull-up 4×max−2, farmer carry 4×40 m heavy, hanging leg raise 3×10</li></ul><div class="tags"><span class="tag tag-training">C · Carries + Engine</span></div><ul><li>Farmer carry 5×40 m, sled push 5×20 m, weighted pull-up or pulldown 4×6, DB Romanian deadlift 3×10</li><li>Finish: 20 min steady rower, 18–20 strokes per minute</li></ul><div class="tags"><span class="tag tag-cooldown">Cooldown + Pelvic Floor · 6 min</span></div><ul><li>Hamstring, hip flexor and lat stretches 45s each side, child’s pose 60s</li><li>Diaphragmatic breathing 2 min, Kegel holds 5s ×10</li></ul><p class="note">Rotate: Wk1 A, Wk2 B, Wk3 C, Wk4 deload. Start at A in your first full-volume week.</p></div>
+  </div>
+  <div class="accord" onclick="toggleAccord(this)">
+    <div class="accord-header"><div style="flex:1"><div style="font-size:10px;color:var(--blue);font-weight:700;text-transform:uppercase;letter-spacing:0.8px;margin-bottom:4px;">Saturday · Engine</div><div class="accord-title" style="margin:0;">Long Engine · 5 Options + Loaded Mobility</div></div>
+    <svg class="accord-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div>
+    <div class="accord-body list-body"><div class="tags"><span class="tag tag-warmup">Ramp · 5 min</span></div><ul><li>Start easy for 5 minutes, then settle into your Zone 2 heart rate</li></ul><div class="tags"><span class="tag tag-training">Long Zone 2 · 121–134 BPM</span></div><ul><li><strong>A</strong> Incline treadmill walk 75 min</li><li><strong>B</strong> Bike 75 min, last 15 min at the top of Zone 2</li><li><strong>C</strong> Mixed: 20 min rower, 30 min bike, 20 min incline walk</li><li><strong>D</strong> Swim 40–45 min steady, if the gym has a pool</li><li><strong>E</strong> Hybrid long: 6 × (8 min bike Zone 2, then 10 goblet squats, 10 DB rows, 10 push-ups at an easy pace)</li></ul><div class="tags"><span class="tag tag-mobility">Loaded Mobility · 15 min</span></div><ul><li>Frog stretch with 10s end-range presses ×3</li><li>Cossack squat flow ×10 each side, 3s pause at the bottom</li><li>Kneeling hip flexor lunge with glute squeeze, then rotate ×6 each side</li><li>Deep squat hold 90s</li></ul><p class="note">Add 5 min per week until you reach 75 min.</p></div>
+  </div>
+  <div class="accord" onclick="toggleAccord(this)">
+    <div class="accord-header"><div style="flex:1"><div style="font-size:10px;color:var(--text-muted);font-weight:700;text-transform:uppercase;letter-spacing:0.8px;margin-bottom:4px;">Sunday · Recovery</div><div class="accord-title" style="margin:0;">Rest + Reset</div></div>
+    <svg class="accord-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div>
+    <div class="accord-body list-body"><div class="tags"><span class="tag tag-mobility">Reset</span></div><ul><li>30 min easy walk in daylight</li><li>Full CARs circuit: ankle, hip, thoracic, shoulder, 20 min total</li><li>Pelvic floor 5 min (Kegel holds, pulses, reverse Kegel), diaphragmatic breathing 10 min, sleep 8+ hours</li></ul></div>
+  </div>
+
   <div class="card">
-    <div class="card-title">Progressive Overload — Exact Protocol</div>
-    <div style="font-size:11px;color:var(--accent);font-weight:700;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:10px;">Double progression — reps first, then weight. Never skip steps.</div>
-    <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:14px;">
-      <div style="padding:12px 14px;background:var(--surface-2);border:1px solid var(--border);border-radius:12px;">
-        <div style="font-size:12px;font-weight:700;color:var(--accent);margin-bottom:4px;">Step 1 · Hit top of rep range on ALL sets</div>
-        <div style="font-size:12px;color:var(--text-muted);">Target 4×8. Session 1 you get 8,8,7,6 — not ready. Session 3 you get 8,8,8,8 — ready to progress.</div>
-      </div>
-      <div style="padding:12px 14px;background:var(--surface-2);border:1px solid var(--border);border-radius:12px;">
-        <div style="font-size:12px;font-weight:700;color:var(--orange);margin-bottom:4px;">Step 2 · Add load, drop back to bottom of rep range</div>
-        <div style="font-size:12px;color:var(--text-muted);">Squat/DL: +5kg → start back at 4×8 with new weight. Bench/OHP: +2.5kg. Isolations: +1–2.5kg.</div>
-      </div>
-      <div style="padding:12px 14px;background:var(--surface-2);border:1px solid var(--border);border-radius:12px;">
-        <div style="font-size:12px;font-weight:700;color:var(--blue);margin-bottom:4px;">Step 3 · Last set AMRAP every compound</div>
-        <div style="font-size:12px;color:var(--text-muted);">Stop 1–2 reps before failure (RPE 8). This data tells you exactly when you're ready to progress. Log it every session without exception.</div>
-      </div>
-      <div style="padding:12px 14px;background:var(--surface-2);border:1px solid var(--border);border-radius:12px;">
-        <div style="font-size:12px;font-weight:700;color:var(--purple);margin-bottom:4px;">Step 4 · Deload every 4th week — mandatory</div>
-        <div style="font-size:12px;color:var(--text-muted);">All compounds drop to 60% 1RM, 3×5, RPE 5 max. Connective tissue recovers slower than muscle. Skipping deloads causes tendon injuries, not fitness gains.</div>
-      </div>
-    </div>
-    <div style="font-size:11px;color:var(--accent);font-weight:700;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:10px;">Load increment rules — your specific numbers</div>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;">
-      <div style="padding:10px;background:var(--surface-2);border:1px solid var(--border);border-radius:12px;text-align:center;">
-        <div style="font-family:'Syne',sans-serif;font-size:18px;font-weight:800;color:var(--accent);">+5kg</div>
-        <div style="font-size:10px;color:var(--text-muted);margin-top:3px;">Squat · Deadlift<br>per progression</div>
-      </div>
-      <div style="padding:10px;background:var(--surface-2);border:1px solid var(--border);border-radius:12px;text-align:center;">
-        <div style="font-family:'Syne',sans-serif;font-size:18px;font-weight:800;color:var(--orange);">+2.5kg</div>
-        <div style="font-size:10px;color:var(--text-muted);margin-top:3px;">Bench · OHP<br>per progression</div>
-      </div>
-      <div style="padding:10px;background:var(--surface-2);border:1px solid var(--border);border-radius:12px;text-align:center;">
-        <div style="font-family:'Syne',sans-serif;font-size:18px;font-weight:800;color:var(--blue);">+2.5kg</div>
-        <div style="font-size:10px;color:var(--text-muted);margin-top:3px;">Romanian DL · Rows<br>per progression</div>
-      </div>
-      <div style="padding:10px;background:var(--surface-2);border:1px solid var(--border);border-radius:12px;text-align:center;">
-        <div style="font-family:'Syne',sans-serif;font-size:18px;font-weight:800;color:var(--purple);">+1–2.5kg</div>
-        <div style="font-size:10px;color:var(--text-muted);margin-top:3px;">All isolations<br>per progression</div>
-      </div>
-    </div>
-    <p class="note" style="margin-top:12px;">At 143kg BW: Squat 1.33× BW (elite), Bench 0.84× BW (advanced), Deadlift 1.26× BW (advanced), OHP 0.42× BW (lagging — bring this up). You are past linear progression — WUP double progression is the only correct model at this level.</p>
+    <div class="card-title">Daily Mobility Minimum</div>
+    <div class="list-body"><ul><li><strong>Every day, 10 min:</strong> spinal waves ×8, hip CARs ×5 each way each leg, shoulder CARs ×5 each way each arm, ankle CARs ×10 each way, thread the needle ×8 each side, deep squat hold 60s.</li><li><strong>Pelvic floor, 5 min daily:</strong> diaphragmatic breathing, Kegel holds 5s ×10, quick pulses ×20, reverse Kegel ×10. This is the item on your Today checklist.</li><li><strong>Static stretching:</strong> 30–60s per muscle after sessions, never before heavy sets.</li><li><strong>Longer sessions:</strong> Wednesday hips 15 min, Saturday loaded mobility 15 min, Sunday CARs circuit 20 min.</li></ul></div>
+  </div>
+  <div class="card">
+    <div class="card-title">Recovery Rules</div>
+    <div class="list-body"><ul><li><strong>Sleep</strong> 7.5–9 hours, <strong>steps</strong> 8–10k, protein and water targets hit every day.</li><li><strong>Sunday is a full rest day.</strong> Every 4th week is a deload.</li><li><strong>48 hours</strong> between hard conditioning and heavy leg work.</li><li><strong>Cut volume by a third for a week</strong> if two or more of these show up: resting heart rate 5+ bpm above normal for 3 days, worse sleep, joint pain, bar speed dropping, or you cannot hold your Zone 2 heart rate.</li></ul></div>
+  </div>
+  <div class="card">
+    <div class="card-title">Weekly Frequency Check</div>
+    <div class="list-body"><ul><li><strong>Push 2×</strong> (Mon, Fri), <strong>pull 2×</strong> (Mon, Fri), <strong>squat pattern 2×</strong> (Thu, Fri split squat), <strong>hinge 2×</strong> (Thu, Fri), <strong>core 3×</strong> (Mon, Thu, Fri).</li><li><strong>Zone 2:</strong> about 135–160 min a week (Wednesday, Saturday and the finishers). <strong>Hard conditioning:</strong> 1× (Tuesday).</li><li><strong>Mobility:</strong> daily 10 min plus three longer sessions. Hitting each muscle group twice a week is the minimum that best protects muscle in a deficit.</li></ul></div>
+  </div>
+  <div class="card">
+    <div class="card-title">How the Week Is Built</div>
+    <div class="list-body"><ul><li><strong>One hard day a week.</strong> About 80% of your aerobic work is easy (Seiler, 2010), which builds the engine without wrecking your lifting.</li><li><strong>Hard cardio and heavy legs sit 48 hours apart.</strong> Tuesday conditioning, Thursday lower body.</li><li><strong>Low-impact machines only.</strong> Rower, bike, stair climber, sled and carries. No running, jumps or treadmill sprints at this bodyweight (Wilson et al., 2012: running interferes most with strength).</li><li><strong>Rotate variations.</strong> Strength days: Wk1 A, Wk2 B, Wk3 C, Wk4 deload. Tuesday: never the same format twice in a row.</li><li><strong>When strength and cardio share a day, lift first.</strong></li></ul></div>
+  </div>
+  <div class="card">
+    <div class="card-title">Progression</div>
+    <div class="list-body"><ul><li><strong>Double progression:</strong> hit the top of the rep range on every set with 2 reps left, then add 2.5 kg (bench, press, rows) or 5 kg (squat, deadlift, hip thrust).</li><li><strong>Pull-ups:</strong> drop the assist weight 5 kg per week, or add 1s to your negatives.</li><li><strong>Zone 2:</strong> add 5 min per week up to 75 min. <strong>Intervals:</strong> add a round every 2 weeks, up to 8 (formats A, E).</li><li><strong>Every 4th week is a deload:</strong> same sessions at 60% load, 3×5, conditioning cut by a third.</li><li><strong>Track strength with an RPE 8 triple</strong> on squat and bench every 4 weeks instead of testing a 1RM.</li></ul></div>
   </div>
 
-  <!-- Calisthenics Roadmap -->
+<!-- Calisthenics Roadmap -->
   <div class="card" style="background:var(--purple-dim);border-color:rgba(181,126,255,0.2);">
     <div class="card-title" style="color:var(--purple);">Calisthenics Integration Roadmap</div>
-    <div style="font-size:13px;color:#ccc;margin-bottom:14px;">Start alongside lifting. Skills build in parallel. No equipment needed beyond a pull-up bar.</div>
+    <div style="font-size:13px;color:#ccc;margin-bottom:14px;">Start alongside lifting. Skills build in parallel. Uses the gym pull-up bar and dip station.</div>
     <div style="display:flex;flex-direction:column;gap:10px;">
       <div style="padding:12px;background:rgba(0,0,0,0.2);border-radius:12px;border-left:3px solid var(--accent);">
         <div style="font-size:11px;color:var(--accent);font-weight:700;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:6px;">Phase 1 · Now → Month 6 · Foundation</div>
@@ -1302,462 +1333,6 @@
     <p class="note" style="margin-top:12px;">Your squat and bench strength gives you exceptional foundation — your bodyweight drop from 143→85kg will unlock calisthenics skills faster than starting lean. By month 6 you'll be ~120kg which makes pull-ups, dips and L-sits very achievable.</p>
   </div>
 
-  <!-- Lukamoves card -->
-  <div style="background:var(--purple-dim);border:1px solid rgba(181,126,255,0.25);border-radius:18px;padding:18px;margin-bottom:12px;">
-    <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px;">
-      <div style="width:46px;height:46px;border-radius:50%;background:linear-gradient(135deg,var(--purple),var(--orange));display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;">🏋️</div>
-      <div>
-        <div style="font-size:14px;font-weight:700;color:var(--text);">Luka · Hybrid Coach</div>
-        <div style="font-size:11px;color:var(--purple);margin-top:2px;">@lukamoves_ · Verified · stan.store/Lukamoves</div>
-      </div>
-    </div>
-    <div style="font-family:'Syne',sans-serif;font-size:15px;font-weight:700;color:var(--text);margin-bottom:8px;letter-spacing:-0.3px;">"Training the body to stay strong, mobile &amp; capable at every age."</div>
-    <div style="font-size:13px;color:#ccc;line-height:1.6;margin-bottom:14px;">Functional movement + mobility embedded into every session. Morning sequences, hip mobility for fighters, end-range shoulder work, wrist and pushing power drills. Quality over intensity — 5 reps done right beats 20 done sloppy.</div>
-    <div style="padding:10px 12px;background:rgba(181,126,255,0.12);border-radius:10px;border-left:3px solid var(--purple);">
-      <div style="font-size:11px;color:var(--purple);font-weight:700;margin-bottom:3px;">📲 REFERENCE HIS VIDEOS</div>
-      <div style="font-size:12px;color:#ccc;">Follow <strong style="color:var(--text);">@lukamoves_</strong> on Instagram for video demos of every mobility move in each session below.</div>
-    </div>
-  </div>
-
-  <!-- 4 Pillar Overview -->
-  <div class="card" style="padding:0;overflow:hidden;">
-    <div style="display:grid;grid-template-columns:1fr 1fr;">
-      <div style="padding:18px;border-right:1px solid var(--border);border-bottom:1px solid var(--border);">
-        <div style="font-size:22px;margin-bottom:4px;">💪</div>
-        <div style="font-family:'Syne',sans-serif;font-size:15px;font-weight:800;letter-spacing:-0.4px;color:var(--text);">Strength</div>
-        <div style="font-size:11px;color:var(--text-muted);margin-top:3px;">Mon Push A · Fri Pull B</div>
-        <div style="margin-top:8px;height:3px;border-radius:100px;background:var(--accent);width:100%"></div>
-      </div>
-      <div style="padding:18px;border-bottom:1px solid var(--border);">
-        <div style="font-size:22px;margin-bottom:4px;">🔥</div>
-        <div style="font-family:'Syne',sans-serif;font-size:15px;font-weight:800;letter-spacing:-0.4px;color:var(--text);">Hypertrophy</div>
-        <div style="font-size:11px;color:var(--text-muted);margin-top:3px;">Tue Pull A · Thu Push B</div>
-        <div style="margin-top:8px;height:3px;border-radius:100px;background:var(--orange);width:100%"></div>
-      </div>
-      <div style="padding:18px;border-right:1px solid var(--border);">
-        <div style="font-size:22px;margin-bottom:4px;">⚡</div>
-        <div style="font-family:'Syne',sans-serif;font-size:15px;font-weight:800;letter-spacing:-0.4px;color:var(--text);">Power/Volume</div>
-        <div style="font-size:11px;color:var(--text-muted);margin-top:3px;">Wed Legs · Sat Legs</div>
-        <div style="margin-top:8px;height:3px;border-radius:100px;background:var(--blue);width:100%"></div>
-      </div>
-      <div style="padding:18px;">
-        <div style="font-size:22px;margin-bottom:4px;">🧘</div>
-        <div style="font-family:'Syne',sans-serif;font-size:15px;font-weight:800;letter-spacing:-0.4px;color:var(--text);">Mobility</div>
-        <div style="font-size:11px;color:var(--text-muted);margin-top:3px;">Daily @lukamoves_ flows</div>
-        <div style="margin-top:8px;height:3px;border-radius:100px;background:var(--purple);width:100%"></div>
-      </div>
-    </div>
-  </div>
-
-  <!-- MONDAY — Push A -->
-  <div class="accord" onclick="toggleAccord(this)">
-    <div class="accord-header">
-      <div style="flex:1">
-        <div style="font-size:10px;color:var(--accent);font-weight:700;text-transform:uppercase;letter-spacing:0.8px;margin-bottom:4px;">Monday · 💪 Push A — Chest Priority</div>
-        <div class="accord-title" style="margin:0;">Chest + Shoulders + Triceps</div>
-      </div>
-      <svg class="accord-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
-    </div>
-    <div class="accord-body list-body">
-      <div class="tags"><span class="tag tag-warmup">Warm-Up · 10 min · @lukamoves_ Morning Sequence</span></div>
-      <ul>
-        <li><strong>Spinal waves ×8</strong> — chin tuck, roll down vertebra by vertebra, hang, roll back up. Oxygenates the spine. Luka starts every session here.</li>
-        <li><strong>Bodyweight squat flow ×10</strong> — slow descent, pause at bottom 2s, breathe, drive up. Quality, not speed.</li>
-        <li><strong>Reverse lunge flow ×6 each</strong> — step back, sink, front knee over ankle, drive back up. Build a light sweat.</li>
-        <li>Thoracic foam rolling 60s</li>
-        <li>Bench warm-up: bar ×15 → 60kg ×8 → 80kg ×5</li>
-      </ul>
-      <div class="tags"><span class="tag tag-training">💪 Strength Day · 85% 1RM · 4–5 min rest on compounds</span></div>
-      <ul>
-        <li><strong>Barbell Bench Press — 4×4 @ 102kg</strong> (85% of 120kg 1RM). Bar + 2×45kg + 2×5kg. Last set AMRAP — if you get 6+, progress next session.</li>
-        <li>Incline DB Press — 3×6 @ 36–38kg each hand (strength range, heavy)</li>
-        <li>Weighted Dips — 3×5 (add 5–10kg via belt if BW feels easy) — calisthenics bridge lift</li>
-        <li>Machine Chest Press — 3×8 (hypertrophy accessory, 2 min rest)</li>
-        <li>Seated DB Shoulder Press — 3×6 @ 28–32kg each hand</li>
-        <li>Lateral Raise — 3×12 @ 14–16kg (slow 3s eccentric, no swinging)</li>
-        <li>Rope Pushdowns — 3×10 @ heavy (strength range)</li>
-      </ul>
-      <div style="background:var(--accent-dim);border:1px solid rgba(200,244,97,0.15);border-radius:10px;padding:10px 12px;margin:8px 0;">
-        <div style="font-size:10px;color:var(--accent);font-weight:700;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:4px;">🔬 Science Note</div>
-        <div style="font-size:12px;color:#ccc;">85% 1RM activates max motor units (Zatsiorsky, 2003). 4–5 min rest allows full phosphocreatine resynthesis. This is where neural strength adaptations happen — not muscle, but the nervous system's ability to fire harder.</div>
-      </div>
-      <div class="tags"><span class="tag tag-mobility">@lukamoves Flow · 10 min · Upper Focus</span></div>
-      <ul>
-        <li><strong>Shoulder CARs</strong> — 5 slow full-range circles each direction, each arm. Keep scapula loaded. Feel every degree.</li>
-        <li><strong>Thoracic spine CARs</strong> — seated or quadruped, rotate slowly through max range ×5 each side. No rushing.</li>
-        <li><strong>Thread the needle</strong> — exhale to reach max rotation, hold 5s (end-range isometric), ×8 each side</li>
-        <li><strong>World's Greatest Stretch flow</strong> — lunge, elbow to floor, rotate arm to ceiling, hold top 3s, return ×6 each side. Breathe into each position.</li>
-        <li><strong>Loaded chest opener</strong> — hands behind head, open elbows wide, look up, hold 10s ×5. Loaded stretch for thoracic.</li>
-        <li>Diaphragmatic breathing 2 min + Kegel holds ×10 + pulses ×20 + dead bug ×12 exhale on reach</li>
-      </ul>
-      <div class="tags"><span class="tag tag-cooldown">Cooldown</span></div>
-      <ul><li>Doorway chest stretch 60s</li><li>Upper trap stretch 30s each</li><li>Child's pose 60s</li></ul>
-      <p class="note">🎯 Progressive overload: 4×4 @ 102kg. When all 4 sets hit RPE ≤7 for 2 sessions in a row → add 2.5kg (104.5kg). Accessories use double progression — hit top of rep range all sets, then add 1–2.5kg. Log every session.</p>
-    </div>
-  </div>
-
-  <!-- TUESDAY — Pull A -->
-  <div class="accord" onclick="toggleAccord(this)">
-    <div class="accord-header">
-      <div style="flex:1">
-        <div style="font-size:10px;color:var(--orange);font-weight:700;text-transform:uppercase;letter-spacing:0.8px;margin-bottom:4px;">Tuesday · 💪 Pull A + 🫁 Stamina</div>
-        <div class="accord-title" style="margin:0;">Back Width + Biceps + Pull-Up Progression + Zone 2 Finisher</div>
-      </div>
-      <svg class="accord-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
-    </div>
-    <div class="accord-body list-body">
-      <div class="tags"><span class="tag tag-warmup">Warm-Up · 10 min · @lukamoves_ Morning Sequence</span></div>
-      <ul>
-        <li><strong>Spinal waves ×8</strong> — roll down, hang, roll up. First thing before anything else.</li>
-        <li><strong>Hip flow squats ×10</strong> — squat, open one knee out, return, other side. Wakes up hips + ankles together.</li>
-        <li>5 min rowing easy pace</li>
-        <li>Scapular pull-ups ×10 — shoulders down, no arm bend</li>
-        <li>Dead hangs 3×20s — decompress spine before pulling</li>
-      </ul>
-      <div class="tags"><span class="tag tag-training">🔥 Hypertrophy Day · 75–80% 1RM · 2–3 min rest · 8–12 reps</span></div>
-      <ul>
-        <li><strong>Assisted Machine Pull-Ups</strong> — 4×8–10 (reduce assist 2.5–5kg weekly). Calisthenics Phase 1 goal: unassisted by Week 16. Log assist weight every session.</li>
-        <li><strong>Negative Pull-Ups</strong> — 3×5 (jump to bar, lower in 6s). Direct neural prep for unassisted pull-up.</li>
-        <li><strong>Wide Grip Lat Pulldown — 4×10 @ 75–80% stack</strong> (hypertrophy range, 2 min rest, squeeze at bottom)</li>
-        <li><strong>Chest Supported DB Row — 4×10 @ 28–32kg each</strong> (no lower back, safe for high volume)</li>
-        <li><strong>Single Arm Cable Row — 3×12 each @ moderate weight</strong> (unilateral balance)</li>
-        <li><strong>Face Pulls — 4×15 @ light-moderate</strong> — shoulder health, non-negotiable every session</li>
-        <li><strong>EZ Bar Curl — 3×10 @ 40–50kg</strong></li>
-        <li><strong>Hammer Curl — 3×12 @ 18–22kg each</strong></li>
-      </ul>
-      <div class="tags"><span class="tag tag-training">🫁 Stamina Finisher · Zone 2</span></div>
-      <ul>
-        <li>Rowing machine — 10 min steady state @ 65% HR (121–134 BPM). Nasal breathing. Builds aerobic base without blunting strength.</li>
-      </ul>
-      <div style="background:var(--orange-dim);border:1px solid rgba(255,159,79,0.15);border-radius:10px;padding:10px 12px;margin:8px 0;">
-        <div style="font-size:10px;color:var(--orange);font-weight:700;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:4px;">🔬 Science Note</div>
-        <div style="font-size:12px;color:#ccc;">75–80% 1RM with 8–12 reps maximises mechanical tension + metabolic stress (Schoenfeld, 2010) — the two primary hypertrophy drivers. 2–3 min rest maintains metabolite accumulation that signals mTOR pathway activation.</div>
-      </div>
-      <div class="tags"><span class="tag tag-mobility">@lukamoves Flow · 10 min · Hip + Posterior Chain</span></div>
-      <ul>
-        <li><strong>Hip CARs standing</strong> — slow full circles ×5 each direction, each leg. Drive knee as high as possible, rotate behind, lower. This is Luka's daily foundation.</li>
-        <li><strong>90/90 flow with end-range isometric</strong> — transition side to side ×6, then at each end: press shin into floor 5s (isometric), relax deeper, repeat ×3 each side</li>
-        <li><strong>Pigeon pose loaded</strong> — hold 90s each side, last 20s press hip into floor (end-range isometric). Exhale into the hip.</li>
-        <li><strong>Shin box flow</strong> — from 90/90, lift front shin up (internal rotation), hold 3s, lower, switch ×8 each side. Builds active hip rotation.</li>
-        <li>Glute bridge with slow pelvic tilt ×15 + Bird dog hold 3s ×12 each + Kegel protocol 5 min</li>
-      </ul>
-      <div class="tags"><span class="tag tag-cooldown">Cooldown</span></div>
-      <ul><li>Hanging lat stretch 30s each side</li><li>Biceps wall stretch 30s each</li><li>Legs-up-the-wall 3 min</li></ul>
-      <p class="note">🎯 Pull-up goal: unassisted pull-up within 12–16 weeks. Reduce assist by 5kg every week consistently.</p>
-    </div>
-  </div>
-
-  <!-- WEDNESDAY — Legs A -->
-  <div class="accord" onclick="toggleAccord(this)">
-    <div class="accord-header">
-      <div style="flex:1">
-        <div style="font-size:10px;color:var(--accent);font-weight:700;text-transform:uppercase;letter-spacing:0.8px;margin-bottom:4px;">Wednesday · 💪 Legs A — Squat Focus</div>
-        <div class="accord-title" style="margin:0;">Quad-Dominant + Hamstrings + Calves</div>
-      </div>
-      <svg class="accord-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
-    </div>
-    <div class="accord-body list-body">
-      <div class="tags"><span class="tag tag-warmup">Warm-Up · 10 min (mandatory)</span></div>
-      <ul>
-        <li>8 min stationary bike easy</li>
-        <li>Knee warm-up: leg swings front/back ×15, side/side ×15</li>
-        <li>Wall ankle stretch 60s each</li>
-        <li>Bodyweight squat ×15 — 3s down, pause at bottom</li>
-        <li>Hip CARs standing ×5 each direction, each leg</li>
-      </ul>
-      <div class="tags"><span class="tag tag-training">🔥 Hypertrophy Day · 75–80% 1RM · 3 min rest · 8–12 reps</span></div>
-      <ul>
-        <li><strong>Back Squat — 4×8 @ 142–152kg</strong> (75–80% of 190kg). 3s descent, 1s pause at bottom, drive up. 3 min rest. Primary mass + fat burn stimulus of the week.</li>
-        <li><strong>Bulgarian Split Squat — 4×10 each @ 22–26kg DBs</strong> (2 min rest, largest single-leg muscle mass — high EPOC)</li>
-        <li><strong>Leg Press — 4×12</strong> (3s descent, 1s pause, full range, 2 min rest)</li>
-        <li><strong>Romanian Deadlift — 4×10 @ 110–120kg</strong> (barbell, 3s eccentric, fully feel hamstring load)</li>
-        <li><strong>Leg Curl — 4×12</strong> (2s pause at peak contraction)</li>
-        <li><strong>Standing Calf Raise — 4×15</strong> (2s up, 3s down, full dorsiflexion at bottom)</li>
-      </ul>
-      <div style="background:var(--orange-dim);border:1px solid rgba(255,159,79,0.15);border-radius:10px;padding:10px 12px;margin:8px 0;">
-        <div style="font-size:10px;color:var(--orange);font-weight:700;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:4px;">🔬 Why Not Power/Plyometrics</div>
-        <div style="font-size:12px;color:#ccc;">At 143kg, plyometric landings produce 3–7× BW force per rep through knees and ankles — genuine injury risk. Explosive power training deferred until ~110kg. Hypertrophy at 75–80% produces the highest EPOC of any training mode: your body burns fat actively for 24–48h post-session. Leg hypertrophy is your single biggest fat loss lever because legs are the largest muscle group in the body.</div>
-      </div>
-      <div class="tags"><span class="tag tag-mobility">@lukamoves Flow · 15 min deep · Lower Body</span></div>
-      <ul>
-        <li><strong>Frog stretch loaded</strong> — knees wide, rock forward onto elbows, hold deepest point 10s (end-range isometric), rock back ×2 min total</li>
-        <li><strong>Cossack squat flow</strong> — wide stance, shift side to side slowly, heel stays flat, pause at bottom 3s each ×10 each side. If heel rises, narrow stance slightly.</li>
-        <li><strong>Ankle CARs</strong> — seated, slow full circles ×10 each direction, each foot. Most neglected joint. Critical for squat depth.</li>
-        <li><strong>Pigeon pose — loaded</strong> — fold forward, hold 60s each, last 20s actively press hip down (isometric). Breathe into the glute.</li>
-        <li><strong>Kneeling hip flexor flow</strong> — lunge, tuck pelvis, squeeze glute, hold 30s, then rotate arm to ceiling ×6. Loaded stretch meets rotation.</li>
-        <li><strong>Deep squat hold</strong> — feet shoulder-width, squat to bottom, hold 60s, breathe. Rock side to side gently. This is where ankle + hip mobility integrates.</li>
-        <li><strong>Hip rotation drill (fighter hip mobility)</strong> — standing, lift knee, rotate internally then externally through full range ×5 each direction each leg. Luka's go-to for functional hip control.</li>
-        <li>Pelvic floor: Kegel holds ×10 + pulses ×30 + reverse Kegel ×10 + dead bug ×12</li>
-      </ul>
-      <div class="tags"><span class="tag tag-cooldown">Cooldown</span></div>
-      <ul><li>Hamstring stretch 60s each</li><li>Quad stretch 45s each</li><li>Seated forward fold 60s</li></ul>
-      <p class="note">🎯 Squat hypertrophy: 4×8 @ 142kg. When all 4 sets hit 8 reps RPE ≤7 for 2 sessions → add 5kg (147kg). Mobility goal: full depth heels flat by month 3 — ankle CARs daily is non-negotiable.</p>
-    </div>
-  </div>
-
-  <!-- THURSDAY — Push B -->
-  <div class="accord" onclick="toggleAccord(this)">
-    <div class="accord-header">
-      <div style="flex:1">
-        <div style="font-size:10px;color:var(--accent);font-weight:700;text-transform:uppercase;letter-spacing:0.8px;margin-bottom:4px;">Thursday · 💪 Push B — Shoulder Priority</div>
-        <div class="accord-title" style="margin:0;">Shoulders + Chest + Triceps</div>
-      </div>
-      <svg class="accord-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
-    </div>
-    <div class="accord-body list-body">
-      <div class="tags"><span class="tag tag-warmup">Warm-Up · 8 min</span></div>
-      <ul>
-        <li>Shoulder CARs ×5 each direction, each side — slow, no momentum</li>
-        <li>Thoracic foam rolling 60s</li>
-        <li>DB shoulder press warm-up: 10kg ×15 → 20kg ×8</li>
-        <li>Arm circles — 20 forward, 20 backward</li>
-      </ul>
-      <div class="tags"><span class="tag tag-training">🔥 Hypertrophy Day · 75–80% 1RM · 2–3 min rest · 8–12 reps</span></div>
-      <ul>
-        <li><strong>Standing Overhead Press — 4×8 @ 48kg</strong> (80% of confirmed 60kg 1RM). Strict — no leg drive, no back hyperextension. OHP is your lagging lift; this day is where you close the gap.</li>
-        <li><strong>Arnold Press — 3×10 @ 22–26kg each</strong> (full rotation, hits all delt heads)</li>
-        <li><strong>Lateral Raise — 4×12 @ 14–16kg</strong> (3s eccentric — this is what builds the medial delt, not swinging)</li>
-        <li><strong>Rear Delt Cable Fly — 4×15 @ light-moderate</strong> (full retraction, slow, squeeze)</li>
-        <li><strong>Incline DB Press — 4×10 @ 34–38kg each</strong> (75% intensity, upper chest emphasis)</li>
-        <li><strong>Dips — 3×AMRAP bodyweight</strong> (calisthenics Phase 1 — log reps every session, target +1 rep/week)</li>
-        <li><strong>Overhead Rope Extension — 3×12</strong> (long head tricep — most important head for mass, needs overhead position)</li>
-      </ul>
-      <div style="background:var(--orange-dim);border:1px solid rgba(255,159,79,0.15);border-radius:10px;padding:10px 12px;margin:8px 0;">
-        <div style="font-size:10px;color:var(--orange);font-weight:700;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:4px;">🔬 Science Note · OHP Priority</div>
-        <div style="font-size:12px;color:#ccc;">OHP at 60kg 1RM vs 120kg bench is a significant lag (ratio should be ~65–70%). Thursday is OHP priority day. Overhead pressing trains all three delt heads plus upper traps, serratus anterior, and rotator cuff — the highest return push movement for shoulder health and hypertrophy. Add 2.5kg to OHP when 4×8 @ 48kg hits RPE ≤7 for 2 sessions.</div>
-      </div>
-      <div class="tags"><span class="tag tag-mobility">@lukamoves Flow · 10 min · Spine + Shoulder</span></div>
-      <ul>
-        <li><strong>Spine wave</strong> — standing, chin to chest, roll down slowly vertebra by vertebra, hang 10s, roll back up ×8. Feel each segment move independently.</li>
-        <li><strong>Thoracic CARs</strong> — seated or quadruped, rotate through absolute max range ×5 each side. At end range: hold 5s, breathe, go deeper.</li>
-        <li><strong>Thread the needle — loaded</strong> — reach under body to max, hold 5s pressing arm into floor (isometric), come back up to open position, hold 3s. ×8 each side.</li>
-        <li><strong>Bear crawl hold</strong> — knees 2 inches off floor, shoulders loaded, hold 30s ×3. Builds the shoulder stability that protects your press and pull.</li>
-        <li><strong>Shoulder CAR flow</strong> — standing, 5 slow circles each direction each arm. Imagine painting the biggest circle possible.</li>
-        <li><strong>End-range shoulder loaded stretch</strong> (Luka's dumbbell + bench drill — use light 5–8kg DB) — lie on bench, arm extended overhead, let gravity pull into end range 30s, then actively lift from that position ×8. Builds strength where the shoulder is most vulnerable.</li>
-        <li><strong>Wrist circles + pushing power drill</strong> — on all fours, slow wrist circles ×10 each direction, then protract/retract shoulders ×10. Direct from Luka's content.</li>
-        <li>Dead bug ×12 exhale on reach + Kegel holds ×10 + diaphragmatic breathing 2 min</li>
-      </ul>
-      <div class="tags"><span class="tag tag-cooldown">Cooldown</span></div>
-      <ul><li>Chest opener stretch 60s</li><li>Triceps overhead stretch 30s each</li><li>Child's pose 60s</li></ul>
-      <p class="note">🎯 OHP goal: press bodyweight ×0.75 within 6 months. Bear crawl hold builds the shoulder stability that protects your press.</p>
-    </div>
-  </div>
-
-  <!-- FRIDAY — Pull B -->
-  <div class="accord" onclick="toggleAccord(this)">
-    <div class="accord-header">
-      <div style="flex:1">
-        <div style="font-size:10px;color:var(--orange);font-weight:700;text-transform:uppercase;letter-spacing:0.8px;margin-bottom:4px;">Friday · 💪 Pull B + 🫁 HIIT</div>
-        <div class="accord-title" style="margin:0;">Back Thickness + Deadlift + High Intensity Intervals</div>
-      </div>
-      <svg class="accord-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
-    </div>
-    <div class="accord-body list-body">
-      <div class="tags"><span class="tag tag-warmup">Warm-Up · 8 min</span></div>
-      <ul>
-        <li>Rowing machine 5 min easy</li>
-        <li>Hip hinge drill — kettlebell or plate, hinge until neutral spine ×10</li>
-        <li>Glute activation: bodyweight glute bridge ×15, hold 2s at top</li>
-        <li>Barbell deadlift warm-up: empty bar ×10 → 60kg ×5 → 100kg ×3</li>
-      </ul>
-      <div class="tags"><span class="tag tag-training">💪 Strength Day · 85% 1RM · 4–5 min rest on compounds</span></div>
-      <ul>
-        <li><strong>Barbell Conventional Deadlift — 4×4 @ 153kg</strong> (85% of confirmed 180kg 1RM). No trap bar available — conventional barbell only. 4–5 min rest. Last set AMRAP stop at RPE 8.</li>
-        <li><strong>Assisted Pull-Ups — 4×5</strong> (strength rep range — heavier assist than Tuesday, more resistance = more strength stimulus). Log assist weight.</li>
-        <li><strong>Dead Hang — 3×30s</strong> (calisthenics Phase 1 — grip + shoulder health + spinal decompression)</li>
-        <li><strong>T-Bar Row — 4×6 @ heavy</strong> (strength range, 3–4 min rest)</li>
-        <li><strong>Close Grip Lat Pulldown — 3×8 @ heavy</strong></li>
-        <li><strong>DB Shrugs — 4×8 @ 40–48kg each</strong> (slow, full range, hold top 2s)</li>
-        <li><strong>Incline DB Curl — 3×8 @ 20–24kg each</strong> (strength range bicep)</li>
-      </ul>
-      <div class="tags"><span class="tag tag-training">🫁 HIIT Finisher — After 10 min rest from deadlifts</span></div>
-      <ul>
-        <li>Rowing machine — 30s all-out / 90s rest × 8 rounds</li>
-        <li>HR target: 85–90% max (155–165 BPM for you) on every interval</li>
-        <li>If HR doesn't recover to ~130 between rounds, extend rest to 2 min</li>
-        <li>No treadmill sprinting — rowing machine only (knee-safe)</li>
-      </ul>
-      <div style="background:var(--accent-dim);border:1px solid rgba(200,244,97,0.15);border-radius:10px;padding:10px 12px;margin:8px 0;">
-        <div style="font-size:10px;color:var(--accent);font-weight:700;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:4px;">🔬 Science Note · Deadlift</div>
-        <div style="font-size:12px;color:#ccc;">Deadlift Friday when upper body is recovered from Monday/Thursday and legs had a hypertrophy day Wednesday. Conventional barbell deadlift activates posterior chain identically to trap bar at matched intensities (Swinton et al., 2011). Your 180kg confirmed 1RM is strong — protect and grow it in deficit with WUP double progression.</div>
-      </div>
-      <div class="tags"><span class="tag tag-mobility">@lukamoves Flow · 10 min · Posterior Chain + Hips</span></div>
-      <ul>
-        <li><strong>Hip CARs quadruped</strong> — on all fours, draw slow maximum circles with knee ×5 each direction, each side. Keep hips level. No rushing.</li>
-        <li><strong>90/90 flow + end-range isometric</strong> — transition side ×6, then hold each end: press shin into floor 5s, exhale and drop deeper ×3 each side</li>
-        <li><strong>World's Greatest Stretch — loaded flow</strong> — lunge, elbow to floor, exhale and press hip down (load it), then rotate arm to ceiling ×6 each side. 3s at top.</li>
-        <li><strong>Pigeon fold with breath</strong> — hold 60s each side, last 20s press hip actively into floor. Exhale to go deeper. This is Luka's core move.</li>
-        <li>Glute bridge + pelvic squeeze ×15 slow + Bird dog hold 3s ×12 + Kegel protocol 5 min</li>
-      </ul>
-      <div class="tags"><span class="tag tag-cooldown">Cooldown</span></div>
-      <ul><li>Lat stretch at rack 30s each</li><li>Child's pose lower back decompression 2 min</li><li>Diaphragmatic breathing 2 min</li></ul>
-      <p class="note">🎯 Deadlift: 4×4 @ 153kg. When all sets hit RPE ≤7 → add 5kg (158kg). Deadlift in a deficit progresses slower — expect +5kg every 3–4 weeks. HIIT: hold identical split times all 8 rounds. If round 8 is significantly slower, extend rest to 2 min or reduce to 6 rounds.</p>
-    </div>
-  </div>
-
-  <!-- SATURDAY — Legs B -->
-  <div class="accord" onclick="toggleAccord(this)">
-    <div class="accord-header">
-      <div style="flex:1">
-        <div style="font-size:10px;color:var(--blue);font-weight:700;text-transform:uppercase;letter-spacing:0.8px;margin-bottom:4px;">Saturday · 💪 Legs B + ⚡ Zone 2</div>
-        <div class="accord-title" style="margin:0;">Hinge Focus + Endurance Cardio</div>
-      </div>
-      <svg class="accord-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
-    </div>
-    <div class="accord-body list-body">
-      <div class="tags"><span class="tag tag-warmup">Warm-Up · 10 min</span></div>
-      <ul>
-        <li>8 min bike easy</li>
-        <li>Knee activation: terminal knee extension ×15 (use machine or bodyweight)</li>
-        <li>Wall ankle stretch 60s each</li>
-        <li>Hip circles — standing, large controlled circles ×10 each direction</li>
-      </ul>
-      <div class="tags"><span class="tag tag-training">🔥 Volume Day · 70–75% 1RM · 2 min rest · 10–15 reps</span></div>
-      <ul>
-        <li><strong>Romanian Deadlift — 4×10 @ 110–126kg</strong> (70% of 180kg 1RM = 126kg. Start at 110kg, build to 126kg over 4 weeks. Slow 3s eccentric, full hip hinge). 2 min rest.</li>
-        <li><strong>Hack Squat — 4×12</strong> (quad-dominant machine, knee-safe, 3s descent). Increase by 5kg when all 4 sets hit 12 clean.</li>
-        <li><strong>Bulgarian Split Squat — 3×12 each @ 20–24kg DBs</strong> (volume, unilateral stability)</li>
-        <li><strong>Leg Curl — 4×12–15</strong> (slow eccentric, 2s pause at peak contraction)</li>
-        <li><strong>Seated Calf Raise — 5×15</strong> (2s up, 3s down, full range)</li>
-        <li><strong>L-sit hold on dip bars — 3×10s</strong> (calisthenics Phase 1 — hip flexor + core prerequisite for all advanced skills)</li>
-      </ul>
-      <div class="tags"><span class="tag tag-training">⚡ Zone 2 Endurance · 35–45 min</span></div>
-      <ul>
-        <li>Stationary bike OR incline treadmill walk immediately after training</li>
-        <li>Target: 60–70% HR · 121–134 BPM · can hold full conversation</li>
-        <li>Nasal breathing throughout — builds CO2 tolerance and aerobic base</li>
-        <li>This is the cornerstone of fat oxidation and cardiac adaptation (Seiler, 2010)</li>
-      </ul>
-      <div style="background:var(--blue-dim);border:1px solid rgba(79,159,255,0.15);border-radius:10px;padding:10px 12px;margin:8px 0;">
-        <div style="font-size:10px;color:var(--blue);font-weight:700;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:4px;">🔬 Science Note</div>
-        <div style="font-size:12px;color:#ccc;">Saturday volume block uses the highest rep ranges of the week (10–15) to maximise sarcoplasmic hypertrophy and metabolic conditioning. L-sit progression is critical — it bridges gym strength to calisthenics skill. Zone 2 post-lifting preferentially burns fat (elevated lipolysis from training) while building mitochondrial density.</div>
-      </div>
-      <div class="tags"><span class="tag tag-mobility">@lukamoves Flow · 15 min deep · Full Lower Body</span></div>
-      <ul>
-        <li><strong>Frog stretch — loaded</strong> — on elbows, rock to deepest point, hold 10s pressing knees into floor (isometric), release and go deeper ×2 min total</li>
-        <li><strong>Cossack squat flow</strong> — shift side to side slowly, 3s pause at bottom each side, heel flat ×10 each. Each week aim to go slightly wider or lower.</li>
-        <li><strong>Pigeon — loaded end-range isometric</strong> — fold forward, 60s hold each side. Last 20s: press hip actively into floor. Breathe. Do not fidget.</li>
-        <li><strong>Hip flexor lunge — loaded stretch flow</strong> — kneeling lunge, tuck pelvis, squeeze glute (loads the stretch), rotate arm to ceiling ×8. Hold top 3s each rep.</li>
-        <li><strong>Deep squat hold</strong> — 60s hold, rock gently, let ankles and hips settle into range. This integrates everything.</li>
-        <li>Pelvic floor full protocol: diaphragmatic breathing 5 min + Kegel holds ×10 + pulses ×30 + reverse Kegel ×10</li>
-        <li>Foam roll entire lower body — calves, hamstrings, glutes, IT band 60s each</li>
-      </ul>
-      <div class="tags"><span class="tag tag-cooldown">Cooldown</span></div>
-      <ul><li>Full body stretch 10 min</li><li>Legs-up-the-wall 5 min (recovery + blood return)</li></ul>
-      <p class="note">🎯 Endurance goal: complete 45 min Zone 2 without HR drifting above 140 by month 3.</p>
-    </div>
-  </div>
-
-  <!-- SUNDAY — Recovery -->
-  <div class="accord" onclick="toggleAccord(this)">
-    <div class="accord-header">
-      <div style="flex:1">
-        <div style="font-size:10px;color:var(--text-muted);font-weight:700;text-transform:uppercase;letter-spacing:0.8px;margin-bottom:4px;">Sunday · 🛡 Active Recovery</div>
-        <div class="accord-title" style="margin:0;">Walk + Full Mobility Flow + Sleep Prep</div>
-      </div>
-      <svg class="accord-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
-    </div>
-    <div class="accord-body list-body">
-      <ul>
-        <li>Morning sunlight 10–15 min outdoors — most important habit of the day</li>
-        <li>20–40 min easy walk — nasal breathing, no gym</li>
-        <li>Full body foam roll 10 min</li>
-      </ul>
-      <div class="tags"><span class="tag tag-mobility">@lukamoves Sunday Flow · 25 min · Full Body Weekly Reset</span></div>
-      <ul>
-        <li><strong>CARs circuit — the full joint audit:</strong></li>
-        <li style="padding-left:20px;">Ankle CARs — 10 slow circles each direction, each foot (seated)</li>
-        <li style="padding-left:20px;">Hip CARs standing — 8 full circles each direction, each leg. Drive knee max height.</li>
-        <li style="padding-left:20px;">Thoracic CARs — 5 rotations each direction seated. Max range, no compensation.</li>
-        <li style="padding-left:20px;">Shoulder CARs — 8 slow full circles each direction, each arm. Biggest circle possible.</li>
-        <li><strong>Spine wave ×10</strong> — chin tuck, roll down vertebra by vertebra, hang 10s, roll up. Full length of spine.</li>
-        <li><strong>Frog loaded</strong> — elbows, rock to deepest, hold 10s isometric ×3 rounds. 2 min total.</li>
-        <li><strong>Pigeon — end-range isometric</strong> — 90s each side, last 20s press hip into floor. No fidgeting.</li>
-        <li><strong>Cossack squat flow</strong> — slow, 3s pause at bottom each ×10 each side. Try to go slightly lower than last week.</li>
-        <li><strong>World's Greatest Stretch</strong> — ×6 each side, hold top rotation 3s. Slow, intentional. No rushing.</li>
-        <li><strong>Deep squat hold</strong> — 90s, breathe, let hips sink. Luka's test of full lower body mobility.</li>
-        <li>Pelvic floor + diaphragmatic breathing 10 min — the nervous system cooldown</li>
-      </ul>
-      <div class="tags"><span class="tag tag-cooldown">Evening Protocol</span></div>
-      <ul>
-        <li>No bright lights after 9 PM</li>
-        <li>Magnesium Glycinate 400mg before bed</li>
-        <li>Sleep target: 8–9 hours — adaptation happens here</li>
-      </ul>
-      <p class="note">Recovery is where you actually grow. Sunday mobility keeps you injury-free for 6 days a week of training.</p>
-    </div>
-  </div>
-
-  <!-- Weekly WUP Summary -->
-  <div class="card" style="margin-top:4px;">
-    <div class="card-title">WUP Weekly Structure</div>
-    <div style="overflow-x:auto;margin-bottom:12px;">
-      <table style="width:100%;border-collapse:collapse;font-size:11px;">
-        <thead>
-          <tr style="border-bottom:1px solid var(--border);">
-            <th style="text-align:left;padding:8px 6px;color:var(--text-sub);font-weight:600;text-transform:uppercase;letter-spacing:0.5px;">Day</th>
-            <th style="text-align:left;padding:8px 6px;color:var(--text-sub);font-weight:600;text-transform:uppercase;letter-spacing:0.5px;">Session</th>
-            <th style="text-align:center;padding:8px 4px;color:var(--text-sub);font-weight:600;text-transform:uppercase;letter-spacing:0.5px;">Type</th>
-            <th style="text-align:center;padding:8px 4px;color:var(--text-sub);font-weight:600;text-transform:uppercase;letter-spacing:0.5px;">% 1RM</th>
-            <th style="text-align:center;padding:8px 4px;color:var(--text-sub);font-weight:600;text-transform:uppercase;letter-spacing:0.5px;">Reps</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr style="border-bottom:1px solid var(--border);">
-            <td style="padding:8px 6px;font-weight:700;color:var(--text);">Mon</td>
-            <td style="padding:8px 6px;color:#bbb;">Push A</td>
-            <td style="text-align:center;padding:8px 4px;"><span style="background:var(--accent-dim);color:var(--accent);font-size:10px;font-weight:700;padding:2px 6px;border-radius:6px;">STRENGTH</span></td>
-            <td style="text-align:center;padding:8px 4px;color:var(--accent);font-weight:700;">85%</td>
-            <td style="text-align:center;padding:8px 4px;color:#bbb;">4×4</td>
-          </tr>
-          <tr style="border-bottom:1px solid var(--border);">
-            <td style="padding:8px 6px;font-weight:700;color:var(--text);">Tue</td>
-            <td style="padding:8px 6px;color:#bbb;">Pull A + Zone 2</td>
-            <td style="text-align:center;padding:8px 4px;"><span style="background:var(--orange-dim);color:var(--orange);font-size:10px;font-weight:700;padding:2px 6px;border-radius:6px;">HYPERTROPHY</span></td>
-            <td style="text-align:center;padding:8px 4px;color:var(--orange);font-weight:700;">75–80%</td>
-            <td style="text-align:center;padding:8px 4px;color:#bbb;">4×8–10</td>
-          </tr>
-          <tr style="border-bottom:1px solid var(--border);">
-            <td style="padding:8px 6px;font-weight:700;color:var(--text);">Wed</td>
-            <td style="padding:8px 6px;color:#bbb;">Legs A</td>
-            <td style="text-align:center;padding:8px 4px;"><span style="background:var(--orange-dim);color:var(--orange);font-size:10px;font-weight:700;padding:2px 6px;border-radius:6px;">HYPERTROPHY</span></td>
-            <td style="text-align:center;padding:8px 4px;color:var(--orange);font-weight:700;">75–80%</td>
-            <td style="text-align:center;padding:8px 4px;color:#bbb;">4×8–10</td>
-          </tr>
-          <tr style="border-bottom:1px solid var(--border);">
-            <td style="padding:8px 6px;font-weight:700;color:var(--text);">Thu</td>
-            <td style="padding:8px 6px;color:#bbb;">Push B</td>
-            <td style="text-align:center;padding:8px 4px;"><span style="background:var(--orange-dim);color:var(--orange);font-size:10px;font-weight:700;padding:2px 6px;border-radius:6px;">HYPERTROPHY</span></td>
-            <td style="text-align:center;padding:8px 4px;color:var(--orange);font-weight:700;">75–80%</td>
-            <td style="text-align:center;padding:8px 4px;color:#bbb;">4×8–12</td>
-          </tr>
-          <tr style="border-bottom:1px solid var(--border);">
-            <td style="padding:8px 6px;font-weight:700;color:var(--text);">Fri</td>
-            <td style="padding:8px 6px;color:#bbb;">Pull B + HIIT</td>
-            <td style="text-align:center;padding:8px 4px;"><span style="background:var(--accent-dim);color:var(--accent);font-size:10px;font-weight:700;padding:2px 6px;border-radius:6px;">STRENGTH</span></td>
-            <td style="text-align:center;padding:8px 4px;color:var(--accent);font-weight:700;">85%</td>
-            <td style="text-align:center;padding:8px 4px;color:#bbb;">4×4</td>
-          </tr>
-          <tr style="border-bottom:1px solid var(--border);">
-            <td style="padding:8px 6px;font-weight:700;color:var(--text);">Sat</td>
-            <td style="padding:8px 6px;color:#bbb;">Legs B + Zone 2</td>
-            <td style="text-align:center;padding:8px 4px;"><span style="background:var(--purple-dim);color:var(--purple);font-size:10px;font-weight:700;padding:2px 6px;border-radius:6px;">VOLUME</span></td>
-            <td style="text-align:center;padding:8px 4px;color:var(--purple);font-weight:700;">70–75%</td>
-            <td style="text-align:center;padding:8px 4px;color:#bbb;">4×10–15</td>
-          </tr>
-          <tr>
-            <td style="padding:8px 6px;font-weight:700;color:var(--text);">Sun</td>
-            <td style="padding:8px 6px;color:#bbb;">Active Recovery</td>
-            <td style="text-align:center;padding:8px 4px;"><span style="background:rgba(255,255,255,0.05);color:var(--text-muted);font-size:10px;font-weight:700;padding:2px 6px;border-radius:6px;">RECOVERY</span></td>
-            <td style="text-align:center;padding:8px 4px;color:var(--text-sub);">—</td>
-            <td style="text-align:center;padding:8px 4px;color:#bbb;">Mobility</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-    <p class="note"><strong>No trap bar. No bands.</strong> Conventional barbell deadlift Friday, Romanian deadlift Saturday. Deload: every 4th week drop all weights to 60%, 3×5. No exceptions.</p>
-  </div>
-
 </section>
 
 <!-- ========== DIET ========== -->
@@ -1768,12 +1343,12 @@
   <div class="hero-card">
     <div style="font-size:11px;color:var(--accent);font-weight:700;text-transform:uppercase;letter-spacing:0.8px;margin-bottom:10px;">BMR Calculation · Male · 183cm · 143kg · ~33y</div>
     <div class="stat-row">
-      <div class="stat-pill"><div class="val" style="font-size:16px;">2,759</div><div class="lbl">BMR kcal</div></div>
-      <div class="stat-pill"><div class="val" style="font-size:16px;">4,276</div><div class="lbl">TDEE kcal</div></div>
-      <div class="stat-pill"><div class="val" style="font-size:16px;">3,280</div><div class="lbl">Target kcal</div></div>
-      <div class="stat-pill"><div class="val" style="font-size:16px;">−1,000</div><div class="lbl">Deficit</div></div>
+      <div class="stat-pill"><div class="val" style="font-size:16px;">2,414</div><div class="lbl">BMR kcal</div></div>
+      <div class="stat-pill"><div class="val" style="font-size:16px;">3,741</div><div class="lbl">TDEE kcal</div></div>
+      <div class="stat-pill"><div class="val" style="font-size:16px;">3,040</div><div class="lbl">Target kcal</div></div>
+      <div class="stat-pill"><div class="val" style="font-size:16px;">−700</div><div class="lbl">Deficit</div></div>
     </div>
-    <p class="note" style="margin-top:12px;">Recalculate every 5kg lost — BMR drops as weight decreases. Target reduces by ~100 kcal per 5kg lost.</p>
+    <p class="note" style="margin-top:12px;">Mifflin-St Jeor: BMR = 10×143 + 6.25×183 − 5×33 + 5 = 2,414. TDEE = BMR × 1.55 (training 6 days). Target is about 20% below TDEE. Re-weigh and recalculate every 5 kg lost, or if your weight has changed since the break.</p>
   </div>
 
   <!-- Calorie Phase Reduction -->
@@ -1782,33 +1357,33 @@
     <div style="display:flex;flex-direction:column;gap:8px;margin-top:4px;">
       <div style="display:flex;align-items:center;justify-content:space-between;padding:10px 14px;background:var(--surface-2);border:1px solid var(--border);border-radius:12px;">
         <div><div style="font-size:12px;color:var(--accent);font-weight:700;">Phase 1 · 143–130kg</div><div style="font-size:11px;color:var(--text-muted);margin-top:2px;">Months 1–3</div></div>
-        <div style="font-family:'Syne',sans-serif;font-size:18px;font-weight:800;color:var(--text);">3,280</div>
+        <div style="font-family:'Syne',sans-serif;font-size:18px;font-weight:800;color:var(--text);">3,040</div>
       </div>
       <div style="display:flex;align-items:center;justify-content:space-between;padding:10px 14px;background:var(--surface-2);border:1px solid var(--border);border-radius:12px;">
         <div><div style="font-size:12px;color:var(--orange);font-weight:700;">Phase 2 · 130–115kg</div><div style="font-size:11px;color:var(--text-muted);margin-top:2px;">Months 3–6</div></div>
-        <div style="font-family:'Syne',sans-serif;font-size:18px;font-weight:800;color:var(--text);">3,000</div>
-      </div>
-      <div style="display:flex;align-items:center;justify-content:space-between;padding:10px 14px;background:var(--surface-2);border:1px solid var(--border);border-radius:12px;">
-        <div><div style="font-size:12px;color:var(--blue);font-weight:700;">Phase 3 · 115–100kg</div><div style="font-size:11px;color:var(--text-muted);margin-top:2px;">Months 6–9</div></div>
         <div style="font-family:'Syne',sans-serif;font-size:18px;font-weight:800;color:var(--text);">2,750</div>
       </div>
       <div style="display:flex;align-items:center;justify-content:space-between;padding:10px 14px;background:var(--surface-2);border:1px solid var(--border);border-radius:12px;">
+        <div><div style="font-size:12px;color:var(--blue);font-weight:700;">Phase 3 · 115–100kg</div><div style="font-size:11px;color:var(--text-muted);margin-top:2px;">Months 6–9</div></div>
+        <div style="font-family:'Syne',sans-serif;font-size:18px;font-weight:800;color:var(--text);">2,550</div>
+      </div>
+      <div style="display:flex;align-items:center;justify-content:space-between;padding:10px 14px;background:var(--surface-2);border:1px solid var(--border);border-radius:12px;">
         <div><div style="font-size:12px;color:var(--purple);font-weight:700;">Phase 4 · 100–85kg</div><div style="font-size:11px;color:var(--text-muted);margin-top:2px;">Months 9–12</div></div>
-        <div style="font-family:'Syne',sans-serif;font-size:18px;font-weight:800;color:var(--text);">2,500</div>
+        <div style="font-family:'Syne',sans-serif;font-size:18px;font-weight:800;color:var(--text);">2,350</div>
       </div>
     </div>
   </div>
 
   <!-- Daily Macros Phase 1 -->
   <div class="card">
-    <div class="card-title">Phase 1 Daily Macros <span style="font-size:12px;color:var(--text-muted);font-family:'DM Sans',sans-serif;font-weight:400;">· 3,280 kcal</span></div>
+    <div class="card-title">Phase 1 Daily Macros <span style="font-size:12px;color:var(--text-muted);font-family:'DM Sans',sans-serif;font-weight:400;">· 3,040 kcal</span></div>
     <div class="macro-row">
-      <div class="macro-pill"><div class="macro-val">200g</div><div class="macro-lbl">Protein</div></div>
-      <div class="macro-pill"><div class="macro-val">330g</div><div class="macro-lbl">Carbs</div></div>
-      <div class="macro-pill"><div class="macro-val">90g</div><div class="macro-lbl">Fats</div></div>
-      <div class="macro-pill"><div class="macro-val">3,280</div><div class="macro-lbl">Calories</div></div>
+      <div class="macro-pill"><div class="macro-val">248g</div><div class="macro-lbl">Protein</div></div>
+      <div class="macro-pill"><div class="macro-val">283g</div><div class="macro-lbl">Carbs</div></div>
+      <div class="macro-pill"><div class="macro-val">105g</div><div class="macro-lbl">Fats</div></div>
+      <div class="macro-pill"><div class="macro-val">3,040</div><div class="macro-lbl">Calories</div></div>
     </div>
-    <p class="note" style="margin-top:10px;">Protein stays at ~1.4g/kg bodyweight throughout all phases. Carbs + fats reduce as calories drop.</p>
+    <p class="note" style="margin-top:10px;">Protein is about 1.7 g/kg of current bodyweight (248 g) and holds across all phases. Carbs and fats reduce as calories drop.</p>
   </div>
 
   <!-- Meal timing note -->
@@ -2041,12 +1616,14 @@
     <div class="supp-row"><div class="supp-key">Brand</div><div class="supp-val">Rasayanam D3K2</div></div>
     <div class="supp-row"><div class="supp-key">Dose</div><div class="supp-val">600 IU D3 (up to 2,000 IU if bloodwork shows deficiency)</div></div>
     <div class="supp-row"><div class="supp-key">Timing</div><div class="supp-val">Morning with a fat-containing meal</div></div>
-    <div class="supp-row"><div class="supp-key">Test</div><div class="supp-val">Vitamin D, Calcium, Kidney Function every 3–4 months</div></div>
+    <div class="supp-row"><div class="supp-key">Test</div><div class="supp-val">Vitamin D, Calcium, Kidney Function and a liver panel every 3–4 months</div></div>
   </div>
 
   <div class="supp-card">
     <div class="supp-name">Omega-3 Fish Oil</div>
-    <div class="supp-row"><div class="supp-key">Dose</div><div class="supp-val">1g EPA + DHA</div></div>
+    <div class="supp-row"><div class="supp-key">Brand</div><div class="supp-val">Naturaltein Fish Oil</div></div>
+    <div class="supp-row"><div class="supp-key">Dose</div><div class="supp-val">1g EPA + DHA combined. Read the EPA + DHA per capsule on the label (not the total oil) and count capsules to reach 1g</div></div>
+
     <div class="supp-row"><div class="supp-key">Timing</div><div class="supp-val">Any meal</div></div>
   </div>
 
@@ -2060,8 +1637,35 @@
 
   <div class="supp-card">
     <div class="supp-name">Vitamin B12</div>
+    <div class="supp-row"><div class="supp-key">Brand</div><div class="supp-val">Rasayanam B12</div></div>
     <div class="supp-row"><div class="supp-key">Form</div><div class="supp-val">Methylcobalamin 500mcg</div></div>
     <div class="supp-row"><div class="supp-key">Timing</div><div class="supp-val">Evening with food</div></div>
+  </div>
+
+  <div class="supp-card">
+    <div class="supp-name">Ashwagandha</div>
+    <div class="supp-row"><div class="supp-key">Brand</div><div class="supp-val">Rasayanam Ashwagandha</div></div>
+    <div class="supp-row"><div class="supp-key">Dose</div><div class="supp-val">Follow the Rasayanam label. Typical studied range is 300–600 mg root extract daily, so check the mg and extract type on the pack</div></div>
+    <div class="supp-row"><div class="supp-key">Timing</div><div class="supp-val">Evening with dinner or before bed</div></div>
+    <div class="supp-row"><div class="supp-key">Benefits</div><div class="supp-val">Lowers perceived stress and may help sleep and recovery. Strength effects are small</div></div>
+    <div class="supp-row"><div class="supp-key">Duration</div><div class="supp-val">Studies run 8–12 weeks. Reassess after that instead of taking it indefinitely</div></div>
+    <div class="supp-row"><div class="supp-key">Caution</div><div class="supp-val">Rare liver injury reports, and it can raise thyroid hormones. Your Rules tab lists fatty liver, so confirm with your doctor and add a liver panel (ALT, AST) to your blood tests. Stop and get checked if you notice dark urine, yellow eyes, itching or lasting nausea</div></div>
+  </div>
+
+  <div class="supp-card">
+    <div class="supp-name">Multivitamin</div>
+    <div class="supp-row"><div class="supp-key">Brand</div><div class="supp-val">Supradyn</div></div>
+    <div class="supp-row"><div class="supp-key">Dose</div><div class="supp-val">1 tablet daily, as per the label</div></div>
+    <div class="supp-row"><div class="supp-key">Timing</div><div class="supp-val">Morning with breakfast</div></div>
+    <div class="supp-row"><div class="supp-key">Check label</div><div class="supp-val">It overlaps with your D3K2, B12 and magnesium, so count those toward your totals. Keep vitamin C well below 1 g (high-dose C can raise urinary oxalate, a stone risk). If your variant has iron, do not add more without a blood test</div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">Daily Timing</div>
+    <div class="rs-row"><div class="rs-d" style="width:78px;font-size:11px;">Morning</div><div><div class="rs-t" style="font-size:13px;">Supradyn, Rasayanam D3K2, Naturaltein fish oil</div><div class="rs-s">With breakfast, which has fat for absorption</div></div></div>
+    <div class="rs-row"><div class="rs-d" style="width:78px;font-size:11px;">Post-workout</div><div><div class="rs-t" style="font-size:13px;">Whey, 1 scoop</div><div class="rs-s">In water</div></div></div>
+    <div class="rs-row"><div class="rs-d" style="width:78px;font-size:11px;">Dinner</div><div><div class="rs-t" style="font-size:13px;">Ashwagandha, B12</div><div class="rs-s">With food</div></div></div>
+    <div class="rs-row"><div class="rs-d" style="width:78px;font-size:11px;">Before bed</div><div><div class="rs-t" style="font-size:13px;">Magnesium glycinate</div><div class="rs-s">About 30 minutes before sleep</div></div></div>
   </div>
 
   <div class="danger-card">
@@ -2131,7 +1735,7 @@
     <div class="rule-label">Training</div>
     <div class="rule-title">Training Rules</div>
     <ul>
-      <li><div class="rule-dot"></div>Trap bar deadlift only</li>
+      <li><div class="rule-dot"></div>Trap bar deadlift when available, otherwise conventional with strict form</li>
       <li><div class="rule-dot"></div>No treadmill sprinting</li>
       <li><div class="rule-dot"></div>Bulgarian split squats instead of walking lunges</li>
       <li><div class="rule-dot"></div>Knee warm-up before every leg day</li>
@@ -2254,7 +1858,7 @@
     </div>
     <div class="divider"></div>
     <div class="card-title" style="font-size:14px;margin-bottom:8px;">Track These Lifts</div>
-    <div class="list-body"><ul><li>Back Squat (5RM)</li><li>Trap Bar Deadlift (5RM)</li><li>Pull-Up (max reps)</li></ul></div>
+    <div class="list-body"><ul><li>Back Squat (5RM)</li><li>Deadlift (5RM)</li><li>Pull-Up (max reps)</li></ul></div>
   </div>
 
 </section>
@@ -2296,7 +1900,7 @@
     document.querySelectorAll('.checklist-item').forEach(c => checks.push(c.classList.contains('done')));
     const water = [];
     document.querySelectorAll('.glass').forEach(g => water.push(g.classList.contains('filled')));
-    localStorage.setItem('hybridAthleteV2', JSON.stringify({ date: new Date().toDateString(), checks, water }));
+    try { localStorage.setItem('hybridAthleteV2', JSON.stringify({ date: new Date().toDateString(), checks, water })); } catch (e) {}
   }
 
   function loadState() {
@@ -2322,7 +1926,7 @@
   }
 
   function saveWeightLog(log) {
-    localStorage.setItem('weightLog', JSON.stringify(log));
+    try { localStorage.setItem('weightLog', JSON.stringify(log)); } catch (e) {}
   }
 
   function logWeight() {
@@ -2415,6 +2019,39 @@
   }
 
   // call on page load
+  // ── RESTART TAB ──
+  function rsPhase(i) {
+    document.querySelectorAll('.rs-phase').forEach((p, k) => p.style.display = k === i ? 'block' : 'none');
+    document.querySelectorAll('.rs-tab').forEach((b, k) => b.classList.toggle('active', k === i));
+    try { localStorage.setItem('rsPhase', String(i)); } catch (e) {}
+  }
+  function rsWeekKey() {
+    const d = new Date(); d.setDate(d.getDate() - ((d.getDay() + 6) % 7));
+    return d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate();
+  }
+  function rsCount() {
+    const n = document.querySelectorAll('.rs-day.done').length;
+    document.getElementById('rsCount').textContent = n + ' / 7 days done';
+  }
+  function rsToggleDay(el) {
+    el.classList.toggle('done');
+    try {
+      const arr = Array.from(document.querySelectorAll('.rs-day')).map(e => e.classList.contains('done'));
+      localStorage.setItem('rsDays', JSON.stringify({ week: rsWeekKey(), arr }));
+    } catch (e) {}
+    rsCount();
+  }
+  function rsLoad() {
+    try {
+      const s = JSON.parse(localStorage.getItem('rsDays'));
+      if (s && s.week === rsWeekKey()) document.querySelectorAll('.rs-day').forEach((e, i) => { if (s.arr[i]) e.classList.add('done'); });
+      const p = parseInt(localStorage.getItem('rsPhase'), 10);
+      if (!isNaN(p)) rsPhase(p);
+    } catch (e) {}
+    rsCount();
+  }
+  window.addEventListener('load', rsLoad);
+
   window.addEventListener('load', renderWeightUI);
 </script>
 </body>
