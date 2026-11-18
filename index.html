@@ -5,40 +5,40 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
   <title>Hybrid Athlete</title>
   <meta name="apple-mobile-web-app-capable" content="yes"/>
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+  <meta name="apple-mobile-web-app-status-bar-style" content="default"/>
   <meta name="apple-mobile-web-app-title" content="Athlete"/>
   <meta name="mobile-web-app-capable" content="yes"/>
-  <meta name="theme-color" content="#080808"/>
-  <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'%3E%3Crect width='180' height='180' fill='%23080808'/%3E%3Ctext x='90' y='115' font-family='system-ui' font-weight='900' font-size='90' fill='%23c8f461' text-anchor='middle'%3E%E2%9A%A1%3C/text%3E%3C/svg%3E"/>
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet"/>
+  <meta name="theme-color" content="#F2F0EA"/>
+  <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'%3E%3Crect width='180' height='180' fill='%23F2F0EA'/%3E%3Ctext x='90' y='115' font-family='system-ui' font-weight='900' font-size='90' fill='%23FF5A00' text-anchor='middle'%3E%E2%9A%A1%3C/text%3E%3C/svg%3E"/>
   <style>
-    :root {
-      --bg: #080808;
-      --surface: #0f0f0f;
-      --surface-2: #161616;
-      --surface-3: #1e1e1e;
-      --border: rgba(255,255,255,0.07);
-      --border-accent: rgba(255,255,255,0.12);
-      --text: #f0f0f0;
-      --text-muted: #7a7a7a;
-      --text-sub: #4a4a4a;
-      --accent: #c8f461;
-      --accent-dim: rgba(200,244,97,0.12);
-      --accent-glow: rgba(200,244,97,0.25);
-      --blue: #4f9fff;
-      --blue-dim: rgba(79,159,255,0.12);
-      --orange: #ff9f4f;
-      --orange-dim: rgba(255,159,79,0.12);
-      --purple: #b57eff;
-      --purple-dim: rgba(181,126,255,0.12);
-      --red: #ff5f5f;
-      --red-dim: rgba(255,95,95,0.1);
+        :root {
+      --bg: #F2F0EA;
+      --surface: #FAF9F5;
+      --surface-2: #ECE9E1;
+      --surface-3: #DEDACF;
+      --border: rgba(17,17,17,0.16);
+      --border-accent: #111111;
+      --text: #111111;
+      --text-muted: #5E5B54;
+      --text-sub: #6E6A62;
+      --accent: #FF5A00;
+      --accent-ink: #B53700;
+      --accent-dim: rgba(255,90,0,0.10);
+      --accent-glow: rgba(255,90,0,0.18);
+      --blue: #1D4ED8;
+      --blue-dim: rgba(29,78,216,0.08);
+      --orange: #8F5A06;
+      --orange-dim: rgba(143,90,6,0.10);
+      --purple: #6D28D9;
+      --purple-dim: rgba(109,40,217,0.08);
+      --red: #B91C1C;
+      --red-dim: rgba(185,28,28,0.08);
     }
     * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
 
     body {
-      font-family: 'DM Sans', sans-serif;
+      font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;
       background: var(--bg);
       color: var(--text);
       line-height: 1.6;
@@ -52,8 +52,8 @@
       position: fixed;
       inset: 0;
       background:
-        radial-gradient(ellipse 60% 40% at 10% 0%, rgba(200,244,97,0.04) 0%, transparent 60%),
-        radial-gradient(ellipse 50% 50% at 90% 100%, rgba(79,159,255,0.03) 0%, transparent 60%);
+        radial-gradient(ellipse 60% 40% at 10% 0%, rgba(255,90,0,0.04) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 50% at 90% 100%, rgba(29,78,216,0.03) 0%, transparent 60%);
       pointer-events: none;
       z-index: 0;
     }
@@ -63,7 +63,7 @@
       position: sticky;
       top: 0;
       z-index: 100;
-      background: rgba(8,8,8,0.92);
+      background: rgba(242,240,234,0.94);
       backdrop-filter: blur(28px);
       -webkit-backdrop-filter: blur(28px);
       border-bottom: 1px solid var(--border);
@@ -78,7 +78,7 @@
     }
 
     .logo {
-      font-family: 'Syne', sans-serif;
+      font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;
       font-size: 15px;
       font-weight: 800;
       letter-spacing: -0.3px;
@@ -86,15 +86,15 @@
     }
 
     .logo span {
-      color: var(--accent);
+      color:var(--accent-ink);
     }
 
     .header-badge {
       font-size: 11px;
       font-weight: 500;
-      color: var(--accent);
+      color:var(--accent-ink);
       background: var(--accent-dim);
-      border: 1px solid rgba(200,244,97,0.25);
+      border: 1px solid rgba(255,90,0,0.25);
       border-radius: 100px;
       padding: 4px 10px;
       letter-spacing: 0.3px;
@@ -121,7 +121,7 @@
 
     nav button {
       flex-shrink: 0;
-      font-family: 'DM Sans', sans-serif;
+      font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;
       font-size: 13px;
       font-weight: 500;
       color: var(--text-muted);
@@ -137,7 +137,7 @@
     nav button:hover { color: var(--text); }
 
     nav button.active {
-      color: var(--accent);
+      color:var(--accent-ink);
       border-bottom-color: var(--accent);
       font-weight: 600;
     }
@@ -161,7 +161,7 @@
     }
 
     .card-title {
-      font-family: 'Syne', sans-serif;
+      font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;
       font-size: 17px;
       font-weight: 700;
       color: var(--text);
@@ -192,7 +192,7 @@
     }
 
     .hero-title {
-      font-family: 'Syne', sans-serif;
+      font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;
       font-size: 38px;
       font-weight: 800;
       letter-spacing: -2px;
@@ -200,7 +200,7 @@
       margin-bottom: 6px;
     }
 
-    .hero-title span { color: var(--accent); }
+    .hero-title span { color:var(--accent-ink); }
 
     .hero-sub {
       font-size: 13px;
@@ -228,11 +228,11 @@
     }
 
     .stat-pill .val {
-      font-family: 'Syne', sans-serif;
+      font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;
       font-size: 20px;
       font-weight: 800;
       letter-spacing: -1px;
-      color: var(--accent);
+      color:var(--accent-ink);
       line-height: 1;
     }
 
@@ -314,17 +314,17 @@
     }
 
     .water-count {
-      font-family: 'Syne', sans-serif;
+      font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;
       font-size: 28px;
       font-weight: 800;
-      color: var(--accent);
+      color:var(--accent-ink);
       letter-spacing: -1px;
     }
 
     .water-count span {
       font-size: 13px;
       color: var(--text-muted);
-      font-family: 'DM Sans', sans-serif;
+      font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;
       font-weight: 400;
       letter-spacing: 0;
     }
@@ -376,7 +376,7 @@
     .glass.filled {
       background: var(--accent);
       border-color: var(--accent);
-      color: #1a2800;
+      color: #111111;
       font-size: 12px;
     }
 
@@ -402,7 +402,7 @@
     .accord-header:hover { background: var(--surface-2); }
 
     .accord-title {
-      font-family: 'Syne', sans-serif;
+      font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;
       font-size: 14px;
       font-weight: 700;
       color: var(--text);
@@ -446,10 +446,10 @@
       text-transform: uppercase;
     }
 
-    .tag-warmup  { background: var(--orange-dim); color: var(--orange); border: 1px solid rgba(255,159,79,0.25); }
-    .tag-training { background: var(--accent-dim); color: var(--accent); border: 1px solid rgba(200,244,97,0.25); }
-    .tag-cooldown { background: var(--blue-dim); color: var(--blue); border: 1px solid rgba(79,159,255,0.25); }
-    .tag-mobility { background: var(--purple-dim); color: var(--purple); border: 1px solid rgba(181,126,255,0.25); }
+    .tag-warmup  { background: var(--orange-dim); color: var(--orange); border: 1px solid rgba(143,90,6,0.25); }
+    .tag-training { background: var(--accent-dim); color:var(--accent-ink); border: 1px solid rgba(255,90,0,0.25); }
+    .tag-cooldown { background: var(--blue-dim); color: var(--blue); border: 1px solid rgba(29,78,216,0.25); }
+    .tag-mobility { background: var(--purple-dim); color: var(--purple); border: 1px solid rgba(109,40,217,0.25); }
 
     /* LISTS */
     .list-body ul {
@@ -460,7 +460,7 @@
 
     .list-body ul li {
       font-size: 13.5px;
-      color: #bbb;
+      color: #4a4740;
       padding: 5px 0;
       padding-left: 16px;
       position: relative;
@@ -491,7 +491,7 @@
     }
 
     .macro-pill .macro-val {
-      font-family: 'Syne', sans-serif;
+      font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;
       font-size: 17px;
       font-weight: 800;
       letter-spacing: -0.5px;
@@ -508,7 +508,7 @@
 
     /* SECTION HEADER */
     .section-header {
-      font-family: 'Syne', sans-serif;
+      font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;
       font-size: 28px;
       font-weight: 800;
       letter-spacing: -1.2px;
@@ -516,7 +516,7 @@
       color: var(--text);
     }
 
-    .section-header span { color: var(--accent); }
+    .section-header span { color:var(--accent-ink); }
 
     /* GOAL CHIPS */
     .goal-row {
@@ -549,7 +549,7 @@
     }
 
     .supp-name {
-      font-family: 'Syne', sans-serif;
+      font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;
       font-size: 16px;
       font-weight: 700;
       margin-bottom: 10px;
@@ -578,20 +578,20 @@
 
     .supp-val {
       font-size: 13.5px;
-      color: #ccc;
+      color: #3a3833;
     }
 
     /* DANGER ZONE */
     .danger-card {
       background: var(--red-dim);
-      border: 1px solid rgba(255,95,95,0.2);
+      border: 1px solid rgba(185,28,28,0.2);
       border-radius: 18px;
       padding: 18px;
       margin-bottom: 10px;
     }
 
     .danger-title {
-      font-family: 'Syne', sans-serif;
+      font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;
       font-size: 14px;
       font-weight: 800;
       color: var(--red);
@@ -607,7 +607,7 @@
 
     .danger-card ul li {
       font-size: 13.5px;
-      color: #ffaaaa;
+      color: #B91C1C;
       padding: 5px 0;
       display: flex;
       align-items: center;
@@ -635,12 +635,12 @@
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 1px;
-      color: var(--accent);
+      color:var(--accent-ink);
       margin-bottom: 10px;
     }
 
     .rule-title {
-      font-family: 'Syne', sans-serif;
+      font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;
       font-size: 17px;
       font-weight: 800;
       letter-spacing: -0.4px;
@@ -655,7 +655,7 @@
 
     .rule-block ul li {
       font-size: 13.5px;
-      color: #bbb;
+      color: #4a4740;
       padding: 7px 0;
       border-bottom: 1px solid var(--border);
       display: flex;
@@ -713,7 +713,7 @@
     .tl-period {
       font-size: 11px;
       font-weight: 700;
-      color: var(--accent);
+      color:var(--accent-ink);
       text-transform: uppercase;
       letter-spacing: 0.8px;
       margin-bottom: 4px;
@@ -721,7 +721,7 @@
 
     .tl-text {
       font-size: 14px;
-      color: #bbb;
+      color: #4a4740;
       line-height: 1.5;
     }
 
@@ -741,7 +741,7 @@
     }
 
     .track-item .t-val {
-      font-family: 'Syne', sans-serif;
+      font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;
       font-size: 15px;
       font-weight: 800;
       letter-spacing: -0.4px;
@@ -773,16 +773,16 @@
     /* ── RESTART TAB ── */
     .rs-tabs{display:flex;gap:6px;margin-bottom:14px}
     .rs-tab{flex:1;font-family:inherit;font-size:12px;font-weight:600;padding:10px 6px;border-radius:12px;border:1px solid var(--border);background:var(--surface-2);color:var(--text-muted);cursor:pointer}
-    .rs-tab.active{background:var(--accent-dim);border-color:rgba(200,244,97,.35);color:var(--accent)}
+    .rs-tab.active{background:var(--accent-dim);border-color:rgba(255,90,0,.35);color:var(--accent-ink)}
     .rs-row{display:flex;gap:12px;padding:11px 0;border-bottom:1px solid var(--border)}
     .rs-row:last-child{border:none}
-    .rs-d{width:34px;flex-shrink:0;font-family:'Syne',sans-serif;font-size:12px;font-weight:800;color:var(--accent);padding-top:1px}
+    .rs-d{width:34px;flex-shrink:0;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:12px;font-weight:800;color:var(--accent-ink);padding-top:1px}
     .rs-t{font-size:13.5px;font-weight:600;color:var(--text)}
     .rs-s{font-size:12px;color:var(--text-muted);margin-top:2px}
     .rs-meta{font-size:12px;color:var(--text-muted);margin-bottom:6px}
     .rs-days{display:grid;grid-template-columns:repeat(7,1fr);gap:6px}
     .rs-day{aspect-ratio:1;border-radius:10px;background:var(--surface-2);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:var(--text-sub);cursor:pointer;user-select:none}
-    .rs-day.done{background:var(--accent);border-color:var(--accent);color:#1a2800}
+    .rs-day.done{background:var(--accent);border-color:var(--accent);color:#111111}
 
     /* ── DAILY PROGRESS MARKER ── */
     .weight-input-row {
@@ -803,7 +803,7 @@
       border: 1px solid var(--border-accent);
       border-radius: 14px;
       color: var(--text);
-      font-family: 'Syne', sans-serif;
+      font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;
       font-size: 28px;
       font-weight: 800;
       letter-spacing: -1px;
@@ -825,7 +825,7 @@
       transform: translateY(-50%);
       font-size: 13px;
       color: var(--text-muted);
-      font-family: 'DM Sans', sans-serif;
+      font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;
       pointer-events: none;
     }
 
@@ -833,8 +833,8 @@
       background: var(--accent);
       border: none;
       border-radius: 14px;
-      color: #1a2800;
-      font-family: 'Syne', sans-serif;
+      color: #111111;
+      font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;
       font-size: 13px;
       font-weight: 800;
       padding: 0 20px;
@@ -862,7 +862,7 @@
     }
 
     .w-stat .wsv {
-      font-family: 'Syne', sans-serif;
+      font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;
       font-size: 19px;
       font-weight: 800;
       letter-spacing: -0.8px;
@@ -870,7 +870,7 @@
       line-height: 1;
     }
 
-    .w-stat .wsv.accent { color: var(--accent); }
+    .w-stat .wsv.accent { color:var(--accent-ink); }
     .w-stat .wsv.red { color: var(--red); }
 
     .w-stat .wsl {
@@ -938,7 +938,7 @@
     .log-date { font-size: 12px; color: var(--text-muted); }
 
     .log-weight {
-      font-family: 'Syne', sans-serif;
+      font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;
       font-size: 15px;
       font-weight: 800;
       letter-spacing: -0.4px;
@@ -952,7 +952,7 @@
       border-radius: 100px;
     }
 
-    .log-delta.down { color: var(--accent); background: var(--accent-dim); }
+    .log-delta.down { color:var(--accent-ink); background: var(--accent-dim); }
     .log-delta.up   { color: var(--red);    background: var(--red-dim); }
     .log-delta.same { color: var(--text-muted); background: var(--surface-3); }
 
@@ -973,8 +973,65 @@
 
     .pr-bg { fill: none; stroke: var(--surface-3); }
     .pr-fg { fill: none; stroke: var(--accent); stroke-linecap: round; transition: stroke-dashoffset 0.6s ease; }
-    .pr-text-val { font-family: 'Syne', sans-serif; font-size: 18px; font-weight: 800; fill: var(--text); }
+    .pr-text-val { font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; font-size: 18px; font-weight: 800; fill: var(--text); }
     .pr-text-lbl { font-size: 9px; fill: var(--text-muted); }
+  
+    /* ── NIKE × OFF-WHITE THEME ── */
+    *{border-radius:0 !important}
+    body{font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+    body::before{display:none}
+    .header{border-bottom:2px solid #111}
+    .header::after{content:'';display:block;height:8px;background:repeating-linear-gradient(135deg,#111 0 8px,var(--bg) 8px 16px)}
+    .logo{text-transform:uppercase;font-weight:900;letter-spacing:-0.02em}
+    .logo::before{content:'“'}
+    .logo::after{content:'”'}
+    .header-badge{background:#111;color:var(--bg);border:none;text-transform:uppercase;letter-spacing:.08em;font-weight:700}
+    .header-sub{letter-spacing:.12em}
+    nav button{text-transform:uppercase;letter-spacing:.08em;font-weight:700;font-size:11px}
+    nav button.active{color:#111;border-bottom:3px solid var(--accent)}
+    .section-header,.hero-title{text-transform:uppercase;font-weight:900;letter-spacing:-0.04em;line-height:.95}
+    .section-header::before{content:'“'}
+    .section-header::after{content:'”'}
+    .card,.accord,.supp-card,.rule-block,.hero-card{border:1.5px solid #111 !important;background:var(--surface)}
+    .hero-card{box-shadow:6px 6px 0 #111}
+    .hero-card::after{background:repeating-linear-gradient(135deg,rgba(17,17,17,.10) 0 6px,transparent 6px 12px);width:150px;height:150px;top:-50px;right:-50px}
+    .danger-card{border:1.5px solid #B91C1C !important}
+    .stat-pill,.macro-pill,.track-item,.w-stat,.log-entry,.glass,.rs-day,.goal-chip{border:1px solid #111 !important}
+    .card-title,.accord-title,.supp-name,.rule-title,.danger-title{text-transform:uppercase;letter-spacing:-0.01em;font-weight:800}
+    .tag{text-transform:uppercase;letter-spacing:.06em;font-weight:800}
+    .weight-input-wrap input{border:1.5px solid #111;background:#fff}
+    .rs-tab,.wk-tab{text-transform:uppercase;letter-spacing:.06em;font-weight:800;border:1px solid #111}
+    .rs-tab.active{background:#111;color:var(--bg);border-color:#111}
+    .glass.filled,.rs-day.done{background:var(--accent);color:#111}
+    .rs-meta,.rs-s{color:var(--text-muted)}
+      /* ── DYNAMIC ── */
+    .accord-body li{cursor:pointer}
+    .accord-body li.tick{text-decoration:line-through;opacity:.45}
+    .rs-row.today{background:var(--accent-dim)}
+    .accord.is-today{box-shadow:5px 5px 0 var(--accent)}
+    .accord.is-today .accord-title::after{content:'  ·  TODAY';color:var(--accent-ink);font-size:10px;letter-spacing:.1em}
+    .tickcount{font-size:10px;font-weight:800;letter-spacing:.06em;color:var(--text-muted);margin-right:8px;white-space:nowrap}
+    .log-del{background:none;border:none;font-size:18px;line-height:1;cursor:pointer;color:var(--text-muted);padding:0 2px}
+      /* ── THEME POLISH ── */
+    body{background-image:radial-gradient(rgba(17,17,17,.08) 1px,transparent 1px);background-size:14px 14px}
+    section{padding:22px 16px 90px}
+    .kicker{font-size:10px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--text-muted);margin-bottom:10px}
+    .section-header{font-size:36px;margin-bottom:12px}
+    .subtitle{font-size:13px;color:var(--text-muted);margin:0 0 22px;max-width:36ch;line-height:1.4}
+    .card,.accord{margin-bottom:14px}
+    .card-title{font-size:15px;letter-spacing:.02em;border-bottom:1px solid #111;padding-bottom:10px;margin-bottom:14px}
+    .water-header .card-title,#todayCard .card-title{border:none;padding:0}
+    .accord-title{font-size:15px}
+    .logo{font-size:16px}
+    .stat-pill .val{font-size:22px !important;letter-spacing:-0.04em}
+    .stat-pill .lbl{letter-spacing:.1em;font-weight:700}
+    nav{counter-reset:t}
+    nav button{counter-increment:t;padding:9px 14px 10px}
+    nav button::before{content:counter(t,decimal-leading-zero);font-size:9px;opacity:.55;margin-right:6px}
+    nav button.active{background:#111;color:var(--bg);border-bottom-color:#111}
+    nav button.active::before{color:var(--accent);opacity:1}
+    .weight-log-btn{text-transform:uppercase;letter-spacing:.1em;font-weight:900}
+    .brandfoot{text-align:center;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--text-muted);padding:0 0 32px}
   </style>
 </head>
 <body>
@@ -982,7 +1039,7 @@
 <div class="header">
   <div class="header-top">
     <div class="logo">Hybrid<span>Athlete</span></div>
-    <div class="header-badge">WHOOP Mode</div>
+    <div class="header-badge" id="dayBadge">TODAY</div>
   </div>
   <div class="header-sub">143kg → 85kg · Body Recomp · Performance · Longevity</div>
   <nav>
@@ -1026,42 +1083,42 @@
     <div class="card-title">Daily Checklist</div>
     <div id="checklist">
       <div class="checklist-item" onclick="toggleCheck(this)">
-        <div class="ci-box"><svg class="ci-check" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#1a2800" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="ci-box"><svg class="ci-check" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#111111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
         <div class="ci-icon">💧</div>
         <div class="ci-label">4L water completed</div>
       </div>
       <div class="checklist-item" onclick="toggleCheck(this)">
-        <div class="ci-box"><svg class="ci-check" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#1a2800" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="ci-box"><svg class="ci-check" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#111111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
         <div class="ci-icon">🟢</div>
         <div class="ci-label">Amla juice taken</div>
       </div>
       <div class="checklist-item" onclick="toggleCheck(this)">
-        <div class="ci-box"><svg class="ci-check" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#1a2800" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="ci-box"><svg class="ci-check" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#111111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
         <div class="ci-icon">🍋</div>
         <div class="ci-label">Lemon water consumed</div>
       </div>
       <div class="checklist-item" onclick="toggleCheck(this)">
-        <div class="ci-box"><svg class="ci-check" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#1a2800" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="ci-box"><svg class="ci-check" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#111111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
         <div class="ci-icon">🏋️</div>
         <div class="ci-label">Workout completed</div>
       </div>
       <div class="checklist-item" onclick="toggleCheck(this)">
-        <div class="ci-box"><svg class="ci-check" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#1a2800" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="ci-box"><svg class="ci-check" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#111111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
         <div class="ci-icon">🧘</div>
         <div class="ci-label">Pelvic floor routine completed</div>
       </div>
       <div class="checklist-item" onclick="toggleCheck(this)">
-        <div class="ci-box"><svg class="ci-check" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#1a2800" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="ci-box"><svg class="ci-check" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#111111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
         <div class="ci-icon">⚡</div>
         <div class="ci-label">Zone 2 / HIIT completed</div>
       </div>
       <div class="checklist-item" onclick="toggleCheck(this)">
-        <div class="ci-box"><svg class="ci-check" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#1a2800" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="ci-box"><svg class="ci-check" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#111111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
         <div class="ci-icon">🥩</div>
         <div class="ci-label">Protein target reached</div>
       </div>
       <div class="checklist-item" onclick="toggleCheck(this)">
-        <div class="ci-box"><svg class="ci-check" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#1a2800" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="ci-box"><svg class="ci-check" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#111111" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
         <div class="ci-icon">🚫</div>
         <div class="ci-label">No maida / cola / alcohol</div>
       </div>
@@ -1106,8 +1163,8 @@
   <div class="section-header">Back to<br><span>Training</span></div>
 
   <div class="hero-card">
-    <div style="font-size:11px;color:var(--accent);font-weight:700;text-transform:uppercase;letter-spacing:0.8px;margin-bottom:10px;">Resuming after a break · Gym</div>
-    <div style="font-family:'Syne',sans-serif;font-size:21px;font-weight:800;letter-spacing:-0.8px;line-height:1.2;margin-bottom:14px;">Rebuild the habit and the tissue <span style="color:var(--accent);">before you chase intensity.</span></div>
+    <div style="font-size:11px;color:var(--accent-ink);font-weight:700;text-transform:uppercase;letter-spacing:0.8px;margin-bottom:10px;">Resuming after a break · Gym</div>
+    <div style="font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:21px;font-weight:800;letter-spacing:-0.8px;line-height:1.2;margin-bottom:14px;">Rebuild the habit and the tissue <span style="color:var(--accent-ink);">before you chase intensity.</span></div>
     <div class="stat-row">
       <div class="stat-pill"><div class="val" style="font-size:16px;">4→6</div><div class="lbl">Sessions/wk</div></div>
       <div class="stat-pill"><div class="val" style="font-size:16px;">3→2</div><div class="lbl">Reps in reserve</div></div>
@@ -1123,109 +1180,83 @@
       <button class="rs-tab" onclick="rsPhase(2)">Week 5+</button>
     </div>
     <div class="rs-phase">
-      <div class="rs-meta">4 sessions · about 60% of full volume · 3 sets per exercise · stop each set with 3 reps left</div>
-      <div class="rs-row"><div class="rs-d">Mon</div><div><div class="rs-t">Upper re-entry</div><div class="rs-s">Variation A, B or C below</div></div></div>
+      <div class="rs-meta">4 sessions · Workout tab sessions at the Wk 1–2 loads · 3 sets per exercise · stop each set with 3 reps left</div>
+      <div class="rs-row"><div class="rs-d">Mon</div><div><div class="rs-t">Push A</div><div class="rs-s">3 sets per exercise</div></div></div>
       <div class="rs-row"><div class="rs-d">Tue</div><div><div class="rs-t">Easy walk + mobility</div><div class="rs-s">40 min walk, then your 10-min flow</div></div></div>
-      <div class="rs-row"><div class="rs-d">Wed</div><div><div class="rs-t">Rest</div><div class="rs-s">Mobility flow + 8k steps</div></div></div>
-      <div class="rs-row"><div class="rs-d">Thu</div><div><div class="rs-t">Lower re-entry</div><div class="rs-s">Variation A, B or C below</div></div></div>
-      <div class="rs-row"><div class="rs-d">Fri</div><div><div class="rs-t">Full Body + Engine re-entry</div><div class="rs-s">Variation A, B or C below</div></div></div>
-      <div class="rs-row"><div class="rs-d">Sat</div><div><div class="rs-t">Zone 2</div><div class="rs-s">40 min, any option below</div></div></div>
+      <div class="rs-row"><div class="rs-d">Wed</div><div><div class="rs-t">Legs A</div><div class="rs-s">3 sets per exercise</div></div></div>
+      <div class="rs-row"><div class="rs-d">Thu</div><div><div class="rs-t">Rest</div><div class="rs-s">Mobility flow + 8k steps</div></div></div>
+      <div class="rs-row"><div class="rs-d">Fri</div><div><div class="rs-t">Pull B</div><div class="rs-s">3 sets per exercise</div></div></div>
+      <div class="rs-row"><div class="rs-d">Sat</div><div><div class="rs-t">Zone 2</div><div class="rs-s">40 min, bike or incline walk</div></div></div>
       <div class="rs-row"><div class="rs-d">Sun</div><div><div class="rs-t">Rest</div><div class="rs-s">Easy walk, early night</div></div></div>
     </div>
     <div class="rs-phase" style="display:none">
-      <div class="rs-meta">5 sessions · full volume · stop each set with 2 reps left</div>
-      <div class="rs-row"><div class="rs-d">Mon</div><div><div class="rs-t">Upper (Workout tab)</div><div class="rs-s">Full sets at the Wk 3–4 load guide</div></div></div>
-      <div class="rs-row"><div class="rs-d">Tue</div><div><div class="rs-t">Light Conditioning</div><div class="rs-s">Variation A, B or C below</div></div></div>
-      <div class="rs-row"><div class="rs-d">Wed</div><div><div class="rs-t">Zone 2</div><div class="rs-s">45 min, any Workout tab option</div></div></div>
-      <div class="rs-row"><div class="rs-d">Thu</div><div><div class="rs-t">Lower (Workout tab)</div><div class="rs-s">Full sets, 2 reps left</div></div></div>
-      <div class="rs-row"><div class="rs-d">Fri</div><div><div class="rs-t">Full Body (Workout tab)</div><div class="rs-s">Full sets, 2 reps left</div></div></div>
-      <div class="rs-row"><div class="rs-d">Sat</div><div><div class="rs-t">Long easy Zone 2</div><div class="rs-s">60 min, optional but recommended</div></div></div>
+      <div class="rs-meta">5 sessions · full sets at the Wk 3–4 loads · stop each set with 2 reps left</div>
+      <div class="rs-row"><div class="rs-d">Mon</div><div><div class="rs-t">Push A</div><div class="rs-s">Full sets</div></div></div>
+      <div class="rs-row"><div class="rs-d">Tue</div><div><div class="rs-t">Pull A</div><div class="rs-s">Full sets</div></div></div>
+      <div class="rs-row"><div class="rs-d">Wed</div><div><div class="rs-t">Legs A</div><div class="rs-s">Full sets</div></div></div>
+      <div class="rs-row"><div class="rs-d">Thu</div><div><div class="rs-t">Push B</div><div class="rs-s">Full sets</div></div></div>
+      <div class="rs-row"><div class="rs-d">Fri</div><div><div class="rs-t">Pull B</div><div class="rs-s">Full sets</div></div></div>
+      <div class="rs-row"><div class="rs-d">Sat</div><div><div class="rs-t">Long easy Zone 2</div><div class="rs-s">45–60 min, optional but recommended</div></div></div>
       <div class="rs-row"><div class="rs-d">Sun</div><div><div class="rs-t">Rest</div><div class="rs-s">Easy walk, early night</div></div></div>
     </div>
     <div class="rs-phase" style="display:none">
-      <div class="rs-meta">6 days · the full Workout tab plan, fat loss first</div>
-      <div class="rs-row"><div class="rs-d">Mon</div><div><div class="rs-t">Upper</div><div class="rs-s">Workout tab, variation of the week</div></div></div>
-      <div class="rs-row"><div class="rs-d">Tue</div><div><div class="rs-t">Hybrid Conditioning</div><div class="rs-s">Workout tab, 1 of 6 formats</div></div></div>
-      <div class="rs-row"><div class="rs-d">Wed</div><div><div class="rs-t">Zone 2</div><div class="rs-s">Workout tab, 1 of 5 options</div></div></div>
-      <div class="rs-row"><div class="rs-d">Thu</div><div><div class="rs-t">Lower + Core</div><div class="rs-s">Workout tab, variation of the week</div></div></div>
-      <div class="rs-row"><div class="rs-d">Fri</div><div><div class="rs-t">Full Body</div><div class="rs-s">Workout tab, variation of the week</div></div></div>
-      <div class="rs-row"><div class="rs-d">Sat</div><div><div class="rs-t">Long Engine</div><div class="rs-s">Workout tab, 1 of 5 options</div></div></div>
+      <div class="rs-meta">6 days · the full PPLR Hybrid plan from the Workout tab</div>
+      <div class="rs-row"><div class="rs-d">Mon</div><div><div class="rs-t">Push A</div><div class="rs-s">+ rower intervals</div></div></div>
+      <div class="rs-row"><div class="rs-d">Tue</div><div><div class="rs-t">Pull A</div><div class="rs-s">+ 20 min Zone 2</div></div></div>
+      <div class="rs-row"><div class="rs-d">Wed</div><div><div class="rs-t">Legs A</div><div class="rs-s">+ carries and rower</div></div></div>
+      <div class="rs-row"><div class="rs-d">Thu</div><div><div class="rs-t">Push B</div><div class="rs-s">+ bike tempo</div></div></div>
+      <div class="rs-row"><div class="rs-d">Fri</div><div><div class="rs-t">Pull B</div><div class="rs-s">+ 20 min steady rower</div></div></div>
+      <div class="rs-row"><div class="rs-d">Sat</div><div><div class="rs-t">Legs B</div><div class="rs-s">+ 40–45 min Zone 2</div></div></div>
       <div class="rs-row"><div class="rs-d">Sun</div><div><div class="rs-t">Rest</div><div class="rs-s">Walk + mobility</div></div></div>
     </div>
   </div>
 
   <div class="card">
     <div class="card-title">This Week</div>
-    <div style="font-size:12px;color:var(--text-muted);margin-bottom:12px;">Tap a day when you have done its session. Resets every Monday. <span id="rsCount" style="color:var(--accent);font-weight:700;"></span></div>
+    <div style="font-size:12px;color:var(--text-muted);margin-bottom:12px;">Tap a day when you have done its session. Resets every Monday. <span id="rsCount" style="color:var(--accent-ink);font-weight:700;"></span></div>
     <div class="rs-days">
       <div class="rs-day" onclick="rsToggleDay(this)">M</div><div class="rs-day" onclick="rsToggleDay(this)">T</div><div class="rs-day" onclick="rsToggleDay(this)">W</div><div class="rs-day" onclick="rsToggleDay(this)">T</div><div class="rs-day" onclick="rsToggleDay(this)">F</div><div class="rs-day" onclick="rsToggleDay(this)">S</div><div class="rs-day" onclick="rsToggleDay(this)">S</div>
     </div>
   </div>
 
-  <div class="accord" onclick="toggleAccord(this)">
-    <div class="accord-header"><div style="flex:1"><div style="font-size:10px;color:var(--accent);font-weight:700;text-transform:uppercase;letter-spacing:0.8px;margin-bottom:4px;">Weeks 1–2</div><div class="accord-title" style="margin:0;">Upper Re-entry · 3 Variations</div></div>
-    <svg class="accord-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div>
-    <div class="accord-body list-body"><div class="tags"><span class="tag tag-training">A · Machines · 3 sets, 3 reps left</span></div><ul><li>Chest press machine 3×10, lat pulldown 3×10, seated row 3×10</li><li>DB shoulder press 3×10, cable face pull 3×15, plank 3×30s</li></ul><div class="tags"><span class="tag tag-training">B · Free Weights</span></div><ul><li>Bench press 3×8 at about 84 kg, assisted pull-up 3×6, DB row 3×10</li><li>DB shoulder press 3×8 at about 18–20 kg each, face pull 3×15</li></ul><div class="tags"><span class="tag tag-training">C · Hybrid Circuit · 3 rounds</span></div><ul><li>Chest press ×10 → seated row ×10 → shoulder press ×10, 45s rest between exercises</li><li>60s easy bike between rounds</li></ul></div>
-  </div>
-  <div class="accord" onclick="toggleAccord(this)">
-    <div class="accord-header"><div style="flex:1"><div style="font-size:10px;color:var(--accent);font-weight:700;text-transform:uppercase;letter-spacing:0.8px;margin-bottom:4px;">Weeks 1–2</div><div class="accord-title" style="margin:0;">Lower Re-entry · 3 Variations</div></div>
-    <svg class="accord-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div>
-    <div class="accord-body list-body"><div class="tags"><span class="tag tag-training">A · Machines</span></div><ul><li>Leg press 3×12, leg curl 3×12, hip thrust 3×10, calf raise 3×15, dead bug 3×8 each side</li></ul><div class="tags"><span class="tag tag-training">B · Barbell · 3 reps left</span></div><ul><li>Back squat 3×8 at about 133 kg, Romanian deadlift 3×8 at about 126 kg</li><li>DB split squat 3×8 each leg, calf raise 3×15</li></ul><div class="tags"><span class="tag tag-training">C · Hybrid</span></div><ul><li>Squat 3×8 at about 133 kg, then 3 rounds: goblet squat ×10, kettlebell swing ×12, 200 m easy row</li></ul></div>
-  </div>
-  <div class="accord" onclick="toggleAccord(this)">
-    <div class="accord-header"><div style="flex:1"><div style="font-size:10px;color:var(--accent);font-weight:700;text-transform:uppercase;letter-spacing:0.8px;margin-bottom:4px;">Weeks 1–2</div><div class="accord-title" style="margin:0;">Full Body + Engine Re-entry · 3 Variations</div></div>
-    <svg class="accord-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div>
-    <div class="accord-body list-body"><div class="tags"><span class="tag tag-training">A · Strength + Zone 2</span></div><ul><li>Deadlift 3×5 at about 126 kg, lat pulldown 3×8, DB press 3×8, farmer carry 3×30 m</li><li>Finish: 15 min bike Zone 2</li></ul><div class="tags"><span class="tag tag-training">B · Machine Circuit</span></div><ul><li>4 rounds, 60s rest: leg press ×12, chest press ×10, seated row ×10, plank 30s</li><li>Finish: 10 min easy row</li></ul><div class="tags"><span class="tag tag-training">C · Easy EMOM 16</span></div><ul><li>Min 1 row 200 m easy, min 2 goblet squat ×10, min 3 push-up ×8, min 4 rest</li></ul></div>
-  </div>
-  <div class="accord" onclick="toggleAccord(this)">
-    <div class="accord-header"><div style="flex:1"><div style="font-size:10px;color:var(--blue);font-weight:700;text-transform:uppercase;letter-spacing:0.8px;margin-bottom:4px;">Weeks 1–2 · Saturday</div><div class="accord-title" style="margin:0;">Zone 2 Options · 40 min, 121–134 BPM</div></div>
-    <svg class="accord-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div>
-    <div class="accord-body list-body"><div class="tags"><span class="tag tag-training">Pick one</span></div><ul><li>Bike steady</li><li>Incline treadmill walk 8–10%</li><li>Rower, 18–20 strokes per minute</li><li>Cross trainer or stair climber</li></ul></div>
-  </div>
-  <div class="accord" onclick="toggleAccord(this)">
-    <div class="accord-header"><div style="flex:1"><div style="font-size:10px;color:var(--orange);font-weight:700;text-transform:uppercase;letter-spacing:0.8px;margin-bottom:4px;">Weeks 3–4 · Tuesday</div><div class="accord-title" style="margin:0;">Light Conditioning · 3 Variations</div></div>
-    <svg class="accord-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div>
-    <div class="accord-body list-body"><div class="tags"><span class="tag tag-training">A · Rower Intervals</span></div><ul><li>4 × 2 min hard / 2 min easy, RPE 7–8, then 2 circuit rounds: goblet squat ×12, push-up ×10, hanging knee raise ×8</li></ul><div class="tags"><span class="tag tag-training">B · EMOM 16</span></div><ul><li>Min 1 row 250 m, min 2 goblet squat ×12, min 3 push-up ×10, min 4 easy bike</li></ul><div class="tags"><span class="tag tag-training">C · Norwegian 3×4</span></div><ul><li>3 × 4 min on the rower at RPE 7, 3 min easy between, 10 min Zone 2 cooldown</li></ul></div>
-  </div>
   <div class="card">
-    <div class="card-title">Ground Rules</div>
-    <div class="list-body"><ul><li><strong>Progress by reps first.</strong> Add 1–2 reps per set each week, then add load.</li><li><strong>Move up a phase only if you finished every session.</strong> Missed a week? Repeat it.</li><li><strong>Soreness lasting over 72 hours, or sharp knee or lower-back pain,</strong> means repeat the week and do not add volume.</li><li><strong>No 1RM testing.</strong> Use the Load Guide in the Workout tab. If the bar feels slow or you have fewer than 2 reps left, drop 5%.</li><li><strong>Day 1:</strong> weigh in and log it in the Progress tab. If you are several kg off 143, recalculate calories before dieting hard.</li><li><strong>Every day:</strong> 8–10k steps, 10-minute morning mobility flow, protein and water targets, 7.5–9 hours of sleep.</li></ul></div>
+    <div class="card-title">How to Run the Sessions</div>
+    <div class="list-body"><ul><li><strong>Weeks 1–2:</strong> do the Workout tab session for the day with 3 sets per exercise. Skip the engine blocks; end each session with 10 minutes of easy walking instead.</li><li><strong>Weeks 3–4:</strong> full sets. Add the engine blocks at half size: Monday intervals 4 rounds, Wednesday carries 3 rounds, Thursday tempo 2 × 6 min, easy days 15 min.</li><li><strong>Week 5 onward:</strong> the full plan with every engine block at full size.</li><li><strong>Move up a phase only if you finished every session.</strong> Missed a week? Repeat it.</li><li><strong>Soreness lasting over 72 hours, or sharp knee or lower-back pain,</strong> means repeat the week and do not add volume.</li><li><strong>No 1RM testing.</strong> Use the Load Guide in the Workout tab. If the bar feels slow or you have fewer than 2 reps left, drop 5%.</li><li><strong>Day 1:</strong> weigh in and log it in the Progress tab. If you are several kg off 143, recalculate calories before dieting hard.</li><li><strong>Every day:</strong> 8–10k steps, 10-minute morning mobility flow, protein and water targets, 7.5–9 hours of sleep.</li></ul></div>
   </div>
 
 </section>
 
 <!-- ========== WORKOUT ========== -->
 <section id="workout">
-  <div class="section-header">Hybrid<br><span>Training</span></div>
+  <div class="section-header">PPLR<br><span>Hybrid</span></div>
 
   <div class="hero-card">
-    <div style="font-size:11px;color:var(--accent);font-weight:700;text-transform:uppercase;letter-spacing:0.8px;margin-bottom:10px;">Strength · Engine · Core · Mobility · Gym</div>
-    <div style="font-family:'Syne',sans-serif;font-size:21px;font-weight:800;letter-spacing:-0.8px;line-height:1.2;margin-bottom:14px;">Lift heavy, build the engine, <span style="color:var(--accent);">never repeat a boring week.</span></div>
+    <div style="font-size:11px;color:var(--accent-ink);font-weight:700;text-transform:uppercase;letter-spacing:0.8px;margin-bottom:10px;">Push · Pull · Legs · Rest · Strength + Engine · Gym</div>
+    <div style="font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:21px;font-weight:800;letter-spacing:-0.8px;line-height:1.2;margin-bottom:14px;">Heavy lifts first. <span style="color:var(--accent-ink);">A different engine block after every session.</span></div>
     <div class="stat-row">
-      <div class="stat-pill"><div class="val" style="font-size:16px;">3</div><div class="lbl">Strength days</div></div>
-      <div class="stat-pill"><div class="val" style="font-size:16px;">3</div><div class="lbl">Engine days</div></div>
-      <div class="stat-pill"><div class="val" style="font-size:16px;">25</div><div class="lbl">Variations</div></div>
-      <div class="stat-pill"><div class="val" style="font-size:16px;">80/20</div><div class="lbl">Easy : hard</div></div>
+      <div class="stat-pill"><div class="val" style="font-size:16px;">6</div><div class="lbl">Training days</div></div>
+      <div class="stat-pill"><div class="val" style="font-size:16px;">2×</div><div class="lbl">Each muscle/wk</div></div>
+      <div class="stat-pill"><div class="val" style="font-size:16px;">6</div><div class="lbl">Engine blocks</div></div>
     </div>
     <p class="note" style="margin-top:12px;">Coming back from a break? Use the Restart tab ramp for the first 4 weeks, then run this.</p>
   </div>
 
   <div class="card">
     <div class="card-title">The Week</div>
-      <div class="rs-row"><div class="rs-d">Mon</div><div><div class="rs-t">Strength · Upper</div><div class="rs-s">Variations A / B / C + engine finisher</div></div></div>
-      <div class="rs-row"><div class="rs-d">Tue</div><div><div class="rs-t">Hybrid Conditioning</div><div class="rs-s">Pick 1 of 6 formats</div></div></div>
-      <div class="rs-row"><div class="rs-d">Wed</div><div><div class="rs-t">Engine · Zone 2</div><div class="rs-s">Pick 1 of 5 options + hip mobility</div></div></div>
-      <div class="rs-row"><div class="rs-d">Thu</div><div><div class="rs-t">Strength · Lower + Core</div><div class="rs-s">Variations A / B / C + engine finisher</div></div></div>
-      <div class="rs-row"><div class="rs-d">Fri</div><div><div class="rs-t">Strength · Full Body</div><div class="rs-s">Variations A / B / C</div></div></div>
-      <div class="rs-row"><div class="rs-d">Sat</div><div><div class="rs-t">Long Engine</div><div class="rs-s">Pick 1 of 5 options + loaded mobility</div></div></div>
-      <div class="rs-row"><div class="rs-d">Sun</div><div><div class="rs-t">Rest</div><div class="rs-s">30 min easy walk + CARs circuit, early night</div></div></div>
+      <div class="rs-row"><div class="rs-d">Mon</div><div><div class="rs-t">Push A</div><div class="rs-s">Chest priority + rower intervals</div></div></div>
+      <div class="rs-row"><div class="rs-d">Tue</div><div><div class="rs-t">Pull A</div><div class="rs-s">Back width, pull-ups + 20 min Zone 2</div></div></div>
+      <div class="rs-row"><div class="rs-d">Wed</div><div><div class="rs-t">Legs A</div><div class="rs-s">Squat focus + carries and rower</div></div></div>
+      <div class="rs-row"><div class="rs-d">Thu</div><div><div class="rs-t">Push B</div><div class="rs-s">Shoulder priority + bike tempo</div></div></div>
+      <div class="rs-row"><div class="rs-d">Fri</div><div><div class="rs-t">Pull B</div><div class="rs-s">Deadlift, back thickness + 20 min steady rower</div></div></div>
+      <div class="rs-row"><div class="rs-d">Sat</div><div><div class="rs-t">Legs B</div><div class="rs-s">Hinge focus + 40–45 min long Zone 2</div></div></div>
+      <div class="rs-row"><div class="rs-d">Sun</div><div><div class="rs-t">Rest</div><div class="rs-s">30 min walk, CARs circuit, early night</div></div></div>
   </div>
 
   <div class="card">
     <div class="card-title">Load Guide After Your Break</div>
     <div style="font-size:12px;color:var(--text-muted);margin-bottom:10px;">Built from your last confirmed 1RMs. Strength days use 3–4 sets of 5–8. If the bar feels slow or you have fewer than 2 reps left, drop 5%.</div>
     <div style="overflow-x:auto;"><table style="width:100%;border-collapse:collapse;font-size:12px;">
-      <thead><tr style="border-bottom:1px solid var(--border);"><th style="text-align:left;padding:8px 6px;color:var(--text-sub);font-size:10px;text-transform:uppercase;">Lift</th><th style="padding:8px 4px;color:var(--accent);font-size:10px;">Wk 1–2<br>~70%</th><th style="padding:8px 4px;color:var(--orange);font-size:10px;">Wk 3–4<br>75–80%</th><th style="padding:8px 4px;color:var(--blue);font-size:10px;">Wk 5+<br>80–85%</th></tr></thead>
+      <thead><tr style="border-bottom:1px solid var(--border);"><th style="text-align:left;padding:8px 6px;color:var(--text-sub);font-size:10px;text-transform:uppercase;">Lift</th><th style="padding:8px 4px;color:var(--accent-ink);font-size:10px;">Wk 1–2<br>~70%</th><th style="padding:8px 4px;color:var(--orange);font-size:10px;">Wk 3–4<br>75–80%</th><th style="padding:8px 4px;color:var(--blue);font-size:10px;">Wk 5+<br>80–85%</th></tr></thead>
       <tbody>
         <tr style="border-bottom:1px solid var(--border);"><td style="padding:9px 6px;font-weight:600;">Squat</td><td style="text-align:center;">133 kg</td><td style="text-align:center;">142–152 kg</td><td style="text-align:center;">152–161 kg</td></tr>
         <tr style="border-bottom:1px solid var(--border);"><td style="padding:9px 6px;font-weight:600;">Bench</td><td style="text-align:center;">84 kg</td><td style="text-align:center;">90–96 kg</td><td style="text-align:center;">96–102 kg</td></tr>
@@ -1236,41 +1267,45 @@
   </div>
 
   <div class="accord" onclick="toggleAccord(this)">
-    <div class="accord-header"><div style="flex:1"><div style="font-size:10px;color:var(--accent);font-weight:700;text-transform:uppercase;letter-spacing:0.8px;margin-bottom:4px;">Monday · Strength</div><div class="accord-title" style="margin:0;">Upper · 3 Variations</div></div>
+    <div class="accord-header"><div style="flex:1"><div style="font-size:10px;color:var(--accent-ink);font-weight:700;text-transform:uppercase;letter-spacing:0.8px;margin-bottom:4px;">Monday</div><div class="accord-title" style="margin:0;">Push A · Chest Priority</div></div>
     <svg class="accord-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div>
-    <div class="accord-body list-body"><div class="tags"><span class="tag tag-warmup">Warm-Up · 8 min</span></div><ul><li>5 min bike or rower easy, shoulder CARs ×5 each, scapular pull-ups ×8, thread the needle ×8 each side</li><li>Bench ramp: bar ×12, 50% ×6, 70% ×3</li></ul><div class="tags"><span class="tag tag-training">A · Heavy Strength · rest 2–3 min</span></div><ul><li>Barbell bench press 4×5–8</li><li>Pull-up 4×4–6 (assisted machine or negatives if needed)</li><li>Seated DB shoulder press 3×8–10</li><li>Chest-supported or T-bar row 4×8–10</li><li>Cable face pull 3×15</li><li>Triceps pushdown + EZ-bar curl superset 3×10–12</li></ul><div class="tags"><span class="tag tag-training">B · Hybrid Supersets · 60–90s rest between pairs</span></div><ul><li>A1 Incline DB press 4×8–10 → A2 Lat pulldown 4×8–10</li><li>B1 Machine shoulder press 3×10–12 → B2 Seated cable row 3×10–12</li><li>C1 Cable fly 3×12–15 → C2 Face pull 3×15</li><li>D1 Dips 3×8–10 → D2 Hammer curl 3×10–12</li></ul><div class="tags"><span class="tag tag-training">C · Bench + Rower EMOM</span></div><ul><li>20 min EMOM: odd minutes 5 bench reps at about 90 kg, fast bar; even minutes 250 m easy row</li><li>Then pull-ups 3×max−1, face pulls 3×15, hanging leg raise 3×10</li></ul><div class="tags"><span class="tag tag-training">Core</span></div><ul><li>Hanging leg raise 3×8–12, plank 2×45s</li></ul><div class="tags"><span class="tag tag-training">Engine finisher · pick one</span></div><ul><li>10 min Zone 2 on the bike (121–134 BPM)</li><li>8 min steady rower, easy stroke rate</li><li>6 × 1 min moderate rower / 1 min easy</li><li>10 min incline walk, 8–12% incline</li></ul><div class="tags"><span class="tag tag-cooldown">Cooldown + Pelvic Floor · 6 min</span></div><ul><li>Doorway chest stretch and lat stretch 45s each side, upper trap and triceps stretch 30s each side</li><li>Diaphragmatic breathing 2 min, Kegel holds 5s ×10</li></ul><p class="note">Rotate: Wk1 A, Wk2 B, Wk3 C, Wk4 deload (A at 60% load) Start at A in your first full-volume week. Use C only from week 3, it is the hardest.</p></div>
+    <div class="accord-body list-body"><div class="tags"><span class="tag tag-warmup">Warm-Up · 8 min</span></div><ul><li>5 min bike or rower easy, shoulder CARs ×5 each, thread the needle ×8 each side</li><li>Bench ramp: bar ×12, 50% ×6, 70% ×3</li></ul><div class="tags"><span class="tag tag-training">Main · rest 2–3 min on compounds</span></div><ul><li>Barbell bench press 4×5–6</li><li>Incline DB press 3×8–10</li><li>Seated DB shoulder press 3×8–10</li><li>Cable fly 3×12–15</li><li>Lateral raise 4×12–15 (3s down)</li><li>Rope pushdown 3×10–12</li><li>Overhead rope extension 3×10–12</li></ul><div class="tags"><span class="tag tag-training">Hybrid Engine · Rower Intervals</span></div><ul><li>6 × 30s hard / 90s easy, RPE 8–9 (about 155–168 BPM). Add a round every 2 weeks up to 8</li><li>Rower only, never the treadmill</li></ul><div class="tags"><span class="tag tag-cooldown">Cooldown + Pelvic Floor · 6 min</span></div><ul><li>Doorway chest stretch 45s, upper trap and triceps stretch 30s each side</li><li>Diaphragmatic breathing 2 min, Kegel holds 5s ×10</li></ul></div>
   </div>
   <div class="accord" onclick="toggleAccord(this)">
-    <div class="accord-header"><div style="flex:1"><div style="font-size:10px;color:var(--orange);font-weight:700;text-transform:uppercase;letter-spacing:0.8px;margin-bottom:4px;">Tuesday · Hybrid Conditioning</div><div class="accord-title" style="margin:0;">The Hard Day · 6 Formats</div></div>
+    <div class="accord-header"><div style="flex:1"><div style="font-size:10px;color:var(--accent-ink);font-weight:700;text-transform:uppercase;letter-spacing:0.8px;margin-bottom:4px;">Tuesday</div><div class="accord-title" style="margin:0;">Pull A · Back Width + Pull-Ups</div></div>
     <svg class="accord-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div>
-    <div class="accord-body list-body"><div class="tags"><span class="tag tag-warmup">Warm-Up · 10 min (all formats)</span></div><ul><li>5 min easy row, lateral shuffles 4×10 m, quick-feet taps 4×15s</li><li>2 build-ups of 30s at 70% effort</li></ul><div class="tags"><span class="tag tag-training">A · Rower Intervals + Circuit</span></div><ul><li>6 × 2 min hard / 2 min easy on the rower, RPE 8 (about 150–165 BPM), same split every round</li><li>3 rounds, 60s rest: goblet squat ×12, kettlebell swing ×15, push-up ×10, sled push 20 m, hanging knee raise ×8</li></ul><div class="tags"><span class="tag tag-training">B · EMOM 24</span></div><ul><li>6 rounds of a 4-minute block: min 1 row 250 m, min 2 goblet squat ×12, min 3 push-up ×10, min 4 easy bike or rest</li></ul><div class="tags"><span class="tag tag-training">C · Norwegian 4×4 (VO2 builder)</span></div><ul><li>4 × 4 min on the rower at RPE 8–9 (about 155–168 BPM), 3 min easy between</li><li>10 min Zone 2 cooldown. Hold the same pace across all 4 rounds</li></ul><div class="tags"><span class="tag tag-training">D · Sled + Carry Engine</span></div><ul><li>5 rounds, 90s rest: sled push 20 m, farmer carry 40 m, row 250 m, kettlebell swing ×15</li><li>No sled? Replace with a heavy DB walk 30 m</li></ul><div class="tags"><span class="tag tag-training">E · Rower Pyramid</span></div><ul><li>Hard/easy equal: 1-2-3-4-3-2-1 min, RPE 8 on the hard efforts</li><li>Then 3 × 10 hanging leg raise and 3 × 30s plank</li></ul><div class="tags"><span class="tag tag-training">F · Hybrid Chipper (for time, 25 min cap)</span></div><ul><li>Row 1,000 m → 40 goblet squats → 30 push-ups → 20 hanging knee raises → row 1,000 m</li><li>Moderate pace, never all-out. Log the time and beat it in 4 weeks</li></ul><div class="tags"><span class="tag tag-mobility">Finish</span></div><ul><li>3 min easy walk, child’s pose, hip flexor stretch</li></ul><p class="note">Hard intervals stay on the rower or bike, never the treadmill. Do not repeat the same format two weeks in a row.</p></div>
+    <div class="accord-body list-body"><div class="tags"><span class="tag tag-warmup">Warm-Up · 8 min</span></div><ul><li>5 min rower easy, scapular pull-ups ×8, dead hangs 3×20s, hip CARs ×5 each way</li><li>Face pull ramp ×15 light</li></ul><div class="tags"><span class="tag tag-training">Main · rest 2–3 min on compounds</span></div><ul><li>Pull-up 4×4–6 (assisted machine or negatives if needed)</li><li>Wide lat pulldown 3×8–10</li><li>Chest-supported row 4×8–10</li><li>Single-arm cable row 3×10–12 each</li><li>Cable face pull 3×15</li><li>EZ-bar curl 3×10</li><li>Hammer curl 3×10–12</li><li>Hanging leg raise 3×8–12</li></ul><div class="tags"><span class="tag tag-training">Hybrid Engine · Zone 2</span></div><ul><li>20 min on the bike, 121–134 BPM, nasal breathing</li></ul><div class="tags"><span class="tag tag-cooldown">Cooldown + Pelvic Floor · 6 min</span></div><ul><li>Hanging lat stretch 30s, biceps wall stretch 30s each, child’s pose 60s</li><li>Diaphragmatic breathing 2 min, Kegel holds 5s ×10</li></ul></div>
   </div>
   <div class="accord" onclick="toggleAccord(this)">
-    <div class="accord-header"><div style="flex:1"><div style="font-size:10px;color:var(--blue);font-weight:700;text-transform:uppercase;letter-spacing:0.8px;margin-bottom:4px;">Wednesday · Engine</div><div class="accord-title" style="margin:0;">Zone 2 · 5 Options + Hip Mobility</div></div>
+    <div class="accord-header"><div style="flex:1"><div style="font-size:10px;color:var(--accent-ink);font-weight:700;text-transform:uppercase;letter-spacing:0.8px;margin-bottom:4px;">Wednesday</div><div class="accord-title" style="margin:0;">Legs A · Squat Focus</div></div>
     <svg class="accord-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div>
-    <div class="accord-body list-body"><div class="tags"><span class="tag tag-warmup">Ramp · 5 min</span></div><ul><li>Start easy for 5 minutes, then settle into your Zone 2 heart rate</li></ul><div class="tags"><span class="tag tag-training">Zone 2 · 121–134 BPM, nasal breathing</span></div><ul><li><strong>A</strong> Steady bike 55 min</li><li><strong>B</strong> Incline treadmill walk 50–60 min at 8–12%</li><li><strong>C</strong> Rower steady 40 min, 18–20 strokes per minute</li><li><strong>D</strong> Stair climber or cross trainer 45 min</li><li><strong>E</strong> Rotation: 15 min each on bike, rower, incline walk, cross trainer</li></ul><div class="tags"><span class="tag tag-mobility">Hip Mobility · 15 min (Luka-style flow)</span></div><ul><li>Hip CARs ×5 each way, each leg</li><li>90/90 flow ×6 with 5s end-range press each side</li><li>Pigeon pose 90s each side, last 20s pressing the hip down</li><li>Deep squat hold 60s</li></ul></div>
+    <div class="accord-body list-body"><div class="tags"><span class="tag tag-warmup">Warm-Up · 10 min (mandatory)</span></div><ul><li>8 min bike easy, ankle CARs ×10 each way, hip CARs ×5 each way</li><li>Cossack squat ×8 each side</li><li>Squat ramp: bar ×10, 50% ×5, 70% ×3</li></ul><div class="tags"><span class="tag tag-training">Main · rest 3 min on squat, 2 min on the rest</span></div><ul><li>Back squat 4×5–6</li><li>Leg press 3×10–12</li><li>DB Bulgarian split squat 3×8–10 each leg</li><li>Romanian deadlift 3×8–10</li><li>Leg curl 3×10–12</li><li>Standing calf raise 4×12–15</li><li>Ab wheel or cable crunch 3×10–12</li></ul><div class="tags"><span class="tag tag-training">Hybrid Engine · Carries + Rower</span></div><ul><li>5 rounds, 90s rest between rounds: farmer carry 40 m with the heaviest DBs you can hold with a straight torso, then row 250 m hard</li></ul><div class="tags"><span class="tag tag-cooldown">Cooldown + Pelvic Floor · 8 min</span></div><ul><li>10 min easy bike, then quad, hamstring, calf and hip flexor stretches 45s each side</li><li>Pigeon pose 60s each side, diaphragmatic breathing 2 min, Kegel holds 5s ×10</li></ul></div>
   </div>
   <div class="accord" onclick="toggleAccord(this)">
-    <div class="accord-header"><div style="flex:1"><div style="font-size:10px;color:var(--accent);font-weight:700;text-transform:uppercase;letter-spacing:0.8px;margin-bottom:4px;">Thursday · Strength</div><div class="accord-title" style="margin:0;">Lower + Core · 3 Variations</div></div>
+    <div class="accord-header"><div style="flex:1"><div style="font-size:10px;color:var(--accent-ink);font-weight:700;text-transform:uppercase;letter-spacing:0.8px;margin-bottom:4px;">Thursday</div><div class="accord-title" style="margin:0;">Push B · Shoulder Priority</div></div>
     <svg class="accord-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div>
-    <div class="accord-body list-body"><div class="tags"><span class="tag tag-warmup">Warm-Up · 8 min</span></div><ul><li>Ankle and hip CARs, Cossack squat ×8 each side</li><li>Squat ramp: bar ×10, 50% ×5, 70% ×3</li></ul><div class="tags"><span class="tag tag-training">A · Heavy Strength · rest 2–3 min</span></div><ul><li>Back squat 4×5–8</li><li>Romanian deadlift 4×8 (3s down)</li><li>DB Bulgarian split squat 3×8–10 each leg</li><li>Hip thrust 3×8–10</li><li>Leg curl 3×10–12</li><li>Standing calf raise 4×12–15</li></ul><div class="tags"><span class="tag tag-training">B · Hybrid Supersets · 90s rest between pairs</span></div><ul><li>A1 Leg press 4×10–12 → A2 Lying leg curl 4×10–12</li><li>B1 DB Romanian deadlift 3×10 → B2 Hip thrust 3×10</li><li>C1 DB split squat 3×10 each → C2 Standing calf raise 3×15</li><li>Finisher: sled push or heavy sled drag 6 × 20 m</li></ul><div class="tags"><span class="tag tag-training">C · Squat + Rower EMOM</span></div><ul><li>16 min EMOM: odd minutes 4 back squats at about 142 kg, fast; even minutes 200 m easy row</li><li>Then DB Romanian deadlift 3×8, split squat 3×8 each leg</li></ul><div class="tags"><span class="tag tag-training">Core</span></div><ul><li>Ab wheel or cable crunch 3×10–12, dead bug 3×8 each side</li></ul><div class="tags"><span class="tag tag-training">Engine finisher · pick one</span></div><ul><li>10 min Zone 2 on the bike (121–134 BPM)</li><li>8 min steady rower, easy stroke rate</li><li>6 × 1 min moderate rower / 1 min easy</li><li>10 min incline walk, 8–12% incline</li></ul><div class="tags"><span class="tag tag-cooldown">Cooldown</span></div><ul><li>Quad, hamstring, calf and hip flexor stretches 45s each side</li><li>Diaphragmatic breathing 2 min, Kegel holds 5s ×10</li></ul><p class="note">Rotate: Wk1 A, Wk2 B, Wk3 C, Wk4 deload (A at 60% load) Start at A in your first full-volume week. Use C only from week 3, it is the hardest.</p></div>
+    <div class="accord-body list-body"><div class="tags"><span class="tag tag-warmup">Warm-Up · 8 min</span></div><ul><li>5 min bike easy, shoulder CARs ×5 each, thread the needle ×8 each side</li><li>OHP ramp: 20 kg ×10, 30 kg ×5, 40 kg ×3</li></ul><div class="tags"><span class="tag tag-training">Main · rest 2–3 min on compounds</span></div><ul><li>Standing overhead press 4×5–6</li><li>Incline barbell or DB press 3×8–10</li><li>Arnold press 3×10</li><li>Lateral raise 4×12–15 (3s down)</li><li>Rear delt cable fly 3×15</li><li>Dips 3×(max−2 reps)</li><li>Overhead rope extension 3×10–12</li></ul><div class="tags"><span class="tag tag-training">Hybrid Engine · Bike Tempo</span></div><ul><li>3 × 6 min at RPE 6–7 (about 140–150 BPM), 2 min easy between rounds</li><li>Add 1 min per round every 2 weeks up to 8 min</li></ul><div class="tags"><span class="tag tag-cooldown">Cooldown + Pelvic Floor · 6 min</span></div><ul><li>Chest opener stretch 45s, triceps stretch 30s each side</li><li>Diaphragmatic breathing 2 min, Kegel holds 5s ×10</li></ul></div>
   </div>
   <div class="accord" onclick="toggleAccord(this)">
-    <div class="accord-header"><div style="flex:1"><div style="font-size:10px;color:var(--accent);font-weight:700;text-transform:uppercase;letter-spacing:0.8px;margin-bottom:4px;">Friday · Strength</div><div class="accord-title" style="margin:0;">Full Body · 3 Variations</div></div>
+    <div class="accord-header"><div style="flex:1"><div style="font-size:10px;color:var(--accent-ink);font-weight:700;text-transform:uppercase;letter-spacing:0.8px;margin-bottom:4px;">Friday</div><div class="accord-title" style="margin:0;">Pull B · Deadlift + Back Thickness</div></div>
     <svg class="accord-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div>
-    <div class="accord-body list-body"><div class="tags"><span class="tag tag-warmup">Warm-Up · 8 min</span></div><ul><li>Row 5 min easy, dead hangs 3×20s, hip hinge drill ×10</li><li>Deadlift ramp: 50% ×5, 70% ×3</li></ul><div class="tags"><span class="tag tag-training">A · Heavy Pull + Carries · rest 2–3 min</span></div><ul><li>Deadlift 4×4–6 (trap bar if the gym has one, otherwise conventional)</li><li>Lat pulldown or weighted pull-up 4×6–10</li><li>Standing overhead press 3×6–8</li><li>Farmer carry 4×40 m, heaviest load with a straight torso</li><li>DB split squat 3×8 each leg</li><li>Incline DB press 3×8–10, cable woodchop 3×10 each side</li><li>Finish: 15 min Zone 2 on the bike</li></ul><div class="tags"><span class="tag tag-training">B · Barbell Complex + Strength</span></div><ul><li>Complex, 4 rounds with 90s rest, 40–50 kg bar: 6 Romanian deadlift → 6 bent-over row → 6 front squat → 6 push press</li><li>Then pull-up 4×max−2, farmer carry 4×40 m heavy, hanging leg raise 3×10</li></ul><div class="tags"><span class="tag tag-training">C · Carries + Engine</span></div><ul><li>Farmer carry 5×40 m, sled push 5×20 m, weighted pull-up or pulldown 4×6, DB Romanian deadlift 3×10</li><li>Finish: 20 min steady rower, 18–20 strokes per minute</li></ul><div class="tags"><span class="tag tag-cooldown">Cooldown + Pelvic Floor · 6 min</span></div><ul><li>Hamstring, hip flexor and lat stretches 45s each side, child’s pose 60s</li><li>Diaphragmatic breathing 2 min, Kegel holds 5s ×10</li></ul><p class="note">Rotate: Wk1 A, Wk2 B, Wk3 C, Wk4 deload. Start at A in your first full-volume week.</p></div>
+    <div class="accord-body list-body"><div class="tags"><span class="tag tag-warmup">Warm-Up · 8 min</span></div><ul><li>5 min rower easy, dead hangs 3×20s, hip hinge drill ×10</li><li>Deadlift ramp: 50% ×5, 70% ×3</li></ul><div class="tags"><span class="tag tag-training">Main · rest 3 min on deadlift, 2 min on the rest</span></div><ul><li>Deadlift 4×4–6 (trap bar if the gym has one, otherwise conventional)</li><li>Close-grip pulldown or assisted pull-up 3×6–10</li><li>T-bar or barbell row 4×8–10</li><li>DB shrug 3×10–12</li><li>Incline DB curl 3×10–12</li><li>Plank 3×45s, cable woodchop 3×10 each side</li></ul><div class="tags"><span class="tag tag-training">Hybrid Engine · Steady Rower</span></div><ul><li>20 min at 18–20 strokes per minute, 121–134 BPM</li></ul><div class="tags"><span class="tag tag-cooldown">Cooldown + Pelvic Floor · 6 min</span></div><ul><li>Hamstring, hip flexor and lat stretches 45s each side, child’s pose 60s</li><li>Diaphragmatic breathing 2 min, Kegel holds 5s ×10</li></ul></div>
   </div>
   <div class="accord" onclick="toggleAccord(this)">
-    <div class="accord-header"><div style="flex:1"><div style="font-size:10px;color:var(--blue);font-weight:700;text-transform:uppercase;letter-spacing:0.8px;margin-bottom:4px;">Saturday · Engine</div><div class="accord-title" style="margin:0;">Long Engine · 5 Options + Loaded Mobility</div></div>
+    <div class="accord-header"><div style="flex:1"><div style="font-size:10px;color:var(--accent-ink);font-weight:700;text-transform:uppercase;letter-spacing:0.8px;margin-bottom:4px;">Saturday</div><div class="accord-title" style="margin:0;">Legs B · Hinge Focus + Zone 2</div></div>
     <svg class="accord-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div>
-    <div class="accord-body list-body"><div class="tags"><span class="tag tag-warmup">Ramp · 5 min</span></div><ul><li>Start easy for 5 minutes, then settle into your Zone 2 heart rate</li></ul><div class="tags"><span class="tag tag-training">Long Zone 2 · 121–134 BPM</span></div><ul><li><strong>A</strong> Incline treadmill walk 75 min</li><li><strong>B</strong> Bike 75 min, last 15 min at the top of Zone 2</li><li><strong>C</strong> Mixed: 20 min rower, 30 min bike, 20 min incline walk</li><li><strong>D</strong> Swim 40–45 min steady, if the gym has a pool</li><li><strong>E</strong> Hybrid long: 6 × (8 min bike Zone 2, then 10 goblet squats, 10 DB rows, 10 push-ups at an easy pace)</li></ul><div class="tags"><span class="tag tag-mobility">Loaded Mobility · 15 min</span></div><ul><li>Frog stretch with 10s end-range presses ×3</li><li>Cossack squat flow ×10 each side, 3s pause at the bottom</li><li>Kneeling hip flexor lunge with glute squeeze, then rotate ×6 each side</li><li>Deep squat hold 90s</li></ul><p class="note">Add 5 min per week until you reach 75 min.</p></div>
+    <div class="accord-body list-body"><div class="tags"><span class="tag tag-warmup">Warm-Up · 10 min</span></div><ul><li>8 min bike easy, ankle CARs ×10 each way, hip CARs ×5 each way, knee activation ×15</li></ul><div class="tags"><span class="tag tag-training">Main · rest 2–3 min</span></div><ul><li>Romanian deadlift 4×8–10 (3s down)</li><li>Hack squat or leg press 4×10–12</li><li>DB Bulgarian split squat 3×10–12 each leg</li><li>Hip thrust 3×8–10</li><li>Leg curl 3×10–12</li><li>Seated calf raise 4×12–15</li><li>Dead bug 3×8 each side</li></ul><div class="tags"><span class="tag tag-training">Hybrid Engine · Long Zone 2 · 40–45 min</span></div><ul><li>Bike or incline treadmill walk at 121–134 BPM, nasal breathing. Add 5 min per month up to 60 min</li></ul><div class="tags"><span class="tag tag-mobility">Loaded Mobility · 12 min (Luka-style)</span></div><ul><li>Frog stretch with 10s end-range presses ×3</li><li>Pigeon pose 90s each side, last 20s pressing the hip down</li><li>Kneeling hip flexor lunge with glute squeeze ×6 each side</li><li>Legs up the wall 3 min, Kegel holds 5s ×10</li></ul></div>
   </div>
   <div class="accord" onclick="toggleAccord(this)">
-    <div class="accord-header"><div style="flex:1"><div style="font-size:10px;color:var(--text-muted);font-weight:700;text-transform:uppercase;letter-spacing:0.8px;margin-bottom:4px;">Sunday · Recovery</div><div class="accord-title" style="margin:0;">Rest + Reset</div></div>
+    <div class="accord-header"><div style="flex:1"><div style="font-size:10px;color:var(--text-muted);font-weight:700;text-transform:uppercase;letter-spacing:0.8px;margin-bottom:4px;">Sunday</div><div class="accord-title" style="margin:0;">Rest</div></div>
     <svg class="accord-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></div>
-    <div class="accord-body list-body"><div class="tags"><span class="tag tag-mobility">Reset</span></div><ul><li>30 min easy walk in daylight</li><li>Full CARs circuit: ankle, hip, thoracic, shoulder, 20 min total</li><li>Pelvic floor 5 min (Kegel holds, pulses, reverse Kegel), diaphragmatic breathing 10 min, sleep 8+ hours</li></ul></div>
+    <div class="accord-body list-body"><div class="tags"><span class="tag tag-mobility">Reset</span></div><ul><li>30 min easy walk in daylight</li><li>CARs circuit 20 min: ankle, hip, thoracic, shoulder</li><li>Pelvic floor 5 min, diaphragmatic breathing 10 min, sleep 8+ hours</li></ul></div>
   </div>
 
+  <div class="card">
+    <div class="card-title">Weekly Check</div>
+    <div class="list-body"><ul><li><strong>Push 2×</strong> (Mon, Thu), <strong>pull 2×</strong> (Tue, Fri), <strong>legs 2×</strong> (Wed, Sat), <strong>core 4×</strong> (Tue, Wed, Fri, Sat).</li><li><strong>Engine:</strong> 1 interval day (Mon), 1 tempo day (Thu), 3 easy Zone 2 days (Tue, Fri, Sat) and 1 strength-endurance day (Wed). The interval day sits 48 hours before Wednesday legs.</li><li><strong>Rest:</strong> Sunday, plus a deload every 4th week.</li></ul></div>
+  </div>
   <div class="card">
     <div class="card-title">Daily Mobility Minimum</div>
     <div class="list-body"><ul><li><strong>Every day, 10 min:</strong> spinal waves ×8, hip CARs ×5 each way each leg, shoulder CARs ×5 each way each arm, ankle CARs ×10 each way, thread the needle ×8 each side, deep squat hold 60s.</li><li><strong>Pelvic floor, 5 min daily:</strong> diaphragmatic breathing, Kegel holds 5s ×10, quick pulses ×20, reverse Kegel ×10. This is the item on your Today checklist.</li><li><strong>Static stretching:</strong> 30–60s per muscle after sessions, never before heavy sets.</li><li><strong>Longer sessions:</strong> Wednesday hips 15 min, Saturday loaded mobility 15 min, Sunday CARs circuit 20 min.</li></ul></div>
@@ -1280,25 +1315,17 @@
     <div class="list-body"><ul><li><strong>Sleep</strong> 7.5–9 hours, <strong>steps</strong> 8–10k, protein and water targets hit every day.</li><li><strong>Sunday is a full rest day.</strong> Every 4th week is a deload.</li><li><strong>48 hours</strong> between hard conditioning and heavy leg work.</li><li><strong>Cut volume by a third for a week</strong> if two or more of these show up: resting heart rate 5+ bpm above normal for 3 days, worse sleep, joint pain, bar speed dropping, or you cannot hold your Zone 2 heart rate.</li></ul></div>
   </div>
   <div class="card">
-    <div class="card-title">Weekly Frequency Check</div>
-    <div class="list-body"><ul><li><strong>Push 2×</strong> (Mon, Fri), <strong>pull 2×</strong> (Mon, Fri), <strong>squat pattern 2×</strong> (Thu, Fri split squat), <strong>hinge 2×</strong> (Thu, Fri), <strong>core 3×</strong> (Mon, Thu, Fri).</li><li><strong>Zone 2:</strong> about 135–160 min a week (Wednesday, Saturday and the finishers). <strong>Hard conditioning:</strong> 1× (Tuesday).</li><li><strong>Mobility:</strong> daily 10 min plus three longer sessions. Hitting each muscle group twice a week is the minimum that best protects muscle in a deficit.</li></ul></div>
-  </div>
-  <div class="card">
-    <div class="card-title">How the Week Is Built</div>
-    <div class="list-body"><ul><li><strong>One hard day a week.</strong> About 80% of your aerobic work is easy (Seiler, 2010), which builds the engine without wrecking your lifting.</li><li><strong>Hard cardio and heavy legs sit 48 hours apart.</strong> Tuesday conditioning, Thursday lower body.</li><li><strong>Low-impact machines only.</strong> Rower, bike, stair climber, sled and carries. No running, jumps or treadmill sprints at this bodyweight (Wilson et al., 2012: running interferes most with strength).</li><li><strong>Rotate variations.</strong> Strength days: Wk1 A, Wk2 B, Wk3 C, Wk4 deload. Tuesday: never the same format twice in a row.</li><li><strong>When strength and cardio share a day, lift first.</strong></li></ul></div>
-  </div>
-  <div class="card">
     <div class="card-title">Progression</div>
-    <div class="list-body"><ul><li><strong>Double progression:</strong> hit the top of the rep range on every set with 2 reps left, then add 2.5 kg (bench, press, rows) or 5 kg (squat, deadlift, hip thrust).</li><li><strong>Pull-ups:</strong> drop the assist weight 5 kg per week, or add 1s to your negatives.</li><li><strong>Zone 2:</strong> add 5 min per week up to 75 min. <strong>Intervals:</strong> add a round every 2 weeks, up to 8 (formats A, E).</li><li><strong>Every 4th week is a deload:</strong> same sessions at 60% load, 3×5, conditioning cut by a third.</li><li><strong>Track strength with an RPE 8 triple</strong> on squat and bench every 4 weeks instead of testing a 1RM.</li></ul></div>
+    <div class="list-body"><ul><li><strong>Double progression:</strong> hit the top of the rep range on every set with 2 reps left, then add 2.5 kg (bench, press, rows) or 5 kg (squat, deadlift, hip thrust).</li><li><strong>Pull-ups:</strong> drop the assist weight 5 kg per week, or add 1s to your negatives.</li><li><strong>Engine blocks:</strong> Zone 2 grows 5 min a month, intervals add a round every 2 weeks up to 8, tempo adds 1 min per round every 2 weeks, carries add a round every 2 weeks.</li><li><strong>Every 4th week is a deload:</strong> same sessions at 60% load, 3×5.</li></ul></div>
   </div>
 
 <!-- Calisthenics Roadmap -->
-  <div class="card" style="background:var(--purple-dim);border-color:rgba(181,126,255,0.2);">
+  <div class="card" style="background:var(--purple-dim);border-color:rgba(109,40,217,0.2);">
     <div class="card-title" style="color:var(--purple);">Calisthenics Integration Roadmap</div>
-    <div style="font-size:13px;color:#ccc;margin-bottom:14px;">Start alongside lifting. Skills build in parallel. Uses the gym pull-up bar and dip station.</div>
+    <div style="font-size:13px;color:#3a3833;margin-bottom:14px;">Start alongside lifting. Skills build in parallel. Uses the gym pull-up bar and dip station.</div>
     <div style="display:flex;flex-direction:column;gap:10px;">
       <div style="padding:12px;background:rgba(0,0,0,0.2);border-radius:12px;border-left:3px solid var(--accent);">
-        <div style="font-size:11px;color:var(--accent);font-weight:700;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:6px;">Phase 1 · Now → Month 6 · Foundation</div>
+        <div style="font-size:11px;color:var(--accent-ink);font-weight:700;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:6px;">Phase 1 · Now → Month 6 · Foundation</div>
         <div class="list-body"><ul style="margin:0;">
           <li>Negative pull-ups: jump to bar, lower in 5s ×5. Daily.</li>
           <li>Dead hang: 3×30–60s. Builds grip and shoulder health.</li>
@@ -1341,7 +1368,7 @@
 
   <!-- BMR Card -->
   <div class="hero-card">
-    <div style="font-size:11px;color:var(--accent);font-weight:700;text-transform:uppercase;letter-spacing:0.8px;margin-bottom:10px;">BMR Calculation · Male · 183cm · 143kg · ~33y</div>
+    <div style="font-size:11px;color:var(--accent-ink);font-weight:700;text-transform:uppercase;letter-spacing:0.8px;margin-bottom:10px;">BMR Calculation · Male · 183cm · 143kg · ~33y</div>
     <div class="stat-row">
       <div class="stat-pill"><div class="val" style="font-size:16px;">2,414</div><div class="lbl">BMR kcal</div></div>
       <div class="stat-pill"><div class="val" style="font-size:16px;">3,741</div><div class="lbl">TDEE kcal</div></div>
@@ -1356,27 +1383,27 @@
     <div class="card-title">Gradual Calorie Reduction Plan</div>
     <div style="display:flex;flex-direction:column;gap:8px;margin-top:4px;">
       <div style="display:flex;align-items:center;justify-content:space-between;padding:10px 14px;background:var(--surface-2);border:1px solid var(--border);border-radius:12px;">
-        <div><div style="font-size:12px;color:var(--accent);font-weight:700;">Phase 1 · 143–130kg</div><div style="font-size:11px;color:var(--text-muted);margin-top:2px;">Months 1–3</div></div>
-        <div style="font-family:'Syne',sans-serif;font-size:18px;font-weight:800;color:var(--text);">3,040</div>
+        <div><div style="font-size:12px;color:var(--accent-ink);font-weight:700;">Phase 1 · 143–130kg</div><div style="font-size:11px;color:var(--text-muted);margin-top:2px;">Months 1–3</div></div>
+        <div style="font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:18px;font-weight:800;color:var(--text);">3,040</div>
       </div>
       <div style="display:flex;align-items:center;justify-content:space-between;padding:10px 14px;background:var(--surface-2);border:1px solid var(--border);border-radius:12px;">
         <div><div style="font-size:12px;color:var(--orange);font-weight:700;">Phase 2 · 130–115kg</div><div style="font-size:11px;color:var(--text-muted);margin-top:2px;">Months 3–6</div></div>
-        <div style="font-family:'Syne',sans-serif;font-size:18px;font-weight:800;color:var(--text);">2,750</div>
+        <div style="font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:18px;font-weight:800;color:var(--text);">2,750</div>
       </div>
       <div style="display:flex;align-items:center;justify-content:space-between;padding:10px 14px;background:var(--surface-2);border:1px solid var(--border);border-radius:12px;">
         <div><div style="font-size:12px;color:var(--blue);font-weight:700;">Phase 3 · 115–100kg</div><div style="font-size:11px;color:var(--text-muted);margin-top:2px;">Months 6–9</div></div>
-        <div style="font-family:'Syne',sans-serif;font-size:18px;font-weight:800;color:var(--text);">2,550</div>
+        <div style="font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:18px;font-weight:800;color:var(--text);">2,550</div>
       </div>
       <div style="display:flex;align-items:center;justify-content:space-between;padding:10px 14px;background:var(--surface-2);border:1px solid var(--border);border-radius:12px;">
         <div><div style="font-size:12px;color:var(--purple);font-weight:700;">Phase 4 · 100–85kg</div><div style="font-size:11px;color:var(--text-muted);margin-top:2px;">Months 9–12</div></div>
-        <div style="font-family:'Syne',sans-serif;font-size:18px;font-weight:800;color:var(--text);">2,350</div>
+        <div style="font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:18px;font-weight:800;color:var(--text);">2,350</div>
       </div>
     </div>
   </div>
 
   <!-- Daily Macros Phase 1 -->
   <div class="card">
-    <div class="card-title">Phase 1 Daily Macros <span style="font-size:12px;color:var(--text-muted);font-family:'DM Sans',sans-serif;font-weight:400;">· 3,040 kcal</span></div>
+    <div class="card-title">Phase 1 Daily Macros <span style="font-size:12px;color:var(--text-muted);font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-weight:400;">· 3,040 kcal</span></div>
     <div class="macro-row">
       <div class="macro-pill"><div class="macro-val">248g</div><div class="macro-lbl">Protein</div></div>
       <div class="macro-pill"><div class="macro-val">283g</div><div class="macro-lbl">Carbs</div></div>
@@ -1387,9 +1414,9 @@
   </div>
 
   <!-- Meal timing note -->
-  <div style="display:flex;align-items:center;gap:10px;background:var(--accent-dim);border:1px solid rgba(200,244,97,0.2);border-radius:14px;padding:12px 16px;margin-bottom:12px;">
+  <div style="display:flex;align-items:center;gap:10px;background:var(--accent-dim);border:1px solid rgba(255,90,0,0.2);border-radius:14px;padding:12px 16px;margin-bottom:12px;">
     <div style="font-size:20px;">⏰</div>
-    <div style="font-size:13px;color:var(--accent);font-weight:500;">Workout 7–8 AM · All meals timed around this window</div>
+    <div style="font-size:13px;color:var(--accent-ink);font-weight:500;">Workout 7–8 AM · All meals timed around this window</div>
   </div>
 
   <!-- MEAL 1 -->
@@ -1424,7 +1451,7 @@
   <div class="accord" onclick="toggleAccord(this)">
     <div class="accord-header">
       <div style="flex:1">
-        <div style="font-size:10px;color:var(--accent);font-weight:700;text-transform:uppercase;letter-spacing:0.8px;margin-bottom:4px;">9:00–9:30 AM · Post-Workout Recovery</div>
+        <div style="font-size:10px;color:var(--accent-ink);font-weight:700;text-transform:uppercase;letter-spacing:0.8px;margin-bottom:4px;">9:00–9:30 AM · Post-Workout Recovery</div>
         <div class="accord-title" style="margin:0;">Meal 2 — Post-Workout (Largest Meal)</div>
       </div>
       <svg class="accord-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
@@ -1553,13 +1580,13 @@
   </div>
 
   <!-- Daily total -->
-  <div style="background:var(--accent-dim);border:1px solid rgba(200,244,97,0.2);border-radius:16px;padding:16px 18px;margin-bottom:12px;">
-    <div style="font-size:11px;color:var(--accent);font-weight:700;text-transform:uppercase;letter-spacing:0.8px;margin-bottom:10px;">Phase 1 Daily Total</div>
+  <div style="background:var(--accent-dim);border:1px solid rgba(255,90,0,0.2);border-radius:16px;padding:16px 18px;margin-bottom:12px;">
+    <div style="font-size:11px;color:var(--accent-ink);font-weight:700;text-transform:uppercase;letter-spacing:0.8px;margin-bottom:10px;">Phase 1 Daily Total</div>
     <div class="macro-row">
-      <div class="macro-pill" style="background:transparent;border-color:rgba(200,244,97,0.2);"><div class="macro-val" style="color:var(--accent);">248g</div><div class="macro-lbl">Protein</div></div>
-      <div class="macro-pill" style="background:transparent;border-color:rgba(200,244,97,0.2);"><div class="macro-val" style="color:var(--accent);">283g</div><div class="macro-lbl">Carbs</div></div>
-      <div class="macro-pill" style="background:transparent;border-color:rgba(200,244,97,0.2);"><div class="macro-val" style="color:var(--accent);">105g</div><div class="macro-lbl">Fats</div></div>
-      <div class="macro-pill" style="background:transparent;border-color:rgba(200,244,97,0.2);"><div class="macro-val" style="color:var(--accent);">~3,040</div><div class="macro-lbl">kcal</div></div>
+      <div class="macro-pill" style="background:transparent;border-color:rgba(255,90,0,0.2);"><div class="macro-val" style="color:var(--accent-ink);">248g</div><div class="macro-lbl">Protein</div></div>
+      <div class="macro-pill" style="background:transparent;border-color:rgba(255,90,0,0.2);"><div class="macro-val" style="color:var(--accent-ink);">283g</div><div class="macro-lbl">Carbs</div></div>
+      <div class="macro-pill" style="background:transparent;border-color:rgba(255,90,0,0.2);"><div class="macro-val" style="color:var(--accent-ink);">105g</div><div class="macro-lbl">Fats</div></div>
+      <div class="macro-pill" style="background:transparent;border-color:rgba(255,90,0,0.2);"><div class="macro-val" style="color:var(--accent-ink);">~3,040</div><div class="macro-lbl">kcal</div></div>
     </div>
   </div>
 
@@ -1601,7 +1628,7 @@
 
 <!-- ========== SUPPLEMENTS ========== -->
 <section id="supplements">
-  <div class="section-header">Safe<br><span>Stack</span></div>
+  <div class="section-header">Supplement<br><span>Stack</span></div>
 
   <div class="supp-card">
     <div class="supp-name">Whey Protein</div>
@@ -1758,7 +1785,7 @@
 
 <!-- ========== PROGRESS ========== -->
 <section id="progress">
-  <div class="section-header">Trans-<br><span>formation</span></div>
+  <div class="section-header">Progress<br><span>Tracker</span></div>
 
   <!-- DAILY PROGRESS MARKER -->
   <div class="card">
@@ -1864,16 +1891,9 @@
 </section>
 
 <script>
-  function openTab(id, btn) {
-    document.querySelectorAll('section').forEach(s => s.classList.remove('active'));
-    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-    document.getElementById(id).classList.add('active');
-    btn.classList.add('active');
-  }
+  
 
-  function toggleAccord(el) {
-    el.classList.toggle('open');
-  }
+  
 
   function toggleCheck(el) {
     el.classList.toggle('done');
@@ -1895,13 +1915,7 @@
     saveState();
   }
 
-  function saveState() {
-    const checks = [];
-    document.querySelectorAll('.checklist-item').forEach(c => checks.push(c.classList.contains('done')));
-    const water = [];
-    document.querySelectorAll('.glass').forEach(g => water.push(g.classList.contains('filled')));
-    try { localStorage.setItem('hybridAthleteV2', JSON.stringify({ date: new Date().toDateString(), checks, water })); } catch (e) {}
-  }
+  
 
   function loadState() {
     try {
@@ -1929,94 +1943,12 @@
     try { localStorage.setItem('weightLog', JSON.stringify(log)); } catch (e) {}
   }
 
-  function logWeight() {
-    const val = parseFloat(document.getElementById('weightInput').value);
-    if (isNaN(val) || val < 40 || val > 300) return;
-
-    const log = getWeightLog();
-    const today = new Date().toLocaleDateString('en-IN', { day:'2-digit', month:'short', year:'numeric' });
-
-    // update today if already exists
-    const todayIdx = log.findIndex(e => e.date === today);
-    if (todayIdx >= 0) log[todayIdx].weight = val;
-    else log.unshift({ date: today, weight: val });
-
-    saveWeightLog(log);
-    document.getElementById('weightInput').value = '';
-    renderWeightUI();
-  }
+  
 
   // allow Enter key
   document.getElementById('weightInput').addEventListener('keydown', e => { if (e.key === 'Enter') logWeight(); });
 
-  function renderWeightUI() {
-    const log = getWeightLog();
-    if (!log.length) return;
-
-    const latest = log[0].weight;
-    const lost   = Math.max(0, START_WEIGHT - latest).toFixed(1);
-    const remain = Math.max(0, latest - GOAL_WEIGHT).toFixed(1);
-
-    // 7-day average
-    const last7 = log.slice(0, 7).map(e => e.weight);
-    const avg   = (last7.reduce((a,b) => a+b, 0) / last7.length).toFixed(1);
-
-    document.getElementById('wsCurrent').textContent = latest + ' kg';
-    document.getElementById('wsLost').textContent    = '−' + lost + ' kg';
-    document.getElementById('wsAvg').textContent     = avg + ' kg';
-    document.getElementById('wsRemain').textContent  = remain + ' kg';
-    document.getElementById('weightStats').style.display = 'flex';
-
-    // progress ring
-    const pct = Math.min(100, Math.round(((START_WEIGHT - latest) / (START_WEIGHT - GOAL_WEIGHT)) * 100));
-    const circumference = 226.2;
-    const offset = circumference - (pct / 100) * circumference;
-    document.getElementById('ringFg').style.strokeDashoffset = offset;
-    document.getElementById('ringPct').textContent = pct + '%';
-    document.getElementById('chartSection').style.display = 'block';
-
-    // mini bar chart (up to 7 entries, oldest→newest left→right)
-    const chart7 = log.slice(0, 7).reverse();
-    const minW = Math.min(...chart7.map(e => e.weight));
-    const maxW = Math.max(...chart7.map(e => e.weight));
-    const range = maxW - minW || 1;
-    const chartEl = document.getElementById('miniChart');
-    chartEl.innerHTML = '';
-
-    chart7.forEach((entry, i) => {
-      const isToday = i === chart7.length - 1;
-      const heightPct = 20 + ((maxW - entry.weight) / range) * 75; // higher = lighter = better
-      const dayLabel = entry.date.split(' ')[0]; // just the day number
-      chartEl.innerHTML += `
-        <div class="mini-bar-wrap">
-          <div class="mini-bar${isToday ? ' today' : ''}" style="height:${heightPct}%"></div>
-          <div class="mini-bar-lbl">${dayLabel}</div>
-        </div>`;
-    });
-
-    // log list (latest first, show up to 14)
-    const listEl = document.getElementById('logList');
-    listEl.innerHTML = '';
-    const shown = log.slice(0, 14);
-    shown.forEach((entry, i) => {
-      const prev = log[i + 1];
-      let deltaHtml = '';
-      if (prev) {
-        const diff = entry.weight - prev.weight;
-        const cls  = diff < 0 ? 'down' : diff > 0 ? 'up' : 'same';
-        const sign = diff < 0 ? '↓' : diff > 0 ? '↑' : '=';
-        deltaHtml = `<span class="log-delta ${cls}">${sign} ${Math.abs(diff).toFixed(1)}</span>`;
-      }
-      listEl.innerHTML += `
-        <div class="log-entry">
-          <div class="log-date">${entry.date}</div>
-          <div style="display:flex;align-items:center;gap:8px;">
-            ${deltaHtml}
-            <div class="log-weight">${entry.weight} kg</div>
-          </div>
-        </div>`;
-    });
-  }
+  
 
   // call on page load
   // ── RESTART TAB ──
@@ -2053,6 +1985,219 @@
   window.addEventListener('load', rsLoad);
 
   window.addEventListener('load', renderWeightUI);
+
+  // ── DYNAMIC LAYER ──
+  function dk(d) { d = d || new Date(); return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0'); }
+  function lsGet(k, def) { try { const v = localStorage.getItem(k); return v === null ? def : JSON.parse(v); } catch (e) { return def; } }
+  function lsSet(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} }
+  function todayIdx() { return (new Date().getDay() + 6) % 7; }
+  function latestWeight() { const l = getWeightLog(); return l.length ? l[0].weight : START_WEIGHT; }
+  function todayAccord() { return document.querySelectorAll('#workout .accord')[todayIdx()]; }
+
+  function toggleAccord(el) {
+    const ev = window.event;
+    if (ev && ev.target && ev.target.closest && !ev.target.closest('.accord-header')) return;
+    el.classList.toggle('open');
+  }
+
+  function openTab(id, btn) {
+    document.querySelectorAll('section').forEach(s => s.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    btn = btn || Array.from(document.querySelectorAll('.tab-btn')).find(b => (b.getAttribute('onclick') || '').indexOf("'" + id + "'") > -1);
+    if (btn) { btn.classList.add('active'); try { btn.scrollIntoView({ inline: 'center', block: 'nearest' }); } catch (e) {} }
+    lsSet('lastTab', id);
+    try { window.scrollTo(0, 0); } catch (e) {}
+    if (id === 'workout') { const a = todayAccord(); if (a && !a.dataset.auto) { a.classList.add('open'); a.dataset.auto = '1'; } }
+  }
+
+  function goToday() {
+    openTab('workout');
+    const a = todayAccord();
+    if (a) { a.classList.add('open'); try { a.scrollIntoView({ behavior: 'smooth', block: 'start' }); } catch (e) {} }
+  }
+
+  function saveState() {
+    const checks = Array.from(document.querySelectorAll('.checklist-item')).map(c => c.classList.contains('done'));
+    const water = Array.from(document.querySelectorAll('.glass')).map(g => g.classList.contains('filled'));
+    lsSet('hybridAthleteV2', { date: new Date().toDateString(), checks, water });
+    const h = lsGet('hist', {}); h[dk()] = checks.filter(Boolean).length; lsSet('hist', h);
+    updateToday();
+  }
+
+  function streak() {
+    const h = lsGet('hist', {}); let n = 0; const d = new Date();
+    if ((h[dk(d)] || 0) < 6) d.setDate(d.getDate() - 1);
+    while ((h[dk(d)] || 0) >= 6) { n++; d.setDate(d.getDate() - 1); }
+    return n;
+  }
+
+  // exercise ticks
+  function initTicks() {
+    const key = 'ticks:' + dk();
+    try { Object.keys(localStorage).forEach(k => { if (k.indexOf('ticks:') === 0 && k !== key) localStorage.removeItem(k); }); } catch (e) {}
+    const done = new Set(lsGet(key, []));
+    document.querySelectorAll('#workout .accord-body li').forEach((li, i) => {
+      li.dataset.ti = i;
+      if (done.has(i)) li.classList.add('tick');
+      li.addEventListener('click', ev => {
+        ev.stopPropagation(); li.classList.toggle('tick');
+        lsSet(key, Array.from(document.querySelectorAll('#workout .accord-body li.tick')).map(x => +x.dataset.ti));
+        updateTicks();
+      });
+    });
+    document.querySelectorAll('#workout .accord-header').forEach(h => {
+      const sp = document.createElement('span'); sp.className = 'tickcount'; h.insertBefore(sp, h.querySelector('svg'));
+    });
+    updateTicks();
+  }
+  function updateTicks() {
+    document.querySelectorAll('#workout .accord').forEach(a => {
+      const t = a.querySelectorAll('.accord-body li').length, d = a.querySelectorAll('.accord-body li.tick').length;
+      const sp = a.querySelector('.tickcount'); if (sp) sp.textContent = d ? d + '/' + t : '';
+    });
+    const a = todayAccord(), el = document.getElementById('todayProg');
+    if (a && el) { const t = a.querySelectorAll('.accord-body li').length, d = a.querySelectorAll('.accord-body li.tick').length; el.textContent = d + ' of ' + t + ' steps ticked'; }
+  }
+
+  // today card + badge + hero pills
+  function buildToday() {
+    const acc = todayAccord(), hero = document.querySelector('#today .hero-card');
+    if (!acc || !hero || document.getElementById('todayCard')) return;
+    const label = acc.querySelector('.accord-header div div').textContent, title = acc.querySelector('.accord-title').textContent;
+    const eng = Array.from(acc.querySelectorAll('.tag')).find(t => /Engine/.test(t.textContent));
+    const c = document.createElement('div'); c.className = 'card'; c.id = 'todayCard';
+    c.innerHTML = '<div style="font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--accent-ink);margin-bottom:6px;">Today · ' + label + '</div>'
+      + '<div class="card-title" style="margin-bottom:6px;">' + title + '</div>'
+      + (eng ? '<div style="font-size:12px;color:var(--text-muted);margin-bottom:6px;">' + eng.textContent + '</div>' : '')
+      + '<div id="todayProg" style="font-size:12px;color:var(--text-muted);margin-bottom:12px;"></div>'
+      + '<button class="weight-log-btn" style="padding:12px 18px;" onclick="goToday()">Open today’s session</button>';
+    hero.insertAdjacentElement('afterend', c);
+    const bd = document.getElementById('dayBadge');
+    bd.textContent = ['SUN','MON','TUE','WED','THU','FRI','SAT'][new Date().getDay()] + ' · ' + title.split(' · ')[0];
+    acc.classList.add('is-today');
+    const r = document.querySelectorAll('#workout .rs-row')[todayIdx()]; if (r) r.classList.add('today');
+  }
+  function updateToday() {
+    const w = latestWeight();
+    document.querySelectorAll('#today .stat-pill').forEach(p => {
+      const l = p.querySelector('.lbl'), v = p.querySelector('.val');
+      const t = l.textContent.trim();
+      if (t === 'Start kg' || t === 'Now kg') { l.textContent = 'Now kg'; v.textContent = w; }
+      else if (t === 'To lose kg') v.textContent = Math.max(0, w - GOAL_WEIGHT).toFixed(1).replace(/\.0$/, '');
+      else if (t === 'Months' || t === 'Day streak') { l.textContent = 'Day streak'; v.textContent = streak(); }
+    });
+    const hs = document.querySelector('.header-sub'); if (hs) hs.textContent = w + 'kg → ' + GOAL_WEIGHT + 'kg · Body Recomp · Performance · Longevity';
+  }
+
+  // weight
+  function logWeight() {
+    const inp = document.getElementById('weightInput'), val = parseFloat(inp.value);
+    if (isNaN(val) || val < 40 || val > 300) { inp.style.borderColor = 'var(--red)'; inp.value = ''; inp.placeholder = '40–300 kg'; return; }
+    inp.style.borderColor = '';
+    const log = getWeightLog(), today = new Date().toLocaleDateString('en-IN', { day: '2-digit', month: 'short', year: 'numeric' });
+    const i = log.findIndex(e => e.date === today);
+    if (i >= 0) log[i].weight = val; else log.unshift({ date: today, weight: val });
+    saveWeightLog(log); inp.value = ''; refreshWeightViews();
+  }
+  function delWeight(i) { const log = getWeightLog(); log.splice(i, 1); saveWeightLog(log); refreshWeightViews(); }
+  function refreshWeightViews() { renderWeightUI(); updateToday(); updateDiet(); updateTimeline(); }
+
+  function renderWeightUI() {
+    const log = getWeightLog(), stats = document.getElementById('weightStats'), cs = document.getElementById('chartSection'), listEl = document.getElementById('logList');
+    if (!log.length) { stats.style.display = 'none'; cs.style.display = 'none'; listEl.innerHTML = '<div class="log-empty">No entries yet. Log your first weight above.</div>'; return; }
+    const latest = log[0].weight, lost = START_WEIGHT - latest, remain = Math.max(0, latest - GOAL_WEIGHT);
+    const last7 = log.slice(0, 7).map(e => e.weight), avg = (last7.reduce((a, b) => a + b, 0) / last7.length).toFixed(1);
+    document.getElementById('wsCurrent').textContent = latest + ' kg';
+    const wl = document.getElementById('wsLost'); wl.textContent = (lost >= 0 ? '−' : '+') + Math.abs(lost).toFixed(1) + ' kg'; wl.className = 'wsv ' + (lost >= 0 ? 'accent' : 'red');
+    document.getElementById('wsAvg').textContent = avg + ' kg';
+    document.getElementById('wsRemain').textContent = remain.toFixed(1) + ' kg';
+    stats.style.display = 'flex'; cs.style.display = 'block';
+    const pct = Math.max(0, Math.min(100, Math.round((lost / (START_WEIGHT - GOAL_WEIGHT)) * 100)));
+    document.getElementById('ringFg').style.strokeDashoffset = 226.2 - (pct / 100) * 226.2;
+    document.getElementById('ringPct').textContent = pct + '%';
+    const pts = log.slice(0, 14).reverse(), ws = pts.map(e => e.weight), W = 220, H = 64, pad = 8;
+    let mn = Math.min.apply(null, ws), mx = Math.max.apply(null, ws); if (mx - mn < 1) { mx += 0.5; mn -= 0.5; }
+    const x = i => pts.length === 1 ? W / 2 : pad + i * (W - 2 * pad) / (pts.length - 1), y = v => pad + (mx - v) * (H - 2 * pad) / (mx - mn);
+    const chart = document.getElementById('miniChart'); chart.style.display = 'block'; chart.style.height = 'auto';
+    chart.innerHTML = '<svg viewBox="0 0 ' + W + ' ' + H + '" style="width:100%;height:64px;overflow:visible"><polyline points="' + pts.map((e, i) => x(i).toFixed(1) + ',' + y(e.weight).toFixed(1)).join(' ') + '" fill="none" stroke="#111" stroke-width="2"/>'
+      + pts.map((e, i) => '<circle cx="' + x(i).toFixed(1) + '" cy="' + y(e.weight).toFixed(1) + '" r="' + (i === pts.length - 1 ? 4 : 2.5) + '" fill="' + (i === pts.length - 1 ? '#FF5A00' : '#111') + '"/>').join('') + '</svg>';
+    listEl.innerHTML = log.slice(0, 14).map((e, i) => {
+      const prev = log[i + 1]; let dh = '';
+      if (prev) { const d = e.weight - prev.weight, c = d < 0 ? 'down' : d > 0 ? 'up' : 'same'; dh = '<span class="log-delta ' + c + '">' + (d < 0 ? '↓' : d > 0 ? '↑' : '=') + ' ' + Math.abs(d).toFixed(1) + '</span>'; }
+      return '<div class="log-entry"><div class="log-date">' + e.date + '</div><div style="display:flex;align-items:center;gap:8px;">' + dh + '<div class="log-weight">' + e.weight + ' kg</div><button class="log-del" aria-label="Delete entry" onclick="delWeight(' + i + ')">×</button></div></div>';
+    }).join('');
+  }
+
+  // diet follows weight
+  function updateDiet() {
+    const w = latestWeight(), bmr = 10 * w + 6.25 * 183 - 5 * 33 + 5, tdee = bmr * 1.55, target = Math.max(Math.round(bmr), Math.round((tdee - 700) / 10) * 10);
+    const set = { 'BMR kcal': Math.round(bmr), 'TDEE kcal': Math.round(tdee), 'Target kcal': target, 'Deficit': '−' + Math.round(tdee - target) };
+    document.querySelectorAll('#diet .stat-pill').forEach(p => {
+      const l = p.querySelector('.lbl').textContent.trim();
+      if (l in set) p.querySelector('.val').textContent = typeof set[l] === 'number' ? set[l].toLocaleString('en-IN') : set[l];
+    });
+    const hero = document.querySelector('#diet .hero-card');
+    let n = document.getElementById('dietScale');
+    if (!n) { n = document.createElement('p'); n.id = 'dietScale'; n.className = 'note'; n.style.fontWeight = '700'; hero.appendChild(n); }
+    n.textContent = 'At ' + w + ' kg your target is ' + target.toLocaleString('en-IN') + ' kcal. The meals below are sized for 3,040, so eat about ×' + (target / 3040).toFixed(2) + ' of each portion.';
+    const ph = w > 130 ? 0 : w > 115 ? 1 : w > 100 ? 2 : 3;
+    Array.from(document.querySelectorAll('#diet div')).filter(d => d.children.length === 0 && /^Phase \d/.test(d.textContent.trim())).forEach((d, k) => {
+      const row = d.closest('div[style*="justify-content:space-between"]'); if (!row) return;
+      row.style.borderColor = k === ph ? '#111' : ''; row.style.background = k === ph ? 'var(--accent-dim)' : '';
+    });
+  }
+  function updateTimeline() {
+    const lost = START_WEIGHT - latestWeight(), th = [2, 5, 12, 23, 58];
+    document.querySelectorAll('#progress .tl-item').forEach((it, i) => { const d = it.querySelector('.tl-dot'); if (d) d.classList.toggle('done', lost >= th[i]); });
+  }
+
+  // restart start date
+  function rsInfo() {
+    const sd = lsGet('rsStart', ''), el = document.getElementById('rsInfo'); if (!sd || !el) return;
+    const days = Math.floor((new Date(dk()) - new Date(sd)) / 86400000);
+    if (days < 0) { el.textContent = 'Starts in ' + (-days) + ' day' + (-days === 1 ? '' : 's'); return; }
+    const wk = Math.floor(days / 7) + 1, ph = wk <= 2 ? 0 : wk <= 4 ? 1 : 2;
+    el.textContent = 'Week ' + wk + ' · ' + ['Weeks 1–2', 'Weeks 3–4', 'Week 5+'][ph] + ' plan'; rsPhase(ph);
+  }
+  function buildRestartDate() {
+    const t = document.querySelector('#restart .rs-tabs'); if (!t || document.getElementById('rsStart')) return;
+    const c = document.createElement('div'); c.className = 'card';
+    c.innerHTML = '<div class="card-title">Start Date</div><div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;"><input type="date" id="rsStart" style="font-family:inherit;font-size:14px;padding:10px;border:1.5px solid #111;background:#fff;color:#111;"><div id="rsInfo" style="font-size:13px;font-weight:700;color:var(--accent-ink);">Pick the day you restarted and the right week opens automatically.</div></div>';
+    t.closest('.card').insertAdjacentElement('beforebegin', c);
+    const inp = document.getElementById('rsStart'); inp.value = lsGet('rsStart', '');
+    inp.addEventListener('change', () => { lsSet('rsStart', inp.value); rsInfo(); });
+    rsInfo();
+  }
+
+
+  // ── TITLES ──
+  function buildTitles() {
+    const names = { today: 'Today', restart: 'Restart', workout: 'Workout', diet: 'Diet', supplements: 'Supplements', rules: 'Rules', progress: 'Progress' };
+    const subs = {
+      today: 'Your session, checklist and water for today.',
+      restart: 'Ramp back in over four weeks.',
+      workout: 'Six training days, one rest day, an engine block after every lift.',
+      diet: 'Calories that follow your weight.',
+      supplements: 'What to take, when, and what to check.',
+      rules: 'The limits that keep the plan safe.',
+      progress: 'Weight, trend and milestones.'
+    };
+    Object.keys(names).forEach((id, i) => {
+      const sec = document.getElementById(id); if (!sec || sec.querySelector('.kicker')) return;
+      const k = document.createElement('div'); k.className = 'kicker'; k.textContent = '“' + String(i + 1).padStart(2, '0') + '” — ' + names[id] + ' ↘';
+      sec.insertBefore(k, sec.firstChild);
+      const sub = document.createElement('div'); sub.className = 'subtitle'; sub.textContent = subs[id];
+      (sec.querySelector('.section-header') || k).insertAdjacentElement('afterend', sub);
+    });
+    if (!document.querySelector('.brandfoot')) { const f = document.createElement('div'); f.className = 'brandfoot'; f.textContent = '“Hybrid Athlete” — for training'; document.body.appendChild(f); }
+  }
+
+  window.addEventListener('load', () => {
+    buildTitles(); buildToday(); initTicks(); buildRestartDate(); refreshWeightViews();
+    const t = lsGet('lastTab', null); if (t && document.getElementById(t)) openTab(t);
+  });
+
 </script>
 </body>
 </html>
